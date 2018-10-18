@@ -59,10 +59,10 @@ class ProductReview extends Component {
                     </ul>
                     <ul className="reviews-pagination">
                         <li className="active">1</li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right"></i></a></li>
+                        <li><a href="#first">2</a></li>
+                        <li><a href="#second">3</a></li>
+                        <li><a href="#fourth">4</a></li>
+                        <li><a href="#last"><i className="fa fa-angle-right"></i></a></li>
                     </ul>
                 </div>
             </div>

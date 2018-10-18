@@ -68,10 +68,10 @@ class OrderDetails extends Component {
                     <input type="checkbox" id="terms" />
                     <label for="terms">
                         <span></span>
-                        I've read and accept the <a href="#">terms & conditions</a>
+                        I've read and accept the <a href="#terms">terms & conditions</a>
                     </label>
                 </div>
-                <a href="#" className="primary-btn order-submit">Place order</a>
+                <a href="#placeOrder" className="primary-btn order-submit">Place order</a>
             </div>
         )
     }

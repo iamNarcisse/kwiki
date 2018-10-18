@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Navigation extends Component {
     render() {
@@ -18,7 +19,7 @@ class Navigation extends Component {
                                 <li><a href="#SmartPhones">Smartphones</a></li>
                                 <li><a href="#Cameras">Cameras</a></li>
                                 <li><a href="#Acessories">Accessories</a></li>
-                                <li><a href="#Acessories">Pickup & Delivery</a></li>
+                                <li><Link to="/pickup">Pickup & Delivery</Link></li>
                             </ul>
                             {/* /NAV */}
                         </div>

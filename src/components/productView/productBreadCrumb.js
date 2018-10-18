@@ -12,7 +12,7 @@ class ProductBreadCrumb extends Component {
 							<li><a href="#home">Home</a></li>
                 <li><a href="#Categories">All Categories</a></li>
                 <li><a href="#Accessories">Accessories</a></li>
-                <li><a>Headphones</a></li>
+                <li><a href="#headphones">Headphones</a></li>
                 <li className="active">Product name goes here</li>
 						</ul >
 					</div >

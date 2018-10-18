@@ -24,7 +24,7 @@ class RelatedProduct extends Component {
                                 </div>
                                 <div className="product-body">
                                     <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h3 className="product-name"><a href="#productname">product name goes here</a></h3>
                                     <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                                     <div className="product-rating">
                                     </div>
@@ -49,7 +49,7 @@ class RelatedProduct extends Component {
                                 </div>
                                 <div className="product-body">
                                     <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h3 className="product-name"><a href="#productname">product name goes here</a></h3>
                                     <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                                     <div className="product-rating">
                                         <i className="fa fa-star"></i>
@@ -77,7 +77,7 @@ class RelatedProduct extends Component {
                                 </div>
                                 <div className="product-body">
                                     <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h3 className="product-name"><a href="#productname">product name goes here</a></h3>
                                     <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                                     <div className="product-rating">
                                         <i className="fa fa-star"></i>
@@ -104,7 +104,7 @@ class RelatedProduct extends Component {
                                 </div>
                                 <div className="product-body">
                                     <p className="product-category">Category</p>
-                                    <h3 className="product-name"><a href="#">product name goes here</a></h3>
+                                    <h3 className="product-name"><a href="#productname">product name goes here</a></h3>
                                     <h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
                                     <div className="product-rating">
                                     </div>

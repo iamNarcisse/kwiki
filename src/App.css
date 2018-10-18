@@ -325,3 +325,18 @@
     opacity: .75;
     color: black;
 }
+
+
+.carousel {
+    width: 100%;
+    height: 35%;
+    margin: auto;
+    
+}
+.carousel img {
+    width: 450px;
+    height: 200px;
+    margin: auto;
+    padding-bottom: 3px
+    
+}
