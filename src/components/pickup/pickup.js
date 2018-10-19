@@ -13,61 +13,61 @@ class Pickup extends Component {
                 <h2 style={{ textAlign: 'center' }}>Place your Pickup and Delivery Request</h2> <br />
 
                 <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
                             <label for="FullName">Full Name</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="First & Last Name" />
+                            <input type="text" className="form-control" id="inputEmail4" placeholder="First & Last Name" />
                         </div>
-                        <div class="form-group col-md-6">
+                        <div className="form-group col-md-6">
                             <label for="Email">Email</label>
-                            <input type="email" class="form-control" id="inputPassword4" placeholder="Enter your Email Address" />
+                            <input type="email" className="form-control" id="inputPassword4" placeholder="Enter your Email Address" />
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6 ">
+                    <div className="form-group col-md-6 ">
                         <label for="FullName">Amount</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Enter Amount" />
+                        <input type="text" className="form-control" id="inputEmail4" placeholder="Enter Amount" />
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
                             <label for="FullName">Sender's Phone Number</label>
-                            <input type="tel" class="form-control" id="inputEmail4" placeholder="Sender's Phone number" />
+                            <input type="tel" className="form-control" id="inputEmail4" placeholder="Sender's Phone number" />
                         </div>
-                        <div class="form-group col-md-6">
+                        <div className="form-group col-md-6">
                             <label for="item">Item</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Enter your Email Address" />
+                            <input type="text" className="form-control" id="inputPassword4" placeholder="Enter your Email Address" />
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6 ">
+                    <div className="form-group col-md-6 ">
                         <label for="FullName">Pickup Address</label>
-                        <textarea type="text" class="form-control" id="inputEmail4" placeholder="Pickup Address" />
+                        <textarea type="text" className="form-control" id="inputEmail4" placeholder="Pickup Address" />
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
                             <label for="FullName">Receiver's Name</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Receiver's Name" />
+                            <input type="text" className="form-control" id="inputEmail4" placeholder="Receiver's Name" />
                         </div>
-                        <div class="form-group col-md-6">
+                        <div className="form-group col-md-6">
                             <label for="item">Receiver's Phone Number</label>
-                            <input type="tel" class="form-control" id="inputPassword4" placeholder="Receiver's Phone Number" />
+                            <input type="tel" className="form-control" id="inputPassword4" placeholder="Receiver's Phone Number" />
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
                             <label for="FullName">Receiver's Email</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Receiver's Email" />
+                            <input type="text" className="form-control" id="inputEmail4" placeholder="Receiver's Email" />
                         </div>
-                        <div class="form-group col-md-6">
+                        <div className="form-group col-md-6">
                             <label for="item">Receiver's Address</label>
-                            <textarea type="tel" class="form-control" id="inputPassword4" placeholder="Receiver's Address" />
+                            <textarea type="tel" className="form-control" id="inputPassword4" placeholder="Receiver's Address" />
                         </div>
                     </div>
 
-                    <center><button type="submit" class="btn btn-primary">Send</button></center>
+                    <center><button type="submit" className="btn btn-primary">Send</button></center>
                 </form><br />
 
 
