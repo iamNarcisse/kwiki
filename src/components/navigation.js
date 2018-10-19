@@ -15,9 +15,9 @@ class Navigation extends Component {
                                 <li className="active"><a href="#home">Home</a></li>
                                 <li><a href="#HotDeals">Hot Deals</a></li>
                                 <li><a href="#Categories">Categories</a></li>
-                                <li><a href="#Laptops">Laptops</a></li>
-                                <li><a href="#SmartPhones">Smartphones</a></li>
-                                <li><a href="#Cameras">Cameras</a></li>
+                                <li><a href="#Laptops">Cakes</a></li>
+                                <li><a href="#SmartPhones">Clothes</a></li>
+                                <li><a href="#Cameras">Food</a></li>
                                 <li><a href="#Acessories">Accessories</a></li>
                                 <li><Link to="/pickup">Pickup & Delivery</Link></li>
                             </ul>
