@@ -2057,6 +2057,25 @@ textarea.input {
   display: block;
 }
 
+.card-details {
+  font-size: 20px
+}
+
+
+
+@media only screeen and  (max-width: 900px) and (min-width: 600px), (min-width: 1100px) {
+  
+  .card-details {
+  font-size: 25px;
+  justify-content: center;
+  display: flex;
+  margin: 20px 30px;
+  margin-left: 450px;
+  margin-right: auto;
+  border-radius: 5px
+} 
+}
+
 /*=========================================================
 	12 -> SLICK STYLE
 ===========================================================*/

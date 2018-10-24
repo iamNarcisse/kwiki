@@ -5,7 +5,7 @@ class Cart extends Component {
         return (
             
                 <div className="dropdown">
-                    <a href="#dropdown" className="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    <a href="#go" className="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                         <i className="fa fa-shopping-cart"></i>
                         <span>Your Cart</span>
                         <div className="qty">3</div>

@@ -2106,6 +2106,20 @@ textarea.input {
   right: -20px;
 }
 
+/*     Card details goes here */
+
+/*.Card-details {
+  padding: 20px 10px;
+  float: right
+}*/
+
+
+
+/* Container Goes here */
+
+.container {
+  text-align: center
+}
 /*----------------------------*\
 	Dots
 \*----------------------------*/

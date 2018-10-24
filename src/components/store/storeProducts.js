@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 //import photo from './product07.png';
 //import Products from './productsInStrore';
 import { getProductInfo } from '/Users/afolastevstevenolaoy/kwiki/src/services/apiRequest';
@@ -60,7 +61,7 @@ class StoreProducts extends Component {
                                 <div className="product-body">
                                     <p className="product-category">Category</p>
                                     <h3 className="product-name"><a href="#url">{product.name}</a></h3>
-                                    <h4 className="product-price">${product.price} <del className="product-old-price">$990.00</del></h4>
+                                    <h4 className="product-price">${product.price} <del className="product-old-price">${product.oldprice} </del></h4>
                                     <div className="product-rating">
                                         <i className="fa fa-star"></i>
                                         <i className="fa fa-star"></i>
@@ -71,7 +72,7 @@ class StoreProducts extends Component {
                                     <div className="product-btns">
                                         <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
                                         <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                                        <button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+                                        <button className="quick-view"> <Link to ="/productview"><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
                                     </div>
                                 </div>
                                 <div className="add-to-cart">

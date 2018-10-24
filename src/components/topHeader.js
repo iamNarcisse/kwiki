@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 class TopHeader extends Component {
     render() {
         return (
@@ -13,7 +13,7 @@ class TopHeader extends Component {
                         </ul>
                         <ul className="header-links pull-right">
                             <li><a href="#moreInfo">&#8358; NGN</a></li>
-                            <li><a href="#moreInfo"><i className="fa fa-user-o"></i> My Account</a></li>
+                            <li><Link to ="/account"><i className="fa fa-user-o"></i> My Account</Link></li>
                         </ul>
                     </div>
                 </div>

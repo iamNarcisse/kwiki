@@ -11,27 +11,14 @@ class Header extends Component {
     render() {
         return (
 
-            <header>
-                {/* TOP HEADER */}
+            <div>
+              
                 <TopHeader />
-                {/* /TOP HEADER */}
-
-                {/* MAIN HEADER */}
                 <div id="header">
-                    {/* container */}
                     <div className="container">
-                        {/* row */}
                         <div className="row">
-
-                            {/* LOGO */}
                             <Logo />
-                            {/* /LOGO */}
-
-                            {/* SEARCH BAR */}
                             <SearchBar />
-                            {/* /SEARCH BAR */}
-
-                            {/* ACCOUNT */}
                             <div className="col-md-3 clearfix">
                                 <div className="header-ctn">
 
@@ -54,7 +41,7 @@ class Header extends Component {
                     {/* container */}
                 </div>
                 {/* /MAIN HEADER */}
-            </header>
+            </div>
 
         )
     }
