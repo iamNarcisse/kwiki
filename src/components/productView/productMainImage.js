@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import photo from '../store/product07.png';
-
 class ProductMainImage extends Component {
 
     render() {
@@ -8,7 +6,7 @@ class ProductMainImage extends Component {
             <div className="col-md-5 col-md-push-2">
                 <div id="product-main-img">
                     <div className="product-preview">
-                        <img src={photo} alt="" />
+                        <img src={this.props.image} alt="" />
                     </div>
                 </div>
             </div>

@@ -7,16 +7,40 @@ import ProductView from './components/productView/productView';
 import Pickup from './components/pickup/pickup';
 import Account from './components/account/account';
 import Profile from './components/profile/profile';
+import Product from './components/sample/Product';
+import ProductForm from './components/sample/ProductForm';
+import ProductList from './components/sample/ProductList';
 class Main extends Component {
+    constructor() {
+        super();
+        this.state={}
+    }
+    componentDidMount () {
+        this.getUserToken();
+    }
+    getUserToken = () => {
+       this.setState({
+        user_token: localStorage.getItem("user_token")
+       });
+    }
+
     render() {
         return (
             <Switch>
                 <Route exact path="/store" component={Store} />
                 <Route exact path="/checkOut" component={CheckOut} />
-                <Route exact path="/productView" component={ProductView} />
+                <Route exact path="/productView/:item_id" component={ProductView} />
                 <Route exact path="/pickup"   component={Pickup} />
                 <Route exact path="/account"   component={Account} />
-                <Route exact path="/profile" component={Profile} />
+                {/*
+                    !this.state.user_token && (<Route exact path="/account"   component={Account} />)
+                */}
+                {
+                    this.state.user_token && (<Route exact path="/profile" component={Profile} />) 
+                    }
+                <Route exact path="/cart" component={Product} />
+                <Route exact path="/new" component={ProductForm} />
+                <Route exact path ="/productlist" component={ProductList} />
                 <Route path="/" component={HomePage} />
             </Switch>
         )

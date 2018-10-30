@@ -8,11 +8,7 @@ class ProductThumbImage extends Component {
             <div className="col-md-2  col-md-pull-5">
                 <div id="product-imgs">
                     <div className="product-preview">
-                        <img src={photo} alt="product" />
-                    </div>
-
-                    <div className="product-preview">
-                        <img src={photo} alt="product" />
+                        <img src={this.props.image} alt="product" />
                     </div>
 
                 </div>

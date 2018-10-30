@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import avatar from './avatar.png';
 import Footer from '../footer';
 import Card from './card';
+import { Link } from 'react-router-dom';
 
 const myStyle = {
     width: '70px',
@@ -23,11 +24,11 @@ class Profile extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <a className="navbar-brand" href="#">Kwikikarts</a>
+                            <Link className="navbar-brand" to="/">Kwikikarts</Link>
                         </div>
                         <div className="collapse navbar-collapse" id="myNavbar">
                             <ul className="nav navbar-nav">
-                                <li className="active"><a href="#">Home</a></li>
+                                <li className="active"><Link to="/profile">Home</Link></li>
                                 <li><a href="#accountdetails">Account Details</a></li>
                                 <li><a href="#orders">Orders</a></li>
                                 <li><a href="#paymentmethod">Payment Methods</a></li>
@@ -38,8 +39,8 @@ class Profile extends Component {
                         </div>
                     </div>
                 </nav>
-                <div classname="avatar">
-               <center> <img src={avatar}  style={myStyle}/></center>
+                <div className="avatar">
+               <center> <img src={avatar}  style={myStyle} alt="ava"/></center>
                 </div>
 
                 <div className="card-details">

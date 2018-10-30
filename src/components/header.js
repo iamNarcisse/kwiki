@@ -12,7 +12,7 @@ class Header extends Component {
         return (
 
             <div>
-              
+
                 <TopHeader />
                 <div id="header">
                     <div className="container">
@@ -21,28 +21,15 @@ class Header extends Component {
                             <SearchBar />
                             <div className="col-md-3 clearfix">
                                 <div className="header-ctn">
-
-                                    {/* Wishlist */}
                                     <WishList />
-                                    {/* /Wishlist */}
-
-                                    {/* Cart */}
                                     <Cart />
-                                    {/*   /Cart   */}
-                                    {/* Menu Toogle */}
                                     <MenuToggle />
-                                    {/* /Menu Toogle */}
                                 </div>
                             </div>
-                            {/* /ACCOUNT */}
                         </div>
-                        {/* row */}
                     </div>
-                    {/* container */}
                 </div>
-                {/* /MAIN HEADER */}
             </div>
-
         )
     }
 }

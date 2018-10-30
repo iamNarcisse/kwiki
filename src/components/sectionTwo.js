@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
-import photo from '../assets/img/food1.jpg';
 import {Link } from 'react-router-dom';
+import { getProductInfo  } from '../services/apiRequest';
 
 class SectionTwo extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            work: [{
-                image: photo,
-                price: 500,
-                name: 'Jay Jay Grills'
-            },
-            {
-                image: photo,
-                price: 500,
-                name: 'Jay Jay Grills'
-            },
-
-            {
-                image: photo,
-                price: 500,
-                name: 'Jay Jay Grills'
-            },
-
-            ]
+            product: [],
         }
+    }
+
+    componentDidMount () {
+        this.getProductDetails();
+    }
+
+    getProductDetails = () => {
+        console.log(this.state);
+        getProductInfo()
+        .then(axiosResponse => {
+            console.log(axiosResponse);
+            if(axiosResponse && axiosResponse.data && axiosResponse.data.data) {
+                this.setState({
+                    product : axiosResponse.data.data
+                })
+            }
+        })
     }
 
     render() {
@@ -42,10 +42,10 @@ class SectionTwo extends Component {
                             </div>
                         </div>
                         {
-                            this.state.work.map(item => {
+                            this.state.product.map(item => {
                                 return (
 
-                                    <div key={item.image} className="col-md-4 col-xs-6" >
+                                    <div key={item._id} className="col-md-4 col-xs-6" >
                                         <div className="product">
                                             <div className="product-img">
                                                 <img src={item.image} alt="" />
@@ -69,7 +69,7 @@ class SectionTwo extends Component {
                                                 <div className="product-btns">
                                                     <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
                                                     <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                                                    <button className="quick-view"><Link to="/productview"><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
+                                                    <button className="quick-view"><Link to={`/productview/${item._id}`} ><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
                                                 </div>
                                             </div>
                                             <div className="add-to-cart">

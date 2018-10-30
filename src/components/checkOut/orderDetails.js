@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 
 class OrderDetails extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            productFromCart: [
+                {
+                    name: 'Fried Rice',
+                    price: 6000,
+                    qty: 1
+                }
+            ]
+        }
+    }
+
+
+
     render() {
         return (
             <div className="col-md-5 order-details">
@@ -14,22 +29,26 @@ class OrderDetails extends Component {
                         <div><strong>TOTAL</strong></div>
                     </div>
                     <div className="order-products">
-                        <div className="order-col">
-                            <div>1x Product Name Goes Here</div>
-                            <div>$980.00</div>
-                        </div>
-                        <div className="order-col">
-                            <div>2x Product Name Goes Here</div>
-                            <div>$980.00</div>
-                        </div>
+                            {this.state.productFromCart.map(item => {
+                                return (
+                                      <div  key={item.qty} className="order-col">
+                                    <div>{item.qty}x {item.name}</div>
+                                    <div>&#8358;{item.price}</div></div>
+                            )
+                            })}
                     </div>
                     <div className="order-col">
-                        <div>Shiping</div>
-                        <div><strong>FREE</strong></div>
+                        <div>Delivery</div>
+                        <div><strong>&#8358;300</strong></div>
                     </div>
                     <div className="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong className="order-total">$2940.00</strong></div>
+                        {this.state.productFromCart.map(item=> {
+                            return(
+                                <div><strong className="order-total">&#8358;{(item.qty * item.price) + 300}</strong></div>
+                            )
+                        })}
+                        
                     </div>
                 </div>
                 <div className="payment-method">

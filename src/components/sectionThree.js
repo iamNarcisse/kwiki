@@ -52,11 +52,11 @@ class SectionThree extends Component {
 {
 
 	this.state.products.map(product => {
-
+                    
 
 		return(
 
-			<div className="col-md-4 col-xs-6" key={product.image}>
+			<div className="col-md-4 col-xs-6" key={product._id}>
 									<div className="product">
 										<div className="product-img">
 											<img src={product.image} alt="" />

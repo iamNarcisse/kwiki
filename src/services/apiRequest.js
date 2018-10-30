@@ -1,7 +1,19 @@
 import Axios from "axios";
+const GetUserAuthToken = () => {
+    return localStorage.getItem("user_token");
+  };
+  
+  const axiosConfig = {
+    headers: {
+      "x-access-request-source": "Kwiki",
+      "x-access-token": GetUserAuthToken()  
+    }
+  };
 
-
-const apiUrl = 'http://localhost:3000/products';
+const apiUrl = 'http://localhost:3000';
+const productApiUrl = `${apiUrl}/products`;
+const authApiUrl = `${apiUrl}/auth`;
+const userApiUrl = `${apiUrl}/users`;
 
 /**
  * 
@@ -10,14 +22,47 @@ const apiUrl = 'http://localhost:3000/products';
  * @param {*} limit_start  startin gpoint of the houses to be loaded/ This is used to prevent already loaded houses from reloading
  */
 export const getProductInfo = () => {
-    return Axios.get(`${apiUrl}`)
+    return Axios.get(`${apiUrl}/products`)
 }
 
 /**
  * 
  * Getting Details from product Api
  */
-export const getProductDetailsRequest = (house_id) => {
+export const getProductDetailsRequest = (product_id) => {
 
-    return Axios.get(`${apiUrl}/product/${house_id}`)
+    return Axios.get(`${productApiUrl}/product/${product_id}`)
 }
+
+/** User details */
+
+export const getUserDetailsRequest = () => {
+    return Axios.get(`${userApiUrl}/user-details`, axiosConfig);
+  };
+
+
+  /**
+   *
+   */
+  export const LoginRequest = (email, password) => {
+    let body = {
+      email: email,
+      password: password
+    };
+    return Axios.post(`${authApiUrl}/login`, body, axiosConfig);
+  };
+  
+  export const SignupRequest = (
+    firstname,
+    email,
+    password,
+    confirmPassword
+  ) => {
+    let body = {
+      email: email,
+      firstname: firstname,
+      password: password,
+      confirmPassword: confirmPassword
+    };
+    return Axios.post(`${authApiUrl}/register`, body, axiosConfig);
+  };
