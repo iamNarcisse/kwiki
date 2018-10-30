@@ -1,9 +1,7 @@
 import React from 'react';
 
 class Total extends React.Component {
-    constructor(props) {
-      super(props);
-    }
+    
     render() {
       let total = this.props.total.toFixed(2);
       let tax = (this.props.total * 0.15).toFixed(2);

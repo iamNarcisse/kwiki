@@ -12,9 +12,6 @@ class CheckOutSection extends Component {
 
                     <Billing />
 
-
-
-
                     </div>
                 </div>
             </div>

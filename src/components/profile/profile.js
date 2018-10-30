@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import avatar from './avatar.png';
 import Footer from '../footer';
 import Card from './card';
+import { getUserDetailsRequest } from '../../services/apiRequest';
 import { Link } from 'react-router-dom';
 
 const myStyle = {
@@ -12,6 +13,40 @@ const myStyle = {
 
 
 class Profile extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state={
+            user: {}
+        }
+        
+    }
+
+    componentDidMount() {
+        this.getUserDetails();
+    }
+
+    logout = (e) => {
+        e.preventDefault();
+        localStorage.clear();
+        window.location.reload()
+    }
+
+    getUserDetails = () => {
+        getUserDetailsRequest()
+            .then(axiosResponse => {
+                console.log(axiosResponse);
+                if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
+                    this.setState({
+                        user: axiosResponse.data.data
+                    })
+
+                    //console.log(user);
+                }
+
+               // console.log(user);
+            })
+    }
 
     render() {
         return (
@@ -34,7 +69,7 @@ class Profile extends Component {
                                 <li><a href="#paymentmethod">Payment Methods</a></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                <li><a href="#logout"><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                                <li><a href="#logout" onClick={this.logout} ><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -45,7 +80,7 @@ class Profile extends Component {
 
                 <div className="card-details">
 
-                <Card />
+                <Card name={this.state.user.firstname} email={this.state.user.email}/>
                 </div>
 
                 

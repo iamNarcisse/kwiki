@@ -35,7 +35,7 @@ class Register extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="col-xs-11 col-md-6 col-sm-8" style={{ padding: '20px 10px' }} >
+                <div className="col-xs-11 col-md-6 col-sm-8 give" style={{ paddingTop: '40px', marginBottom: '12px' }} >
                     <h2>Register</h2>
                     <form >
                         <div className="form-group">

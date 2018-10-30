@@ -28,7 +28,7 @@ class Account extends Component {
                 <Navigation />
                 <br />
                 <center>{this.state.register && <RegisterMessage />}</center>
-                <div className="container">
+                <div className="account container">
                     <Login />
                     <Register />
                 </div><br />

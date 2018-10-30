@@ -50,6 +50,7 @@ class Billing extends Component {
                 </div>
               <ShippingDetails />
               <OrderNote />
+              <br /> <br /><br />
             </div>
         )
     }

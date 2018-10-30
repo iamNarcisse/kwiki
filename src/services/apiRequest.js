@@ -27,6 +27,15 @@ export const getProductInfo = () => {
 
 /**
  * 
+ Get topProduct Details
+ */
+
+ export const getTopProduct = () => {
+   return Axios.get(`${apiUrl}/products/top`)
+ }
+
+/**
+ * 
  * Getting Details from product Api
  */
 export const getProductDetailsRequest = (product_id) => {
@@ -37,7 +46,7 @@ export const getProductDetailsRequest = (product_id) => {
 /** User details */
 
 export const getUserDetailsRequest = () => {
-    return Axios.get(`${userApiUrl}/user-details`, axiosConfig);
+    return Axios.get(`${userApiUrl}/user`, axiosConfig);
   };
 
 

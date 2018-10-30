@@ -3,9 +3,7 @@ import myImage from '../assets/img/food1.jpg';
 import {Link } from 'react-router-dom';
 
 const pic = myImage;
-
 class Cart extends Component {
-
     constructor(props) {
         super(props);
         this.state = {

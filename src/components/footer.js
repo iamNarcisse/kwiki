@@ -80,11 +80,10 @@ class Footer extends Component {
                                 <div className="col-md-12 text-center">
                                     <ul className="footer-payments">
                                         <li><a href="#moreInfo"><i className="fa fa-cc-visa"></i></a></li>
-                                        <li><a href="#moreInfo"><i className="fa fa-credit-card"></i></a></li>
-                                        <li><a href="#moreInfo"><i className="fa fa-cc-paypal"></i></a></li>
+                        
+                                
                                         <li><a href="#moreInfo"><i className="fa fa-cc-mastercard"></i></a></li>
-                                        <li><a href="#moreInfo"><i className="fa fa-cc-discover"></i></a></li>
-                                        <li><a href="#moreInfo"><i className="fa fa-cc-amex"></i></a></li>
+                                      
                                     </ul>
                                     <span className="copyright">
                                         Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Built By <a href="#kwiki" target="_blank">LevoInc</a>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import photo from '../store/product07.png';
+//import photo from '../store/product07.png';
 
 
 class ProductThumbImage extends Component {

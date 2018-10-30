@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../header';
 import Navigation from '../navigation';
-import NewsLetter from '../newsletter';
+//import NewsLetter from '../newsletter';
 import Footer from '../footer';
 import ProductBreadCrumb from './productBreadCrumb';
 import ProductDetails from './productDetails';

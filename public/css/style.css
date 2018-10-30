@@ -2184,6 +2184,22 @@ textarea.input {
   }
 }
 
+/*  Style for login and Registration BY Narcisse */
+
+@media only screen and (min-width: 992px ) {
+.account {
+  display: flex;
+  justify-content: center;
+  border: 2px solid #ff0066;
+  border-radius: 10px
+    }
+    .give {
+      width: 450px;
+    }
+}
+
+/*  Style for login and Registration BY Narcisse */
+
 @media only screen and (max-width: 767px) {
   .section-title .section-nav {
     float: none;

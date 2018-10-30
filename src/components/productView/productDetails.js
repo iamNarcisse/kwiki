@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import { getProductDetailsRequest } from '../../services/apiRequest';
+//import { getProductDetailsRequest } from '../../services/apiRequest';
 class ProductDetails extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            product_details: {},
-            name: 'Not',
-            price: 5000,
             qty: 1,
+            price: '',
         }
     }
 
     onSubmit = (e) => {
         e.preventDefault();
         alert('Added to Cart');
-        console.log(this.state.price, this.state.name);
+        this.setState({
+            price: this.props.price,
+            name: this.props.name
+        })
+        console.log(this.state.name);
     }
     onQtyAdd = () => {
         this.setState({ qty: this.state.qty + 1 });
@@ -26,9 +28,14 @@ class ProductDetails extends Component {
         this.setState({ qty: this.state.qty - 1 });
     }
 
-    productParameters(price, name, qty) {
-        this.state = { price: price, name: name, qty: qty }
+    checkoutDetails = (name, price, qty) => {
+        this.setState({
+            name: name,
+            price: price,
+            qty: qty
+        })
     }
+
 
 
 
@@ -39,7 +46,7 @@ class ProductDetails extends Component {
             <form onSubmit={this.onSubmit}>
                 <div className="col-md-5">
                     <div className="product-details">
-                        <h2 className="product-name" value={this.state.name} >{this.props.name}</h2>
+                        <h2 className="product-name" value={this.props.name} >{this.props.name}</h2>
                         <div>
                             <div className="product-rating">
                                 <i className="fa fa-star"></i>
@@ -51,7 +58,7 @@ class ProductDetails extends Component {
                             <a className="review-link" href="#review">10 Review(s) | Add your review</a>
                         </div>
                         <div>
-                            <h3 className="product-price" value={this.state.product_details.price} >${this.props.price} <del className="product-old-price"> ${this.props.oldprice}</del></h3>
+                            <h3 className="product-price" value={this.props.price} >${this.props.price} <del className="product-old-price"> ${this.props.oldprice}</del></h3>
                             <span className="product-available">In Stock</span>
                         </div>
                         <p>{this.props.details}</p>
@@ -80,7 +87,7 @@ class ProductDetails extends Component {
                                     <span className="qty-down" onClick={this.onQtySubstract}>-</span>
                                 </div>
                             </div>
-                            <button onClick={(e) => { e.preventDefault(); this.productParameters(this.state.name, this.state.price, this.state.qty) }} className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                            <button onSubmit={(e) => {e.preventDefault(); alert('Added to cart'); this.checkoutDetails() } } className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                         </div>
 
                         <ul className="product-btns">

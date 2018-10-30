@@ -16,7 +16,7 @@ class CheckOut extends Component {
                 <Header />
                 <Navigation />
                 <CheckOutBreadCrumb />
-                <Billing />
+                <Billing  />
                 <OrderDetails />
                 <NewsLetter />
                 <Footer />
