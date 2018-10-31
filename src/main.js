@@ -31,12 +31,11 @@ class Main extends Component {
                 <Route exact path="/checkOut" component={CheckOut} />
                 <Route exact path="/productView/:item_id" component={ProductView} />
                 <Route exact path="/pickup"   component={Pickup} />
-                {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}
-                {this.state.user_token &&(  <Route exact path="/account" component={Profile} />)}
                 <Route exact path="/cart" component={Product} />
                 <Route exact path="/new" component={ProductForm} />
                 <Route exact path ="/productlist" component={ProductList} />
-                
+        {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}
+                {this.state.user_token &&(  <Route exact path="/account" component={Profile} />)}
                 <Route path="/" component={HomePage} />
             </Switch>
         )

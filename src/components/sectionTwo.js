@@ -58,7 +58,7 @@ class SectionTwo extends Component {
                                                 <p className="product-category">Category</p>
                                                 <h3 className="product-name"><a href="#add">{item.name}</a></h3>
                                                 <h4 className="product-price">$ {item.price} <del className="product-old-price">$990.00</del></h4>
-                                                <h3 className="product-name">Sold By <a href="#add">{item.name}</a></h3>
+                                                <h4 className="product-name">Sold By <a href="#add">{item.seller}</a></h4>
                                                 <div className="product-rating">
                                                     <i className="fa fa-star"></i>
                                                     <i className="fa fa-star"></i>
