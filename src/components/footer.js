@@ -16,11 +16,11 @@ class Footer extends Component {
                                 <div className="col-md-3 col-xs-6">
                                     <div className="footer">
                                         <h3 className="footer-title">About Us</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                                        <p>Kwikikarts, a top notch online delivery that gets you want you want just the way you like with no extra charge</p>
                                         <ul className="footer-links">
-                                            <li><a href="#moreInfo"><i className="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-                                            <li><a href="#moreInfo"><i className="fa fa-phone"></i>+021-95-51-84</a></li>
-                                            <li><a href="#moreInfo"><i className="fa fa-envelope-o"></i>email@email.com</a></li>
+                                            <li><a href="#moreInfo"><i className="fa fa-map-marker"></i>Shop 5, Kuti Hall, University of Ibadan</a></li>
+                                            <li><a href="#moreInfo"><i className="fa fa-phone"></i>+234 706-622-3284</a></li>
+                                            <li><a href="#moreInfo"><i className="fa fa-envelope-o"></i>info@kwikikarts.ng</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -60,7 +60,6 @@ class Footer extends Component {
                                             <li><a href="#moreInfo">My Account</a></li>
                                             <li><a href="#moreInfo">View Cart</a></li>
                                             <li><a href="#moreInfo">Wishlist</a></li>
-                                            <li><a href="#moreInfo">Track My Order</a></li>
                                             <li><a href="#moreInfo">Help</a></li>
                                         </ul>
                                     </div>
@@ -86,7 +85,7 @@ class Footer extends Component {
                                       
                                     </ul>
                                     <span className="copyright">
-                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Built By <a href="#kwiki" target="_blank">LevoInc</a>
+                                        Copyright &copy; 2018 All rights reserved | Built By <a href="#kwiki" target="_blank">LevoInc</a>
                                     </span>
                                 </div>
                             </div>

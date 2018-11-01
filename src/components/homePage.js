@@ -21,7 +21,6 @@ class HomePage extends Component {
                 <SectionTwo />
                 <HotDeals />
                 <SectionThree />
-                
                 <NewsLetter />
                 <Footer />
             </div>

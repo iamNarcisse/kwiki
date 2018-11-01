@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import photo from '../logo.png';
 
 class Logo extends Component {
@@ -6,9 +7,9 @@ class Logo extends Component {
         return (
                 <div className="col-md-3">
                     <div className="header-logo">
-                        <a href="#logo" className="logo">
+                        <Link to="/" className="logo" >
                             <img src={photo} alt="" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
         )

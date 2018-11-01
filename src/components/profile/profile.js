@@ -80,7 +80,7 @@ class Profile extends Component {
 
                 <div className="card-details">
 
-                <Card name={this.state.user.firstname} email={this.state.user.email}/>
+                <Card name={this.state.user.firstname} email={this.state.user.email} lastname={this.state.user.lastname} phone={this.state.user.phoneNumber}/>
                 </div>
 
                 

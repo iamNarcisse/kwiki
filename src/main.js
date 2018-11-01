@@ -10,6 +10,7 @@ import Profile from './components/profile/profile';
 import Product from './components/sample/Product';
 import ProductForm from './components/sample/ProductForm';
 import ProductList from './components/sample/ProductList';
+import StoreProducts from './components/food/food';
 class Main extends Component {
     constructor() {
         super();
@@ -33,6 +34,7 @@ class Main extends Component {
                 <Route exact path="/pickup"   component={Pickup} />
                 <Route exact path="/cart" component={Product} />
                 <Route exact path="/new" component={ProductForm} />
+                <Route exact path="/food" component={StoreProducts} />
                 <Route exact path ="/productlist" component={ProductList} />
         {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}
                 {this.state.user_token &&(  <Route exact path="/account" component={Profile} />)}

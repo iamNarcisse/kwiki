@@ -64,7 +64,7 @@ class OrderDetails extends Component {
                         <input type="radio" name="payment" id="payment-2" />
                         <label for="payment-2">
                             <span></span>
-                            Cheque Payment
+                            Pay On Delivery
 								</label>
                         <div className="caption">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -74,7 +74,7 @@ class OrderDetails extends Component {
                         <input type="radio" name="payment" id="payment-3" />
                         <label for="payment-3">
                             <span></span>
-                            Paypal System
+                            Paystack System
 								</label>
                         <div className="caption">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

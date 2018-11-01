@@ -65,11 +65,15 @@ export const getUserDetailsRequest = () => {
     firstname,
     email,
     password,
-    confirmPassword
+    confirmPassword,
+    lastname,
+    phoneNumber
   ) => {
     let body = {
       email: email,
       firstname: firstname,
+      lastname: lastname,
+      phoneNumber: phoneNumber,
       password: password,
       confirmPassword: confirmPassword
     };

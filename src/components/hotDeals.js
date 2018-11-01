@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class HotDeals extends Component {
     render() {
@@ -39,8 +40,8 @@ class HotDeals extends Component {
                                         </li>
                                     </ul>
                                     <h2 className="text-uppercase">hot deal this week</h2>
-                                    <p>New Collection Up to 50% OFF</p>
-                                    <a className="primary-btn cta-btn" href="#shopNow">Shop now</a>
+                                    <p>New Collection Up to 10% OFF</p>
+                                    <Link className="primary-btn cta-btn" to="/store">Shop now</Link>
                                 </div>
                             </div>
                         </div>
