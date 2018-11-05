@@ -10,7 +10,11 @@ import Profile from './components/profile/profile';
 import Product from './components/sample/Product';
 import ProductForm from './components/sample/ProductForm';
 import ProductList from './components/sample/ProductList';
-import StoreProducts from './components/food/food';
+import Cakes from './components/cakes/cakes';
+import Food from './components/food/food';
+import MenShoe from './components/menShoe/menShoe';
+import FemaleShoe from './components/femaleShoe/femaleShoe';
+import UserDetails from './components/profile/accountDetails';
 class Main extends Component {
     constructor() {
         super();
@@ -34,10 +38,14 @@ class Main extends Component {
                 <Route exact path="/pickup"   component={Pickup} />
                 <Route exact path="/cart" component={Product} />
                 <Route exact path="/new" component={ProductForm} />
-                <Route exact path="/food" component={StoreProducts} />
+                <Route exact path="/food" component={Food} />
+                <Route exact path="/menshoe" component={MenShoe} />
+                <Route exact path="/femaleshoe" component={FemaleShoe} />
+                <Route exact path="/cakes" component={Cakes} />
                 <Route exact path ="/productlist" component={ProductList} />
         {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}
                 {this.state.user_token &&(  <Route exact path="/account" component={Profile} />)}
+                {this.state.user_token &&(  <Route exact path="/userDetails" component={UserDetails} />)}
                 <Route path="/" component={HomePage} />
             </Switch>
         )

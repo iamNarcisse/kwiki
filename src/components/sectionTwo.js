@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link } from 'react-router-dom';
-import { getProductInfo  } from '../services/apiRequest';
+import { getProductInfo } from '../services/apiRequest';
 
 class SectionTwo extends Component {
 
@@ -27,6 +27,9 @@ class SectionTwo extends Component {
             }
         })
     }
+
+    
+
 
     render() {
         return (
@@ -73,7 +76,7 @@ class SectionTwo extends Component {
                                                 </div>
                                             </div>
                                             <div className="add-to-cart">
-                                                <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                                                <button  className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                                             </div>
                                         </div>
                                     </div>

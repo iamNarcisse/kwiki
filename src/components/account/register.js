@@ -46,6 +46,7 @@ class Register extends React.Component {
     render() {
       
         return (
+        
             <div className="row">
           
                 <div className="col-xs-11 col-md-6 col-sm-8 give" style={{ paddingTop: '40px', marginBottom: '12px' }} >

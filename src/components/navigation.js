@@ -4,26 +4,46 @@ import { Link } from 'react-router-dom';
 class Navigation extends Component {
     render() {
         return (
-            
-                <nav id="navigation">
-                    <div className="container">
-                        <div id="responsive-nav">
-                            <ul className="main-nav nav navbar-nav">
-                                <li className="active"><Link to="/">Home</Link></li>
-                                <li><a href="#HotDeals">Hot Deals</a></li>
-                                <li><a href="#Categories">Categories</a></li>
-                                <li><a href="#Laptops">Cakes</a></li>
-                                <li><a href="#SmartPhones">Clothes</a></li>
-                                <li><a href="#Cameras">Food</a></li>
-                                <li><a href="#Acessories">Accessories</a></li>
-                                <li><Link to="/store">Store</Link></li>
-                                <li><Link to="/pickup">Pickup & Delivery</Link></li>
-                            </ul>
-                            
-                        </div>
+
+            <nav id="navigation">
+                <div className="container">
+                    <div id="responsive-nav">
+                        <ul className="main-nav nav navbar-nav">
+                            <li className="active"><Link to="/">Home</Link></li>
+                            <li><a href="#HotDeals">Hot Deals</a></li>
+                            <li><a href="#Categories">Categories</a></li>
+                            <li><Link to="/cakes">Cakes</Link></li>
+                            <li><a href="#SmartPhones">Clothes</a></li>
+                            <li className="dropdown">
+                                <Link  className="dropdown-toogle" data-toggle="dropdown" to="#men">Shoes/Sandals
+                                <span className="caret"></span>
+                                </Link>
+                                <ul className="dropdown-menu">
+                                    <li><Link to="/menshoe">Men</Link></li>
+                                    <li><Link to="/femaleshoe">Women</Link></li>
+
+                                </ul>
+                                </li>
+                            <li><Link to="/food">Food</Link></li>
+                            <li className="dropdown">
+                                <a className="dropdown-toogle" data-toggle="dropdown" href="#Acessories">Accessories
+                                <span className="caret"></span>
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li><a href="#men">Men</a></li>
+                                    <li><a href="#women">Women</a></li>
+                                    <li><a href="#children">Children</a></li>
+
+                                </ul>
+                            </li>
+                            <li><Link to="/store">Store</Link></li>
+                            <li><Link to="/pickup">Pickup & Delivery</Link></li>
+                        </ul>
+
                     </div>
-                </nav>
-                
+                </div>
+            </nav>
+
         )
 
     }

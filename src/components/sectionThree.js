@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import photo from '../assets/img/food1.jpg';
 import { getTopProduct } from '../services/apiRequest';
+import {Link} from 'react-router-dom';
 
 class SectionThree extends Component {
 	constructor(props) {
@@ -17,14 +18,14 @@ class SectionThree extends Component {
 	getTopProductDetails = () => {
 		getTopProduct()
 		.then(axiosResponse => {
-			console.log(axiosResponse)
+			console.log(this.state)
 			if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
 				this.setState({
 					topProduct: axiosResponse.data.data
 				})
 			}
 		}).catch(err => {
-			console.log(err)
+			console.log(' Here is the error' + err)
 		})
 	}
 
@@ -52,15 +53,15 @@ class SectionThree extends Component {
 							<div className="row">
 								{
 
-									this.state.topProduct.map(product => {
+									this.state.topProduct.map(item => {
 
 
 										return (
 
-											<div className="col-md-4 col-xs-6" key={product._id}>
+											<div className="col-md-4 col-xs-6" key={item._id}>
 												<div className="product">
 													<div className="product-img">
-														<img src={product.image} alt="" />
+														<img src={item.image} alt="" />
 														<div className="product-label">
 															<span className="sale">-30%</span>
 															<span className="new">NEW</span>
@@ -68,9 +69,9 @@ class SectionThree extends Component {
 													</div>
 													<div className="product-body">
 														<p className="product-category">Category</p>
-														<h3 className="product-name"><a href="#url">{product.name}</a></h3>
-														<h4 className="product-price">${product.price} <del className="product-old-price">$990.00</del></h4>
-														<h4 className="product-name">Sold By <a href="#add">{product.seller}</a></h4>
+														<h3 className="product-name"><a href="#url">{item.name}</a></h3>
+														<h4 className="product-price">${item.price} <del className="product-old-price">$990.00</del></h4>
+														<h4 className="product-name">Sold By <a href="#add">{item.seller}</a></h4>
 														<div className="product-rating">
 															<i className="fa fa-star"></i>
 															<i className="fa fa-star"></i>
@@ -81,7 +82,7 @@ class SectionThree extends Component {
 														<div className="product-btns">
 															<button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
 															<button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-															<button className="quick-view"><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></button>
+															<button className="quick-view"><Link to ={`productview/${item._id}`} ><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
 														</div>
 													</div>
 													<div className="add-to-cart">

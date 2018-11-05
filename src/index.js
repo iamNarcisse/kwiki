@@ -10,3 +10,4 @@ ReactDOM.render(<BrowserRouter><App /></BrowserRouter>,document.getElementById('
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+//serviceWorker.register();

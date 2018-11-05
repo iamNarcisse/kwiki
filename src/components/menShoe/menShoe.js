@@ -6,7 +6,7 @@ import Section from './section';
 import Newsletter from '../newsletter';
 import Footer from '../footer';
 
-class Food extends Component{ 
+class MenShoe extends Component{ 
 
     render() {
         return(
@@ -23,4 +23,4 @@ class Food extends Component{
     }
 }
 
-export default Food;
+export default MenShoe;

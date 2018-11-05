@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-//import photo from './product07.png';
-//import Products from './productsInStrore';
-import { getProductInfo } from '/Users/afolastevstevenolaoy/kwiki/src/services/apiRequest';
-//import { getProductInfo } from '/Users/Mercy/Desktop/kwiki/src/services/apiRequest';
+import {getFood} from '../../services/apiRequest';
+
 
 class StoreProducts extends Component {
 
@@ -13,7 +11,7 @@ class StoreProducts extends Component {
             products: []
         }
 
-        this.getProduct = this.getProduct.bind(this);
+       // this.getProduct = this.getProduct.bind(this);
     }
 
     componentDidMount() {
@@ -21,19 +19,17 @@ class StoreProducts extends Component {
     }
 
     getProduct = () => {
-        getProductInfo()
+        getFood()
             .then(axiosResponse => {
                 console.log(axiosResponse)
-                if (axiosResponse && axiosResponse.data.data) {
-
+                if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                     this.setState({
-                        products: this.state.products.concat(axiosResponse.data.data)
+                        products : axiosResponse.data.data
+                      //  products: this.state.products.concat(axiosResponse.data.data)
                     })
-                } else {
-                    this.setState({
-                        products: axiosResponse.data.data
-                    })
-                }
+                } 
+            }).catch(err => {
+                console.log('here is the error : ' + err)
             })
     }
 
@@ -59,9 +55,12 @@ class StoreProducts extends Component {
                                     </div>
                                 </div>
                                 <div className="product-body">
-                                    <p className="product-category">Category</p>
+                                    <p className="product-category">{item.category}</p>
                                     <h3 className="product-name"><a href="#url">{item.name}</a></h3>
-                                    <h4 className="product-price">${item.price} <del className="product-old-price">${item.oldprice} </del></h4>
+                                    
+
+                                    <h4 className="product-price">&#8358;{item.price} {/*<del className="product-old-price">${item.oldprice} </del>*/}</h4>
+                                    <h5 className="product-name">Sold By <a href="#url">{item.vendor}</a></h5>
                                     <div className="product-rating">
                                         <i className="fa fa-star"></i>
                                         <i className="fa fa-star"></i>
