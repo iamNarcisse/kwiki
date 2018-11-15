@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import photo from '../assets/img/food1.jpg';
 import { Carousel} from 'react-bootstrap';
 
-
 class SectionOne extends Component {
     render() {
         return (
             <Carousel >
                 <Carousel.Item className="carousel">
                     <img  alt="900x500" src={photo} />
-                    <br />
                     <Carousel.Caption>
                         <h3>First slide label</h3>
                         <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item className="carousel">
-                    <img  alt="900x500" src={photo} /><br />
+                    <img  alt="900x500" src={photo} />
                     <Carousel.Caption>
                         <h3>Second slide label</h3>
                         <p></p>
@@ -34,5 +32,4 @@ class SectionOne extends Component {
         )
     }
 }
-
 export default SectionOne;

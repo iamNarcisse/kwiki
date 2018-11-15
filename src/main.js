@@ -14,6 +14,10 @@ import Cakes from './components/cakes/cakes';
 import Food from './components/food/food';
 import MenShoe from './components/menShoe/menShoe';
 import FemaleShoe from './components/femaleShoe/femaleShoe';
+import MenCloth from './components/menCloth/menCloth';
+import WomenCloth from './components/womenCloth/womenCloth';
+import WomenAccessories from './components/womenAccessories/womenAccessories';
+import MenAccessories from './components/menAccessories/menAccessories';
 import UserDetails from './components/profile/accountDetails';
 class Main extends Component {
     constructor() {
@@ -41,6 +45,10 @@ class Main extends Component {
                 <Route exact path="/food" component={Food} />
                 <Route exact path="/menshoe" component={MenShoe} />
                 <Route exact path="/femaleshoe" component={FemaleShoe} />
+                <Route exact path="/mencloth" component={MenCloth} />
+                <Route exact path="/femalecloth" component={WomenCloth} />
+                <Route exact path="/womenaccessories" component={WomenAccessories} />
+                <Route exact path="/menaccessories" component={MenAccessories} />
                 <Route exact path="/cakes" component={Cakes} />
                 <Route exact path ="/productlist" component={ProductList} />
         {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}

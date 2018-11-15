@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import photo from '../assets/img/food1.jpg';
-import { getTopProduct } from '../services/apiRequest';
+import { getTopProduct} from '../services/apiRequest';
 import {Link} from 'react-router-dom';
 
 class SectionThree extends Component {
@@ -13,6 +13,7 @@ class SectionThree extends Component {
 
 	componentDidMount() {
 		this.getTopProductDetails();
+		//this.cart();
 	}
 
 	getTopProductDetails = () => {
@@ -28,7 +29,6 @@ class SectionThree extends Component {
 			console.log(' Here is the error' + err)
 		})
 	}
-
 	render() {
 		return (
 			< div className="section" >
@@ -86,7 +86,7 @@ class SectionThree extends Component {
 														</div>
 													</div>
 													<div className="add-to-cart">
-														<button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+														<button  className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
 													</div>
 												</div>
 											</div>

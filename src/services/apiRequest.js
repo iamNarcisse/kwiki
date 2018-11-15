@@ -89,7 +89,7 @@ export const getUserDetailsRequest = () => {
   export const addToCart = (productId, userId) => {
     let body = {
       product_id : productId,
-      user_id : userId
+     user_id : userId
     }
     Axios.post(`${cartApiUrl}/add`, body, axiosConfig)
 
@@ -131,3 +131,45 @@ export const getUserDetailsRequest = () => {
    export const getWomenShoeRequest = (shoe_id) => {
      return Axios.get(`${productApiUrl}/getwomenshoe/${shoe_id}`)
    }
+
+   //All about WomenCloth
+   export const getWomenCloth = () => {
+     return Axios.get(`${productApiUrl}/getwomencloth`)
+   }
+
+   export const getWomenClothRequest = (cloth_id) => {
+     return Axios.get(`${productApiUrl}/getwomencloth/${cloth_id}`)
+   }
+
+   //All about MenCloth
+
+   export const getMenCloth = () => {
+     return Axios.get(`${productApiUrl}/getmencloth`)
+   }
+
+   export const getMenClothRequest = (cloth_id) => {
+     return Axios.get(`${productApiUrl}/getmencloth/${cloth_id}`)
+   }
+
+   //All about men accessories
+
+   export const getMenAccessories = () => {
+     return Axios.get(`${productApiUrl}/getMenAccessories`)
+   }
+
+   export const getMenAccessoriesRequest = (cloth_id) => {
+     return Axios.get(`${productApiUrl}/getMenAccessories/${cloth_id}`)
+   }
+
+   //All about Women Accessories
+
+   export const getWomenAaccessories = () => {
+    return Axios.get(`${productApiUrl}/getWomenAccessories`)
+  }
+
+  export const getWomenAccessoriesRequest = (cloth_id) => {
+    return Axios.get(`${productApiUrl}/getWomenAccessories/${cloth_id}`)
+  }
+
+
+  
