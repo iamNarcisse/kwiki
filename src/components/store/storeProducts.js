@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-//import photo from './product07.png';
-//import Products from './productsInStrore';
-import { getProductInfo } from '/Users/afolastevstevenolaoy/kwiki/src/services/apiRequest';
-//import { getProductInfo } from '/Users/Mercy/Desktop/kwiki/src/services/apiRequest';
+import { getProductInfo } from '../../services/apiRequest';
 
 class StoreProducts extends Component {
 
