@@ -10,7 +10,8 @@ const GetUserAuthToken = () => {
     }
   };
 
-const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://localhost:3000';
+const apiUrl = 'https://arcane-shelf-55983.herokuapp.com';
 const productApiUrl = `${apiUrl}/products`;
 const authApiUrl = `${apiUrl}/auth`;
 const userApiUrl = `${apiUrl}/users`;
