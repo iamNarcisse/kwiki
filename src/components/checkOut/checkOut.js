@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Header from  '../header';
-import Navigation from '../navigation';
 import CheckOutBreadCrumb from './checkOutBreadCrumb';
 import Billing from './billing';
 //import OrderDetails from './orderDetails';
@@ -14,7 +13,6 @@ class CheckOut extends Component {
 
             <div>
                 <Header />
-                <Navigation />
                 <CheckOutBreadCrumb />
                 <Billing  />
                 <NewsLetter />
