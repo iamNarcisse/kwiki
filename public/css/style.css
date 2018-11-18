@@ -670,7 +670,7 @@ textarea.input {
   .header-ctn .menu-toggle {
     display: inline-block;
   }
-  #responsiveNav {
+  #responsive-nav {
     position: fixed;
     left: 0;
     top: 0;
@@ -687,7 +687,7 @@ textarea.input {
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
   }
-  #responsiveNav.active {
+  #responsive-nav.active {
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     transform: translateX(0%);

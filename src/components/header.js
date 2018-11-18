@@ -5,6 +5,7 @@ import SearchBar from './searchBar';
 import WishList from './wishList';
 import Cart from './cart';
 import MenuToggle from './menuToggle';
+import Navigation from './navigation';
 
 class Header extends Component {
 
@@ -27,6 +28,8 @@ class Header extends Component {
                         </div>
                     </div>
                 </div>
+
+                <Navigation />
             </div>
         )
     }

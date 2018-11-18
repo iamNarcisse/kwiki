@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from '../header';
-import Navigation from '../navigation';
 import Footer from '../footer';
 import Axios from 'axios';
 import AlertMessage from '../alertMessages';
@@ -99,7 +98,6 @@ class Pickup extends Component {
         return (
             <div>
                 <Header />
-                <Navigation />
                 <br />
                 <h1 style={{ textAlign: 'center', fontFamily: 'verdana', fontSize: '16px' }}>Pickup and Delivery</h1>
                 <h2 style={{ textAlign: 'center', fontFamily: 'verdana', fontSize: '14px' }}>Place your Pickup and Delivery Request</h2> <br />

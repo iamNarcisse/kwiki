@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Header from '../header';
-import Navigation from '../navigation';
 import BreadCrumb from './breadCrumb';
 import Section from './section';
 import Newsletter from '../newsletter';
@@ -12,7 +11,6 @@ class Cakes extends Component{
         return(
             <div>
                 <Header />
-                <Navigation />
                 <BreadCrumb />
                 <Section />
                 <Newsletter />

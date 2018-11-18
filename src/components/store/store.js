@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Header from '../header';
-import Navigation from '../navigation';
 import BreadCrumb from './breadCrumb'
 import Section from './section';
 import NewsLetter from '../newsletter';
@@ -13,7 +12,6 @@ class Store extends Component {
         return(
             <div >
          <Header />
-         <Navigation />
          <BreadCrumb />
          <Section />
          <NewsLetter />

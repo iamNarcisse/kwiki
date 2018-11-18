@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './header';
-import Navigation from './navigation';
+//import Navigation from './navigation';
 import SectionOne from './sectionOne';
 import SectionTwo from './sectionTwo';
 import HotDeals from './hotDeals';
@@ -16,7 +16,6 @@ class HomePage extends Component {
         return (
             <div>
                 <Header />
-                <Navigation />
                 <SectionOne />
                 <SectionTwo />
                 <HotDeals />

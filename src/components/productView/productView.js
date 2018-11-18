@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from '../header';
-import Navigation from '../navigation';
 //import NewsLetter from '../newsletter';
 import Footer from '../footer';
 import ProductBreadCrumb from './productBreadCrumb';
@@ -221,7 +220,6 @@ class ProductView extends Component {
 
             <div >
                 <Header />
-                <Navigation />
                 <ProductBreadCrumb />
                 <div className="section">
 
