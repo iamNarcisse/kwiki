@@ -84,7 +84,8 @@ class Pickup extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const data = this.state;
-        Axios.post("http://localhost:3000/pickups/add", data).then(
+        //changed url from http://localhost:3000 to https://arcane-shelf-55983.herokuapp.com
+        Axios.post("https://arcane-shelf-55983.herokuapp.com/pickups/add", data).then(
             (results) => {
                 console.log(results);
                 this.alertMessage();
