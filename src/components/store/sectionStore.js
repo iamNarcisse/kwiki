@@ -9,7 +9,7 @@ class SectionStore extends Component {
 
         return(
 
-            <div id="store" class="col-md-9">
+            <div id="store" className="col-md-9">
             <StoreFilter />
             <StoreProducts />
             <StorePagination />

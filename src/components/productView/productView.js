@@ -230,7 +230,7 @@ class ProductView extends Component {
                         {this.state.showTop === true && (<div>
                             <ProductMainImage image={this.state.top.image}/>
                             <ProductThumbImage image={this.state.top.image} />
-                            <ProductDetails name={this.state.top.name} price={this.state.top.price}  oldprice={this.state.top.oldprice} details={this.state.top.details} /></div>
+                            <ProductDetails name={this.state.top.name} price={this.state.top.price}  oldprice={this.state.top.oldprice} details={this.state.top.details} image={this.state.top.image} /></div>
                         )}
 
                         {this.state.showFood === true && (<div>
@@ -283,7 +283,7 @@ class ProductView extends Component {
 
                         {this.state.showProduct === true && (<div><ProductMainImage image={this.state.product_details.image}/>
                             <ProductThumbImage image={this.state.product_details.image} />
-                            <ProductDetails name={this.state.product_details.name} price={this.state.product_details.price}  oldprice={this.state.product_details.oldprice} details={this.state.product_details.details} /></div>)}
+                            <ProductDetails name={this.state.product_details.name} price={this.state.product_details.price}  oldprice={this.state.product_details.oldprice} details={this.state.product_details.details} image={this.state.product_details.image} /></div>)}
                             <ProductTab />
 
                         </div>

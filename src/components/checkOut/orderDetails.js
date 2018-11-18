@@ -1,23 +1,42 @@
 import React, { Component } from 'react';
+import {addToCart} from '../../services/apiRequest';
 class OrderDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            productFromCart: [
-                {
-                    name: 'Fried Rice',
-                    price: 6000,
-                    qty: 1
-                }
-            ]
+            product: {},
+            user: {}
+        }
+    }
+
+    componentDidMount () {
+        this.getFrom();
+    }
+
+    getFrom = () => {
+        const productData = JSON.parse(localStorage.getItem('product'));
+        const userData = JSON.parse(localStorage.getItem('user_details'))
+        //console.log('Here is the user Data in console ' + userData.name)
+        if(productData !== undefined && productData !==null) {
+            this.setState({
+                product: productData
+            }, ()=> {this.setState({user: userData})})
+
+           // console.log(this.state.user)
+        }else {
+            this.setState({
+                product: {price : 0}
+            }, ()=> {this.setState({user: '' })})
         }
     }
 
 
 
+
+
     render() {
         return (
-            <div className="col-md-5 order-details">
+            <div className="col-md-5 order-details" >
                 <div className="section-title text-center">
                     <h3 className="title">Your Order</h3>
                 </div>
@@ -27,13 +46,10 @@ class OrderDetails extends Component {
                         <div><strong>TOTAL</strong></div>
                     </div>
                     <div className="order-products">
-                            {this.state.productFromCart.map(item => {
-                                return (
-                                      <div  key={item.qty} className="order-col">
-                                    <div>{item.qty}x {item.name}</div>
-                                    <div>&#8358;{item.price}</div></div>
-                            )
-                            })}
+                                      <div className="order-col">
+                                    <div>1 x {this.state.product.name}</div>
+                                    <div>&#8358;{this.state.product.price}</div></div>
+                        
                     </div>
                     <div className="order-col">
                         <div>Delivery</div>
@@ -41,18 +57,13 @@ class OrderDetails extends Component {
                     </div>
                     <div className="order-col">
                         <div><strong>TOTAL</strong></div>
-                        {this.state.productFromCart.map(item=> {
-                            return(
-                                <div><strong className="order-total">&#8358;{(item.qty * item.price) + 300}</strong></div>
-                            )
-                        })}
-                        
+                                <div><strong className="order-total">&#8358; {(1 * this.state.product.price) + 300}</strong></div>
                     </div>
                 </div>
                 <div className="payment-method">
                     <div className="input-radio">
                         <input type="radio" name="payment" id="payment-1" />
-                        <label for="payment-1">
+                        <label htmlFor="payment-1">
                             <span></span>
                             Direct Bank Transfer
 								</label>
@@ -62,7 +73,7 @@ class OrderDetails extends Component {
                     </div>
                     <div className="input-radio">
                         <input type="radio" name="payment" id="payment-2" />
-                        <label for="payment-2">
+                        <label htmlFor="payment-2">
                             <span></span>
                             Pay On Delivery
 								</label>
@@ -72,7 +83,7 @@ class OrderDetails extends Component {
                     </div>
                     <div className="input-radio">
                         <input type="radio" name="payment" id="payment-3" />
-                        <label for="payment-3">
+                        <label htmlFor="payment-3">
                             <span></span>
                             Paystack System
 								</label>
@@ -83,12 +94,29 @@ class OrderDetails extends Component {
                 </div>
                 <div className="input-checkbox">
                     <input type="checkbox" id="terms" />
-                    <label for="terms">
+                    <label htmlFor="terms">
                         <span></span>
                         I've read and accept the <a href="#terms">terms & conditions</a>
                     </label>
                 </div>
-                <a href="#placeOrder" className="primary-btn order-submit">Place order</a>
+                <a href="#placeOrder" onClick={ ()=> {
+                   //console.log(this.state.user._id)
+                   if(this.state.product.id === undefined &&  this.state.user._id === undefined) {
+                    
+                   }else {
+                       addToCart(
+                           this.state.product.id, 
+                           this.state.user._id, 
+                           this.state.product.name,
+                           this.props.firstName,
+                           this.props.lastName,
+                           this.props.email,
+                           this.props.tel,
+                           this.props.address,
+                           this.props.city
+                        )
+                    localStorage.removeItem('product'); window.location.reload()}
+                }} className="primary-btn order-submit">Place order</a><br /><br />
             </div>
         )
     }

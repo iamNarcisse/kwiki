@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getProductInfo } from '../../services/apiRequest';
 
+//const userData = JSON.parse(localStorage.getItem('user_details'));
 class StoreProducts extends Component {
 
     constructor(props) {
@@ -38,7 +39,7 @@ class StoreProducts extends Component {
 
         return (
 
-            <div class="row">
+            <div className="row">
 
                 {this.state.products.map(item => {
 
@@ -69,11 +70,12 @@ class StoreProducts extends Component {
                                     <div className="product-btns">
                                         <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
                                         <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                                        <button className="quick-view"> <Link to ={`productview/${item._id}`}><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
+                                        <button className="quick-view"> <Link to={`productview/${item._id}`}><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
                                     </div>
                                 </div>
                                 <div className="add-to-cart">
-                                    <button className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                                    <button
+                                        className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                                 </div>
                             </div>
                         </div>

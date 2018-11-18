@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
-//import photo from '../assets/img/food1.jpg';
-import { getTopProduct} from '../services/apiRequest';
+import { getTopProduct, getFood} from '../services/apiRequest';
 import {Link} from 'react-router-dom';
+//import ShowTopFood from './showTopFood';
 
 class SectionThree extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			topProduct: [],
+			food: [],
+			showFood: false
 		}
 	}
 
 	componentDidMount() {
 		this.getTopProductDetails();
-		//this.cart();
+		this.getFoodDetails();
 	}
+
+	getFoodDetails =() => {
+		getFood()
+		.then(axiosResponse => {
+			if(axiosResponse && axiosResponse.data.data) {
+				this.setState({food : axiosResponse.data.data}, ()=> {this.setState({showFood : true})})
+			}
+		})
+
+	}
+
 
 	getTopProductDetails = () => {
 		getTopProduct()
@@ -23,7 +36,7 @@ class SectionThree extends Component {
 			if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
 				this.setState({
 					topProduct: axiosResponse.data.data
-				})
+				}, () => {this.setState({user : localStorage.getItem('user_details')})})
 			}
 		}).catch(err => {
 			console.log(' Here is the error' + err)
@@ -41,10 +54,9 @@ class SectionThree extends Component {
 								<h3 className="title">Top selling</h3>
 								<div className="section-nav">
 									<ul className="section-tab-nav tab-nav">
-										<li className="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
-										<li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-										<li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-										<li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+										<li className="active" data-toggle="tab"><Link to="#all">All</Link></li>
+										<li><Link to="/food">Food</Link></li>
+										<li><Link to="/cakes">Cakes</Link></li>
 									</ul>
 								</div>
 							</div>
@@ -52,12 +64,8 @@ class SectionThree extends Component {
 						<div className="col-md-12">
 							<div className="row">
 								{
-
 									this.state.topProduct.map(item => {
-
-
 										return (
-
 											<div className="col-md-4 col-xs-6" key={item._id}>
 												<div className="product">
 													<div className="product-img">
@@ -86,7 +94,8 @@ class SectionThree extends Component {
 														</div>
 													</div>
 													<div className="add-to-cart">
-														<button  className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+														<button  onClick={() => {console.log(this.state.user.firstname);
+														}} className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
 													</div>
 												</div>
 											</div>

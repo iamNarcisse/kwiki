@@ -28,6 +28,8 @@ class SectionTwo extends Component {
         })
     }
 
+   
+
     
 
 
@@ -76,7 +78,15 @@ class SectionTwo extends Component {
                                                 </div>
                                             </div>
                                             <div className="add-to-cart">
-                                                <button  className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                                                <button onClick={
+                                                  () => {
+                                                      alert('Item added to cart')
+                                                    const productData = {name: item.name, price: item.price, image: item.image, id: item._id }
+                                                    localStorage.setItem('product',JSON.stringify(productData))
+                                                    window.location.reload()
+                                                }
+
+                                                } className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                                             </div>
                                         </div>
                                     </div>

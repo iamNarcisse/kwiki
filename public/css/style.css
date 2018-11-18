@@ -620,10 +620,12 @@ textarea.input {
 ===========================================================*/
 
 #navigation {
-  background: #FFF;
+  background: #fff;
   border-bottom: 2px solid #E4E7ED;
   border-top: 3px solid #ff0066;
 }
+
+
 
 /*----------------------------*\
 	Main nav
@@ -668,7 +670,7 @@ textarea.input {
   .header-ctn .menu-toggle {
     display: inline-block;
   }
-  #responsive-nav {
+  #responsiveNav {
     position: fixed;
     left: 0;
     top: 0;
@@ -685,7 +687,7 @@ textarea.input {
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
   }
-  #responsive-nav.active {
+  #responsiveNav.active {
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
     transform: translateX(0%);
@@ -2221,5 +2223,13 @@ textarea.input {
   .store-pagination {
     float: none;
     margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #navigation {
+    background:grey;
+    border-bottom: 2px solid #E4E7ED;
+    border-top: 3px solid #ff0066;
   }
 }

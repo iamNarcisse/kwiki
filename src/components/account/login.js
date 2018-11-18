@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { LoginRequest } from "../../services/apiRequest";
+
 class Login extends Component {
 
     constructor(props) {
@@ -29,6 +30,7 @@ class Login extends Component {
                         "user_details",
                         JSON.stringify(axiosRes.data.data)
                     );
+
                     window.location.reload();
                 }
             })

@@ -1,49 +1,52 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import photo from './product07.png';
+import { getTopProduct } from '../../services/apiRequest';
 
 class AsideFour extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			topProduct: []
+		}
+	}
+	componentDidMount() {
+		this.showTopProduct();
+	}
 
-    render() {
+	showTopProduct = () => {
+		getTopProduct()
+			.then(axiosResponse => {
+				if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
+					this.setState({ topProduct: axiosResponse.data.data })
+				}
+			})
+	}
 
-        return(
-            <div className="aside">
-							<h3 className="aside-title">Top selling</h3>
-							<div className="product-widget">
+	render() {
+
+		return (
+			<div className="aside">
+				<h3 className="aside-title">Top selling</h3>
+				{
+					this.state.topProduct.map(item => {
+						return (
+							<div key={item._id} className="product-widget">
 								<div className="product-img">
-									<img src={photo} alt="Phone"  />
+									<img src={item.image} alt="Phone" />
 								</div>
 								<div className="product-body">
 									<p className="product-category">Category</p>
-									<h3 className="product-name"><a href="#name">product name goes here</a></h3>
-									<h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+									<h3 className="product-name"><a href="#name">{item.name}</a></h3>
+									<h4 className="product-price">&#8358;{item.price}</h4>
 								</div>
 							</div>
+						)
+					})
+				}
 
-							<div className="product-widget">
-								<div className="product-img">
-									<img src={photo} alt="Samsung" />
-								</div>
-								<div className="product-body">
-									<p className="product-category">Category</p>
-									<h3 className="product-name"><a href="#name">product name goes here</a></h3>
-									<h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-								</div>
-							</div>
-
-							<div className="product-widget">
-								<div className="product-img">
-									<img src={photo} alt="Samsung" />
-								</div>
-								<div className="product-body">
-									<p className="product-category">Category</p>
-									<h3 className="product-name"><a href="#name">product name goes here</a></h3>
-									<h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
-								</div>
-							</div>
-						</div>
-        )
-    }
+			</div>
+		)
+	}
 }
 
 export default AsideFour;

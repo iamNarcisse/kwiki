@@ -10,12 +10,13 @@ const GetUserAuthToken = () => {
     }
   };
 
-//const apiUrl = 'http://localhost:3000';
-const apiUrl = 'https://arcane-shelf-55983.herokuapp.com';
+const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'https://arcane-shelf-55983.herokuapp.com';
 const productApiUrl = `${apiUrl}/products`;
 const authApiUrl = `${apiUrl}/auth`;
 const userApiUrl = `${apiUrl}/users`;
 const cartApiUrl = `${apiUrl}/addtocart`;
+const vendorApiUrl = `${apiUrl}/vendors`;
 
 /**
  * 
@@ -87,12 +88,20 @@ export const getUserDetailsRequest = () => {
     return Axios.post(`${authApiUrl}/register`, body, axiosConfig);
   };
 
-  export const addToCart = (productId, userId) => {
+  export const addToCart = (productId, userId,productName, firstName, lastName, email, tel, address, city) => {
+    //You are meant to use product, but for the sake of testing use productDetails
     let body = {
       product_id : productId,
-     user_id : userId
+      user_id : userId,
+      product_name : productName,
+      first_name : firstName,
+      last_name: lastName,
+      email: email,
+      tel : tel,
+      address : address,
+      city : city
     }
-    Axios.post(`${cartApiUrl}/add`, body, axiosConfig)
+    Axios.post(`${cartApiUrl}/add`, body)
 
   }
 
@@ -172,5 +181,9 @@ export const getUserDetailsRequest = () => {
     return Axios.get(`${productApiUrl}/getWomenAccessories/${cloth_id}`)
   }
 
+  //getVendors 
+  export const getVendors = () => {
+    return Axios.get(`${vendorApiUrl}/getvendor`)
+  }
 
   

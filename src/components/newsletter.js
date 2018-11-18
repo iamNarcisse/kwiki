@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 class NewsLetter extends Component {
 
     render() {
-
         return (
             <div>
                 {/* NEWSLETTER*/}
+                
                 <div id="newsletter" className="section">
                     {/* container*/}
                     <div className="container">

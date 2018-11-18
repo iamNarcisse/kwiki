@@ -10,9 +10,7 @@ class Header extends Component {
 
     render() {
         return (
-
             <div>
-
                 <TopHeader />
                 <div id="header">
                     <div className="container">

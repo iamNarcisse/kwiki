@@ -144,12 +144,6 @@ class Pickup extends Component {
                                 })}
                             </select>
                         </div>
-
-                        {/* <div className="form-group col-md-6 ">
-                            <label >Pickup Address</label>
-                            <textarea type="text" className="form-control" name="pickupaddress" onChange={this.onChange} value={this.state.data.pickupaddress} placeholder="Pickup Address" required />
-                        </div> */}
-
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label >Receiver's Name</label>
@@ -180,15 +174,7 @@ class Pickup extends Component {
 
 
                                 </select>
-                            </div>
-
-
-                            {/*<div className="form-group col-md-6">
-                                <label >Receiver's Address</label>
-                                <textarea type="text" className="form-control" onChange={this.onChange} value={this.state.data.receiveraddress} name="receiveraddress" placeholder="Receiver's Address" required />
-                            </div> */}
-
-                               
+                            </div> 
                         </div>
 
                                      

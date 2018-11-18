@@ -5,7 +5,8 @@ class ProfileNavBar extends Component {
 
     logout = (e) => {
         e.preventDefault();
-        localStorage.clear();
+        localStorage.removeItem('user_details');
+        localStorage.removeItem('user_token');
         window.location.reload()
     }
 

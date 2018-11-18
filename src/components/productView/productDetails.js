@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 //import { getProductDetailsRequest } from '../../services/apiRequest';
+
 class ProductDetails extends Component {
+
 
     constructor(props) {
         super(props);
@@ -9,6 +11,7 @@ class ProductDetails extends Component {
             price: '',
         }
     }
+
 
     onSubmit = (e) => {
         e.preventDefault();
@@ -34,6 +37,11 @@ class ProductDetails extends Component {
             price: price,
             qty: qty
         })
+    }
+
+    addToStorage =() => {
+        const productData = {name: this.props.name, price: this.props.price, image: this.props.image }
+        localStorage.setItem('product',JSON.stringify(productData))
     }
 
 
@@ -87,7 +95,7 @@ class ProductDetails extends Component {
                                     <span className="qty-down" onClick={this.onQtySubstract}>-</span>
                                 </div>
                             </div>
-                            <button onSubmit={(e) => {e.preventDefault(); alert('Added to cart'); this.checkoutDetails() } } className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                            <button onClick={(e) => {e.preventDefault(); this.addToStorage(); alert('Added to cart'); this.checkoutDetails() } } className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                         </div>
 
                         <ul className="product-btns">

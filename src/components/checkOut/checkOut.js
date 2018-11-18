@@ -17,7 +17,6 @@ class CheckOut extends Component {
                 <Navigation />
                 <CheckOutBreadCrumb />
                 <Billing  />
-                <OrderDetails />
                 <NewsLetter />
                 <Footer />
             </div>
