@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Header from '../header';
-import Navigation from "../navigation";
-//import Axios from 'axios';
 import Footer from '../footer';
 import Login from './login';
 import Register from './register';
@@ -25,7 +23,6 @@ class Account extends Component {
         return (
             <div>
                 <Header />
-                <Navigation />
                 <br />
                 <center>{this.state.register && <RegisterMessage />}</center>
                 <div className="account container">

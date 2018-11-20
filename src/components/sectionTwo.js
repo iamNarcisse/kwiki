@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getProductInfo } from '../services/apiRequest';
+
+const storedArray = [];
 
 class SectionTwo extends Component {
 
@@ -11,26 +13,26 @@ class SectionTwo extends Component {
         }
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.getProductDetails();
     }
 
     getProductDetails = () => {
         console.log(this.state);
         getProductInfo()
-        .then(axiosResponse => {
-            console.log(axiosResponse);
-            if(axiosResponse && axiosResponse.data && axiosResponse.data.data) {
-                this.setState({
-                    product : axiosResponse.data.data
-                })
-            }
-        })
+            .then(axiosResponse => {
+                console.log(axiosResponse);
+                if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
+                    this.setState({
+                        product: axiosResponse.data.data
+                    })
+                }
+            })
     }
 
-   
 
-    
+
+
 
 
     render() {
@@ -79,13 +81,24 @@ class SectionTwo extends Component {
                                             </div>
                                             <div className="add-to-cart">
                                                 <button onClick={
-                                                  () => {
-                                                      alert('Item added to cart')
-                                                    const productData = {name: item.name, price: item.price, image: item.image, id: item._id }
-                                                    localStorage.setItem('product',JSON.stringify(productData))
-                                                    window.location.reload()
-                                                }
+                                                    () => {
+                                                        const checkProduct = JSON.parse(localStorage.getItem('product'));
+                                                        if (checkProduct == undefined || checkProduct == null) {
+                                                            alert('Item added to cart')
+                                                            const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
+                                                            storedArray.push(productData)
+                                                            localStorage.setItem('product', JSON.stringify(storedArray))
+                                                            window.location.reload();
+                                                        } else {
+                                                            alert('Item added to cart')
+                                                            const getItem = JSON.parse(localStorage.getItem('product'));
+                                                            const newData = { name: item.name, price: item.price, image: item.image, id: item._id }
+                                                            getItem.push(newData)
+                                                            localStorage.setItem('product', JSON.stringify(getItem))
+                                                            window.location.reload();
+                                                        }
 
+                                                    }
                                                 } className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                                             </div>
                                         </div>
@@ -96,7 +109,6 @@ class SectionTwo extends Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 }

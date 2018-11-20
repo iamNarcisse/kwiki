@@ -4,7 +4,7 @@ class OrderDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            product: {},
+            product: [],
             user: {}
         }
     }
@@ -25,14 +25,10 @@ class OrderDetails extends Component {
            // console.log(this.state.user)
         }else {
             this.setState({
-                product: {price : 0}
+                product: [ 0]
             }, ()=> {this.setState({user: '' })})
         }
     }
-
-
-
-
 
     render() {
         return (
@@ -45,19 +41,28 @@ class OrderDetails extends Component {
                         <div><strong>PRODUCT</strong></div>
                         <div><strong>TOTAL</strong></div>
                     </div>
-                    <div className="order-products">
-                                      <div className="order-col">
-                                    <div>1 x {this.state.product.name}</div>
-                                    <div>&#8358;{this.state.product.price}</div></div>
+                    {this.state.product.map(item => {
+
+                        return (
+
+                            <div key={item.id} className="order-products">
+                             <div className="order-col">
+                                    <div>1 x {item.name}</div>
+                                    <div>&#8358;{item.price}</div></div></div>
+                        )
+                   
+
+                    })}
+                                   
                         
-                    </div>
+                    
                     <div className="order-col">
                         <div>Delivery</div>
                         <div><strong>&#8358;300</strong></div>
                     </div>
                     <div className="order-col">
                         <div><strong>TOTAL</strong></div>
-                                <div><strong className="order-total">&#8358; {(1 * this.state.product.price) + 300}</strong></div>
+                                <div><strong className="order-total">&#8358; </strong></div>
                     </div>
                 </div>
                 <div className="payment-method">
@@ -99,7 +104,9 @@ class OrderDetails extends Component {
                         I've read and accept the <a href="#terms">terms & conditions</a>
                     </label>
                 </div>
-                <a href="#placeOrder" onClick={ ()=> {
+                <a href="#placeOrder" className="primary-btn order-submit">Place order</a><br /><br />
+
+                { /*  onClick={ ()=> {
                    //console.log(this.state.user._id)
                    if(this.state.product.id === undefined &&  this.state.user._id === undefined) {
                     
@@ -114,9 +121,9 @@ class OrderDetails extends Component {
                            this.props.tel,
                            this.props.address,
                            this.props.city
-                        )
-                    localStorage.removeItem('product'); window.location.reload()}
-                }} className="primary-btn order-submit">Place order</a><br /><br />
+                       )
+                   // localStorage.removeItem('product'); window.location.reload()
+                 */}
             </div>
         )
     }

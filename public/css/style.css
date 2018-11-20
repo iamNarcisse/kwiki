@@ -2163,7 +2163,7 @@ textarea.input {
     float: none !important;
   }
   #top-header .header-links.pull-right {
-    float: none !important;
+    float: right !important;
     margin-top: 5px;
   }
   .header-logo {
