@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {addToCart} from '../../services/apiRequest';
+//import {addToCart} from '../../services/apiRequest';
 class OrderDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
             product: [],
-            user: {}
+            user: {},
         }
     }
 
@@ -15,8 +15,7 @@ class OrderDetails extends Component {
 
     getFrom = () => {
         const productData = JSON.parse(localStorage.getItem('product'));
-        const userData = JSON.parse(localStorage.getItem('user_details'))
-        //console.log('Here is the user Data in console ' + userData.name)
+        const userData = JSON.parse(localStorage.getItem('user_details'));
         if(productData !== undefined && productData !==null) {
             this.setState({
                 product: productData
@@ -42,7 +41,6 @@ class OrderDetails extends Component {
                         <div><strong>TOTAL</strong></div>
                     </div>
                     {this.state.product.map(item => {
-
                         return (
 
                             <div key={item.id} className="order-products">
@@ -51,18 +49,17 @@ class OrderDetails extends Component {
                                     <div>&#8358;{item.price}</div></div></div>
                         )
                    
-
                     })}
-                                   
-                        
-                    
+
                     <div className="order-col">
                         <div>Delivery</div>
                         <div><strong>&#8358;300</strong></div>
                     </div>
                     <div className="order-col">
                         <div><strong>TOTAL</strong></div>
-                                <div><strong className="order-total">&#8358; </strong></div>
+
+                        
+                                <div ><strong className="order-total">&#8358; {} </strong></div>
                     </div>
                 </div>
                 <div className="payment-method">
@@ -104,9 +101,10 @@ class OrderDetails extends Component {
                         I've read and accept the <a href="#terms">terms & conditions</a>
                     </label>
                 </div>
-                <a href="#placeOrder" className="primary-btn order-submit">Place order</a><br /><br />
-
-                { /*  onClick={ ()=> {
+                <a href="#placeOrder" className="primary-btn order-submit" >Place order</a><br /><br />
+                { 
+                    
+                    /*  onClick={ ()=> {
                    //console.log(this.state.user._id)
                    if(this.state.product.id === undefined &&  this.state.user._id === undefined) {
                     

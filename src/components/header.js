@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TopHeader from './topHeader';
 import Logo from './logo';
 import SearchBar from './searchBar';
-import WishList from './wishList';
+//import WishList from './wishList';
 import Cart from './cart';
 import MenuToggle from './menuToggle';
 import Navigation from './navigation';
@@ -20,7 +20,7 @@ class Header extends Component {
                             <SearchBar />
                             <div className="col-md-3 clearfix">
                                 <div className="header-ctn">
-                                    <WishList />
+                                    {/*<WishList /> */}
                                     <Cart />
                                     <MenuToggle />
                                 </div>

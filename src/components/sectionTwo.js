@@ -83,12 +83,13 @@ class SectionTwo extends Component {
                                                 <button onClick={
                                                     () => {
                                                         const checkProduct = JSON.parse(localStorage.getItem('product'));
-                                                        if (checkProduct == undefined || checkProduct == null) {
+                                                        if (checkProduct === undefined || checkProduct === null) {
                                                             alert('Item added to cart')
                                                             const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
                                                             storedArray.push(productData)
                                                             localStorage.setItem('product', JSON.stringify(storedArray))
                                                             window.location.reload();
+                                                        
                                                         } else {
                                                             alert('Item added to cart')
                                                             const getItem = JSON.parse(localStorage.getItem('product'));
@@ -96,6 +97,7 @@ class SectionTwo extends Component {
                                                             getItem.push(newData)
                                                             localStorage.setItem('product', JSON.stringify(getItem))
                                                             window.location.reload();
+                                                            
                                                         }
 
                                                     }

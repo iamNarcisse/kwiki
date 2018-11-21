@@ -670,6 +670,13 @@ textarea.input {
   .header-ctn .menu-toggle {
     display: inline-block;
   }
+
+  @media only screen and (max-width: 320px) {
+    .header-ctn .menu-toggle {
+      display: inline-block;
+      width: 60px
+    }
+  }
   #responsive-nav {
     position: fixed;
     left: 0;
