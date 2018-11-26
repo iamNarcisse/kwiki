@@ -17,12 +17,21 @@ class OrderDetails extends Component {
 
     getTotal = () => {
         let data = JSON.parse(localStorage.getItem('product'));
-        let msgTotal = data.reduce(function (prev, curl) {
-            return prev + curl.price;
-        }, 0);
-        this.setState({
-            total: (msgTotal + this.state.Delivery)
-        }, () => { localStorage.setItem('SumTotal', JSON.stringify(this.state.total)) })
+        if (data !== null) {
+
+            let msgTotal = data.reduce(function (prev, curl) {
+                return prev + curl.price;
+            }, 0);
+            this.setState({
+                total: (msgTotal + this.state.Delivery)
+            }, () => { localStorage.setItem('SumTotal', JSON.stringify(this.state.total)) })
+
+        } else {
+            this.setState({
+                total : 0
+            })
+        }
+
     }
 
     getFrom = () => {
