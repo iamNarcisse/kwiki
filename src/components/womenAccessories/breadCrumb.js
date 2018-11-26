@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class BreadCrumb extends Component {
 
@@ -9,10 +10,10 @@ class BreadCrumb extends Component {
                 <div className="row">
 					<div className="col-md-12">
 						<ul className="breadcrumb-tree">
-							<li><a href="#home">Home</a></li>
+							<li><Link to="/">Home</Link></li>
                 <li><a href="#Categories">All Categories</a></li>
                 <li><a href="#Accessories">Accessories</a></li>
-                <li className="active">Headphones (227,490 Results)</li>
+                <li className="active">Women Accessories (10 Results)</li>
 						</ul >
 					</div >
 				</div >

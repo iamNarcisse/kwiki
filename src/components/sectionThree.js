@@ -3,6 +3,8 @@ import { getTopProduct, getFood} from '../services/apiRequest';
 import {Link} from 'react-router-dom';
 //import ShowTopFood from './showTopFood';
 
+const storedArray = [];
+
 class SectionThree extends Component {
 	constructor(props) {
 		super(props)
@@ -78,7 +80,7 @@ class SectionThree extends Component {
 													<div className="product-body">
 														<p className="product-category">Category</p>
 														<h3 className="product-name"><a href="#url">{item.name}</a></h3>
-														<h4 className="product-price">${item.price} <del className="product-old-price">$990.00</del></h4>
+														<h4 className="product-price">&#8358;{item.price} <del className="product-old-price">&#8358;990.00</del></h4>
 														<h4 className="product-name">Sold By <a href="#add">{item.seller}</a></h4>
 														<div className="product-rating">
 															<i className="fa fa-star"></i>
@@ -94,8 +96,29 @@ class SectionThree extends Component {
 														</div>
 													</div>
 													<div className="add-to-cart">
-														<button  onClick={() => {console.log(this.state.user.firstname);
-														}} className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+														<button  onClick={
+                                                    () => {
+                                                        const checkProduct = JSON.parse(localStorage.getItem('product'));
+                                                        if (checkProduct === undefined || checkProduct === null) {
+                                                            alert('Item added to cart')
+                                                            const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
+                                                            storedArray.push(productData)
+                                                            localStorage.setItem('product', JSON.stringify(storedArray))
+                                                            //window.location.reload();
+                                                        
+                                                        } else {
+                                                            alert('Item added to cart')
+                                                            const getItem = JSON.parse(localStorage.getItem('product'));
+                                                            const newData = { name: item.name, price: item.price, image: item.image, id: item._id }
+                                                            getItem.push(newData)
+                                                            localStorage.setItem('product', JSON.stringify(getItem))
+                                                            //window.location.reload();
+                                                            
+                                                        }
+
+                                                    }
+                                                }
+													className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
 													</div>
 												</div>
 											</div>

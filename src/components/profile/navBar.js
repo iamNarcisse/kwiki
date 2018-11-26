@@ -20,7 +20,7 @@ class ProfileNavBar extends Component {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <Link className="navbar-brand" to="/account">Kwikikarts</Link>
+                        <Link className="navbar-brand" to="/">Kwikikarts</Link>
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <ul className="nav navbar-nav">

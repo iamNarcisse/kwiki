@@ -9,21 +9,21 @@ class SectionOne extends Component {
                 <Carousel.Item className="carousel">
                     <img  alt="900x500" src={photo} />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
+                        <h3>So delicious</h3>
                         <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item className="carousel">
                     <img  alt="900x500" src={photo} />
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
+                        <h3>So so Delicious</h3>
                         <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item className="carousel">
                     <img  alt="900x500" src={photo} />
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
+                        <h3>So so nice</h3>
                         <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>

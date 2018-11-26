@@ -5,11 +5,9 @@ import Store from './components/store/store';
 import CheckOut from './components/checkOut/checkOut';
 import ProductView from './components/productView/productView';
 import Pickup from './components/pickup/pickup';
+import Pay from './components/paystack/pay';
 import Account from './components/account/account';
 import Profile from './components/profile/profile';
-import Product from './components/sample/Product';
-import ProductForm from './components/sample/ProductForm';
-import ProductList from './components/sample/ProductList';
 import Cakes from './components/cakes/cakes';
 import Food from './components/food/food';
 import MenShoe from './components/menShoe/menShoe';
@@ -26,6 +24,7 @@ class Main extends Component {
     }
     componentDidMount () {
         this.getUserToken();
+        this.getOrderIsTrue();
     }
     getUserToken = () => {
        this.setState({
@@ -33,15 +32,21 @@ class Main extends Component {
        });
     }
 
+    //This gets from localstorage whether order_purchased is set to true
+    getOrderIsTrue = () => {
+        this.setState({
+            order_made : localStorage.getItem('order_placed')
+        })
+    }
+
     render() {
         return (
             <Switch>
+                {this.state.order_made && ( <Route exact path="/pay" component={Pay} />)}
                 <Route exact path="/store" component={Store} />
-                <Route exact path="/checkOut" component={CheckOut} />
+                {!this.state.order_made && (<Route exact path="/pay" component={CheckOut} />)}
                 <Route exact path="/productView/:item_id" component={ProductView} />
                 <Route exact path="/pickup"   component={Pickup} />
-                <Route exact path="/cart" component={Product} />
-                <Route exact path="/new" component={ProductForm} />
                 <Route exact path="/food" component={Food} />
                 <Route exact path="/menshoe" component={MenShoe} />
                 <Route exact path="/femaleshoe" component={FemaleShoe} />
@@ -50,7 +55,6 @@ class Main extends Component {
                 <Route exact path="/womenaccessories" component={WomenAccessories} />
                 <Route exact path="/menaccessories" component={MenAccessories} />
                 <Route exact path="/cakes" component={Cakes} />
-                <Route exact path ="/productlist" component={ProductList} />
         {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}
                 {this.state.user_token &&(  <Route exact path="/account" component={Profile} />)}
                 {this.state.user_token &&(  <Route exact path="/userDetails" component={UserDetails} />)}

@@ -6,26 +6,38 @@ class OrderDetails extends Component {
         this.state = {
             product: [],
             user: {},
+            total: 0,
+            Delivery: 300
         }
     }
-
-    componentDidMount () {
+    componentDidMount() {
         this.getFrom();
+        this.getTotal();
+    }
+
+    getTotal = () => {
+        let data = JSON.parse(localStorage.getItem('product'));
+        let msgTotal = data.reduce(function (prev, curl) {
+            return prev + curl.price;
+        }, 0);
+        this.setState({
+            total: (msgTotal + this.state.Delivery)
+        }, () => { localStorage.setItem('SumTotal', JSON.stringify(this.state.total)) })
     }
 
     getFrom = () => {
         const productData = JSON.parse(localStorage.getItem('product'));
         const userData = JSON.parse(localStorage.getItem('user_details'));
-        if(productData !== undefined && productData !==null) {
+        if (productData !== undefined && productData !== null) {
             this.setState({
                 product: productData
-            }, ()=> {this.setState({user: userData})})
+            }, () => { this.setState({ user: userData }) })
 
-           // console.log(this.state.user)
-        }else {
+            // console.log(this.state.user)
+        } else {
             this.setState({
-                product: [ 0]
-            }, ()=> {this.setState({user: '' })})
+                product: [0]
+            }, () => { this.setState({ user: '' }) })
         }
     }
 
@@ -44,11 +56,11 @@ class OrderDetails extends Component {
                         return (
 
                             <div key={item.id} className="order-products">
-                             <div className="order-col">
+                                <div className="order-col">
                                     <div>1 x {item.name}</div>
                                     <div>&#8358;{item.price}</div></div></div>
                         )
-                   
+
                     })}
 
                     <div className="order-col">
@@ -58,8 +70,8 @@ class OrderDetails extends Component {
                     <div className="order-col">
                         <div><strong>TOTAL</strong></div>
 
-                        
-                                <div ><strong className="order-total">&#8358; {} </strong></div>
+
+                        <div ><strong className="order-total">&#8358; {this.state.total} </strong></div>
                     </div>
                 </div>
                 <div className="payment-method">
@@ -70,7 +82,7 @@ class OrderDetails extends Component {
                             Direct Bank Transfer
 								</label>
                         <div className="caption">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Bank Transfer to this account: 000000000</p>
                         </div>
                     </div>
                     <div className="input-radio">
@@ -80,7 +92,7 @@ class OrderDetails extends Component {
                             Pay On Delivery
 								</label>
                         <div className="caption">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Pay on Item Delivery</p>
                         </div>
                     </div>
                     <div className="input-radio">
@@ -90,7 +102,7 @@ class OrderDetails extends Component {
                             Paystack System
 								</label>
                         <div className="caption">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Pay online </p>
                         </div>
                     </div>
                 </div>
@@ -101,27 +113,40 @@ class OrderDetails extends Component {
                         I've read and accept the <a href="#terms">terms & conditions</a>
                     </label>
                 </div>
-                <a href="#placeOrder" className="primary-btn order-submit" >Place order</a><br /><br />
-                { 
-                    
-                    /*  onClick={ ()=> {
-                   //console.log(this.state.user._id)
-                   if(this.state.product.id === undefined &&  this.state.user._id === undefined) {
-                    
-                   }else {
-                       addToCart(
-                           this.state.product.id, 
-                           this.state.user._id, 
-                           this.state.product.name,
-                           this.props.firstName,
-                           this.props.lastName,
-                           this.props.email,
-                           this.props.tel,
-                           this.props.address,
-                           this.props.city
-                       )
-                   // localStorage.removeItem('product'); window.location.reload()
-                 */}
+                {this.state.product.map((item, index) => {
+                    return (
+                        <a key={index} href="#placeOrder" className="primary-btn order-submit" onClick={
+                            () => {
+                                let user_details = JSON.parse(localStorage.getItem('user_details'));
+                                if (item.id === undefined || item.id === null) {
+                                    alert('Kindly add an Item to cart to Proceed')
+                                } else if (user_details === null || user_details === undefined) {
+                                    alert('Kindly login to proceed')
+                                } else {
+                                    let addToCart = {
+                                        item_id: item.id,
+                                        user_id: user_details._id,
+                                        item_name: item.name,
+                                        user_firstName: this.props.firstName,  /**   Storing Billing Details to localStorage so that it can be fetched after payment is successful  */
+                                        user_lastName: this.props.lastName,
+                                        user_email: this.props.email,
+                                        user_tel: this.props.tel,
+                                        user_address: this.props.address,
+                                        user_city: this.props.city
+                                    }
+                                    localStorage.setItem('order_details', JSON.stringify(addToCart));
+                                    localStorage.setItem('order_placed', true);
+                                    window.location.reload();
+                                }
+                            }
+
+
+                        }>Place order</a>
+
+
+                    )
+                })}
+                <br /><br />
             </div>
         )
     }

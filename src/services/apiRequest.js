@@ -10,8 +10,9 @@ const GetUserAuthToken = () => {
     }
   };
 
-//const apiUrl = 'http://localhost:3000';
+  //Don't forget to comment http://localhost:3000 during production
 const apiUrl = 'https://arcane-shelf-55983.herokuapp.com';
+//const apiUrl = 'http://localhost:3001';
 const productApiUrl = `${apiUrl}/products`;
 const authApiUrl = `${apiUrl}/auth`;
 const userApiUrl = `${apiUrl}/users`;
@@ -88,6 +89,7 @@ export const getUserDetailsRequest = () => {
     return Axios.post(`${authApiUrl}/register`, body, axiosConfig);
   };
 
+  //Add to cart Api here;
   export const addToCart = (productId, userId,productName, firstName, lastName, email, tel, address, city) => {
     //You are meant to use product, but for the sake of testing use productDetails
     let body = {

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { getProductInfo } from '../services/apiRequest';
 
 const storedArray = [];
-
 class SectionTwo extends Component {
 
     constructor(props) {
@@ -18,10 +17,8 @@ class SectionTwo extends Component {
     }
 
     getProductDetails = () => {
-        console.log(this.state);
         getProductInfo()
             .then(axiosResponse => {
-                console.log(axiosResponse);
                 if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                     this.setState({
                         product: axiosResponse.data.data
@@ -36,6 +33,7 @@ class SectionTwo extends Component {
 
 
     render() {
+
         return (
             <div className="section">
                 <div className="container">
@@ -50,12 +48,13 @@ class SectionTwo extends Component {
                         </div>
                         {
                             this.state.product.map(item => {
+                                
+                                
                                 return (
-
-                                    <div key={item._id} className="col-md-4 col-xs-6" >
+                                    <div key={item._id}  className="col-md-4 col-xs-6" >
                                         <div className="product">
                                             <div className="product-img">
-                                                <img src={item.image} alt="" />
+                                               {<img src={item.image} alt="" />}  
                                                 <div className="product-label">
                                                     <span className="sale">-30%</span>
                                                     <span className="new">NEW</span>
@@ -64,7 +63,7 @@ class SectionTwo extends Component {
                                             <div className="product-body">
                                                 <p className="product-category">Category</p>
                                                 <h3 className="product-name"><a href="#add">{item.name}</a></h3>
-                                                <h4 className="product-price">$ {item.price} <del className="product-old-price">$990.00</del></h4>
+                                                <h4 className="product-price">&#8358;{item.price} <del className="product-old-price">&#8358;990.00</del></h4>
                                                 <h4 className="product-name">Sold By <a href="#add">{item.seller}</a></h4>
                                                 <div className="product-rating">
                                                     <i className="fa fa-star"></i>
@@ -82,22 +81,27 @@ class SectionTwo extends Component {
                                             <div className="add-to-cart">
                                                 <button onClick={
                                                     () => {
+                                                        //This code checks whether the product array in localstorage is empty and
+                                                        //adds an item to it
+                                                        //const totalArray = [];
                                                         const checkProduct = JSON.parse(localStorage.getItem('product'));
                                                         if (checkProduct === undefined || checkProduct === null) {
                                                             alert('Item added to cart')
                                                             const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
                                                             storedArray.push(productData)
                                                             localStorage.setItem('product', JSON.stringify(storedArray))
-                                                            window.location.reload();
-                                                        
+                                                            
+                                                            //  window.location.reload();
+
                                                         } else {
                                                             alert('Item added to cart')
                                                             const getItem = JSON.parse(localStorage.getItem('product'));
                                                             const newData = { name: item.name, price: item.price, image: item.image, id: item._id }
                                                             getItem.push(newData)
                                                             localStorage.setItem('product', JSON.stringify(getItem))
-                                                            window.location.reload();
-                                                            
+
+                                                            // window.location.reload();
+
                                                         }
 
                                                     }

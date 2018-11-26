@@ -11,6 +11,8 @@ class CartDetails extends Component {
     componentDidMount() {
         this.getFromStorage();
     }
+
+
     getFromStorage = () => {
         const getFromStorage = JSON.parse(localStorage.getItem('product'));
 
@@ -50,7 +52,6 @@ class CartDetails extends Component {
                                     </div>
 
                                     <button onClick={
-
                                     
                                         () => {
                                             const id = item.id;
@@ -63,7 +64,6 @@ class CartDetails extends Component {
                                                     getFromStorage.splice(i, 1);
                                                 }
                                             }
-                                            
                                             localStorage.setItem('product', JSON.stringify(getFromStorage))
                                         }
                                     } className="delete"><i className="fa fa-close"></i></button>
@@ -93,7 +93,7 @@ class CartDetails extends Component {
                     </div>
                     <div className="cart-btns">
                         <a href="#moreInfo">View Cart</a>
-                        <Link to="/checkout">Checkout  <i className="fa fa-arrow-circle-right"></i></Link>
+                        <Link to="/pay">Checkout  <i className="fa fa-arrow-circle-right"></i></Link>
                     </div>
                 </div>
             </div >

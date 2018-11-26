@@ -8,7 +8,7 @@ class MainAside extends Component {
     render() {
 
         return(
-            <div id="aside" class="col-md-3">
+            <div id="aside" className="col-md-3">
             <AsideOne />
             <PriceSpinner />
             <AsideThree />

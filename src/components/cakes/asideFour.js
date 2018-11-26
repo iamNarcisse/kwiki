@@ -34,8 +34,8 @@ class AsideFour extends Component {
 							</div>
 							<div className="product-body">
 								<p className="product-category">Category</p>
-								<h3 className="product-name"><a href="#name">product name goes here</a></h3>
-								<h4 className="product-price">&#8358;{item.price} <del className="product-old-price">$990.00</del></h4>
+								<h3 className="product-name"><a href="#name">{item.name}</a></h3>
+								<h4 className="product-price">&#8358;{item.price}</h4>
 							</div>
 						</div>
 					)

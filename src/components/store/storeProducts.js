@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getProductInfo } from '../../services/apiRequest';
-
-//const userData = JSON.parse(localStorage.getItem('user_details'));
+const storedArray = [];
 class StoreProducts extends Component {
 
     constructor(props) {
@@ -21,7 +20,6 @@ class StoreProducts extends Component {
     getProduct = () => {
         getProductInfo()
             .then(axiosResponse => {
-                console.log(axiosResponse)
                 if (axiosResponse && axiosResponse.data.data) {
 
                     this.setState({
@@ -59,7 +57,7 @@ class StoreProducts extends Component {
                                 <div className="product-body">
                                     <p className="product-category">Category</p>
                                     <h3 className="product-name"><a href="#url">{item.name}</a></h3>
-                                    <h4 className="product-price">${item.price} <del className="product-old-price">${item.oldprice} </del></h4>
+                                    <h4 className="product-price">&#8358;{item.price} <del className="product-old-price">&#8358;{item.oldprice} </del></h4>
                                     <div className="product-rating">
                                         <i className="fa fa-star"></i>
                                         <i className="fa fa-star"></i>
@@ -74,8 +72,23 @@ class StoreProducts extends Component {
                                     </div>
                                 </div>
                                 <div className="add-to-cart">
-                                    <button
-                                        className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                                    <button className="add-to-cart-btn" onClick={
+                                        () => {
+                                            const checkProduct = JSON.parse(localStorage.getItem('product'));
+                                            if (checkProduct === undefined || checkProduct === null) {
+                                                alert('Item added to cart')
+                                                const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
+                                                storedArray.push(productData)
+                                                localStorage.setItem('product', JSON.stringify(storedArray))
+                                            } else {
+                                                alert('Item added to cart')
+                                                const getItem = JSON.parse(localStorage.getItem('product'));
+                                                const newData = { name: item.name, price: item.price, image: item.image, id: item._id }
+                                                getItem.push(newData)
+                                                localStorage.setItem('product', JSON.stringify(getItem))
+                                            }
+                                        }
+                                    }><i className="fa fa-shopping-cart"></i> add to cart</button>
                                 </div>
                             </div>
                         </div>

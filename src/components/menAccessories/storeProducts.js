@@ -21,7 +21,6 @@ class StoreProducts extends Component {
     getProduct = () => {
         getMenAccessories()
             .then(axiosResponse => {
-                console.log(axiosResponse)
                 if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                     this.setState({
                         products : axiosResponse.data.data
