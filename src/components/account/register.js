@@ -23,7 +23,7 @@ class Register extends React.Component {
     }
 
     onClick = (e) => {
-       // e.preventDefault();
+        e.preventDefault();
         console.log(this.state);
         SignupRequest(
             this.state.firstname,
@@ -39,6 +39,7 @@ class Register extends React.Component {
             })
             .catch(err => {
                 console.log(err);
+                this.setState({response: 'Email has already been used'}, ()=> {this.setState({showError: true})})
             });
     }
 
@@ -51,6 +52,7 @@ class Register extends React.Component {
           
                 <div className="col-xs-11 col-md-6 col-sm-8 give" style={{ paddingTop: '40px', marginBottom: '12px' }} >
                 <center>{this.state.register && <RegisterMessage />}</center>
+                {this.state.showError && (<p style={{color: 'red'}}>{this.state.response}</p>)}
                     <h2>Register</h2>
                     <form >
                         <div className="form-group">

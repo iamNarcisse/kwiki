@@ -19,9 +19,8 @@ class Login extends Component {
         console.log(this.state);
         LoginRequest(this.state.email, this.state.password)
             .then(axiosRes => {
-                console.log(axiosRes);
+                console.log(axiosRes.data.message);
                 if (axiosRes && axiosRes.data && axiosRes.data.data) {
-                    console.log(axiosRes.data.data)
                     localStorage.setItem(
                         "user_token",
                         axiosRes.data.data.token
@@ -36,6 +35,7 @@ class Login extends Component {
             })
             .catch(err => {
                 console.log(err);
+                this.setState({response : 'Invalid Email/Password'}, ()=> {this.setState({showError : true})})
             });
     }
 
@@ -45,6 +45,7 @@ class Login extends Component {
                 <div className="col-xs-11 col-md-6 col-sm-8 give" style={{marginRight: '70px', marginTop: '40px'}}>
                     <form >
                         <h2>Login</h2>
+                        {this.state.showError ===true && (<p style={{color: 'red'}}>{this.state.response}</p>)}
                         <div className="form-group">
                             <label >Email address</label>
                             <input type="email" onChange={this.onChange} className="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" />
