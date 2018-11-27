@@ -8,7 +8,7 @@ const user_details = JSON.parse(localStorage.getItem('user_details')); //Fetches
 const order_details = JSON.parse(localStorage.getItem('order_details')); //Fetches order_details from localstorage
 
 const amount = JSON.parse(localStorage.getItem('SumTotal'));
-const price = parseInt(amount +'00'); //This converts the amount to an integer
+const price = parseInt(amount + '00'); //This converts the amount to an integer
 class Pay extends Component {
   state = {
     key: "pk_test_e007f471fef14a60a725e1bf80ac234e6fad5764", //PAYSTACK PUBLIC KEY
@@ -32,11 +32,17 @@ class Pay extends Component {
 
   callback = (response) => {
     console.log(response); // card charged successfully, get reference here
-    addToCart(order_details.item_id, order_details.user_id, order_details.item_name, order_details.user_firstName, order_details.user_lastName,
-      order_details.user_email, order_details.user_tel, order_details.user_address, order_details.user_city);
+    addToCart(order_details.item_id,
+      order_details.user_id,
+      order_details.item_name,
+      order_details.user_firstName,
+      order_details.user_lastName,
+      order_details.user_email,
+      order_details.user_tel,
+      order_details.user_address, order_details.user_city);
     localStorage.removeItem('order_placed');
     localStorage.removeItem('product');
-    window.location.reload();
+     window.location.reload();
 
   }
 
