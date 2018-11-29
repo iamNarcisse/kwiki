@@ -58,7 +58,7 @@ class ProductView extends Component {
         // console.log(' Here i am : ' +  top_product_id)
          getWomenAccessoriesRequest(cloth_id) 
          .then(axiosResponse => {
-             console.log(axiosResponse)
+            // console.log(axiosResponse)
              if(axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                  this.setState( {
                      womenAccess : axiosResponse.data.data
@@ -78,7 +78,7 @@ class ProductView extends Component {
         // console.log(' Here i am : ' +  top_product_id)
          getMenAccessoriesRequest(cloth_id) 
          .then(axiosResponse => {
-             console.log(axiosResponse)
+            // console.log(axiosResponse)
              if(axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                  this.setState( {
                      menAccess : axiosResponse.data.data
@@ -96,7 +96,7 @@ class ProductView extends Component {
        // console.log(' Here i am : ' +  top_product_id)
         getWomenClothRequest(cloth_id) 
         .then(axiosResponse => {
-            console.log(axiosResponse)
+           // console.log(axiosResponse)
             if(axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                 this.setState( {
                     womenCloth : axiosResponse.data.data
@@ -113,7 +113,7 @@ class ProductView extends Component {
         let cloth_id = this.props.match.params.item_id;
         getMenClothRequest(cloth_id) 
         .then(axiosResponse => {
-            console.log(axiosResponse)
+            //console.log(axiosResponse)
             if(axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                 this.setState( {
                     menCloth : axiosResponse.data.data
@@ -131,7 +131,7 @@ class ProductView extends Component {
         console.log(' Here i am : ' +  top_product_id)
         getTopProductRequestDetails(top_product_id) 
         .then(axiosResponse => {
-            console.log(axiosResponse)
+            //console.log(axiosResponse)
             if(axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                 this.setState( {
                     top : axiosResponse.data.data
@@ -150,7 +150,7 @@ class ProductView extends Component {
         //console.log(product_id);
         getProductDetailsRequest(product_id)
             .then(axiosResponse => {
-                console.log(axiosResponse)
+               // console.log(axiosResponse)
                 if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                     this.setState({
                         product_details: axiosResponse.data.data
@@ -228,60 +228,60 @@ class ProductView extends Component {
                         {this.state.showTop === true && (<div>
                             <ProductMainImage image={this.state.top.image}/>
                             <ProductThumbImage image={this.state.top.image} />
-                            <ProductDetails name={this.state.top.name} price={this.state.top.price}  oldprice={this.state.top.oldprice} details={this.state.top.details} image={this.state.top.image} /></div>
+                            <ProductDetails name={this.state.top.name} price={this.state.top.price}  oldprice={this.state.top.oldprice} details={this.state.top.details} image={this.state.top.image} id={this.state.top._id}/></div>
                         )}
 
                         {this.state.showFood === true && (<div>
                             <ProductMainImage image={this.state.food.image}/>
                             <ProductThumbImage image={this.state.food.image} />
-                            <ProductDetails name={this.state.food.name} price={this.state.food.price}  oldprice={this.state.food.oldprice} details={this.state.food.details} /></div>
+                            <ProductDetails name={this.state.food.name} price={this.state.food.price}  oldprice={this.state.food.oldprice} details={this.state.food.details} id={this.state.food._id} /></div>
                         )}
 
                         {this.state.showCake === true && (<div>
                             <ProductMainImage image={this.state.cake.image}/>
                             <ProductThumbImage image={this.state.cake.image} />
-                            <ProductDetails name={this.state.cake.name} price={this.state.cake.price}  oldprice={this.state.cake.oldprice} details={this.state.cake.details} /></div>
+                            <ProductDetails name={this.state.cake.name} price={this.state.cake.price}  oldprice={this.state.cake.oldprice} details={this.state.cake.details} id={this.state.cake._id}/></div>
                         )}
 
                          {this.state.showWomenShoe === true && (<div>
                             <ProductMainImage image={this.state.womenShoe.image}/>
                             <ProductThumbImage image={this.state.womenShoe.image} />
-                            <ProductDetails name={this.state.womenShoe.name} price={this.state.womenShoe.price}  oldprice={this.state.womenShoe.oldprice} details={this.state.womenShoe.details} /></div>
+                            <ProductDetails name={this.state.womenShoe.name} price={this.state.womenShoe.price}  oldprice={this.state.womenShoe.oldprice} details={this.state.womenShoe.details} id={this.state.womenShoe._id}/></div>
                         )}
 
                         {this.state.showMenShoe === true && (<div>
                             <ProductMainImage image={this.state.menShoe.image}/>
                             <ProductThumbImage image={this.state.menShoe.image} />
-                            <ProductDetails name={this.state.menShoe.name} price={this.state.menShoe.price}  oldprice={this.state.menShoe.oldprice} details={this.state.menShoe.details} /></div>
+                            <ProductDetails name={this.state.menShoe.name} price={this.state.menShoe.price}  oldprice={this.state.menShoe.oldprice} details={this.state.menShoe.details} id={this.state.menShoe._id}/></div>
                         )}
 
                          {this.state.showMenAccess === true && (<div>
                             <ProductMainImage image={this.state.menAccess.image}/>
                             <ProductThumbImage image={this.state.menAccess.image} />
-                            <ProductDetails name={this.state.menAccess.name} price={this.state.menAccess.price}  oldprice={this.state.menAccess.oldprice} details={this.state.menAccess.details} /></div>
+                            <ProductDetails name={this.state.menAccess.name} price={this.state.menAccess.price}  oldprice={this.state.menAccess.oldprice} details={this.state.menAccess.details} id={this.state.menAccess._id}/></div>
                         )}
 
                          {this.state.showWomenAccess === true && (<div>
                             <ProductMainImage image={this.state.womenAccess.image}/>
                             <ProductThumbImage image={this.state.womenAccess.image} />
-                            <ProductDetails name={this.state.womenAccess.name} price={this.state.womenAccess.price}  oldprice={this.state.womenAccess.oldprice} details={this.state.womenAccess.details} /></div>
+                            <ProductDetails name={this.state.womenAccess.name} price={this.state.womenAccess.price}  oldprice={this.state.womenAccess.oldprice} details={this.state.womenAccess.details} id={this.state.womenAccess._id}/></div>
                         )}
 
                         {this.state.showMenCloth === true && (<div>
                             <ProductMainImage image={this.state.menCloth.image}/>
                             <ProductThumbImage image={this.state.menCloth.image} />
-                            <ProductDetails name={this.state.menCloth.name} price={this.state.menCloth.price}  oldprice={this.state.menCloth.oldprice} details={this.state.menCloth.details} /></div>
+                            <ProductDetails name={this.state.menCloth.name} price={this.state.menCloth.price}  oldprice={this.state.menCloth.oldprice} details={this.state.menCloth.details} id={this.state.menCloth._id}/></div>
                         )}
 
                         {this.state.showWomenCloth === true && (<div>
                             <ProductMainImage image={this.state.womenCloth.image}/>
                             <ProductThumbImage image={this.state.womenCloth.image} />
-                            <ProductDetails name={this.state.womenCloth.name} price={this.state.womenCloth.price}  oldprice={this.state.womenCloth.oldprice} details={this.state.womenCloth.details} /></div>
+                            <ProductDetails name={this.state.womenCloth.name} price={this.state.womenCloth.price}  oldprice={this.state.womenCloth.oldprice} details={this.state.womenCloth.details} id={this.state.womenCloth._id} /></div>
                         )}
 
                         {this.state.showProduct === true && (<div><ProductMainImage image={this.state.product_details.image}/>
                             <ProductThumbImage image={this.state.product_details.image} />
-                            <ProductDetails name={this.state.product_details.name} price={this.state.product_details.price}  oldprice={this.state.product_details.oldprice} details={this.state.product_details.details} image={this.state.product_details.image} /></div>)}
+                            <ProductDetails name={this.state.product_details.name} price={this.state.product_details.price}  oldprice={this.state.product_details.oldprice} details={this.state.product_details.details} image={this.state.product_details.image} id={this.state.product_details._id}/></div>)}
                             <ProductTab />
 
                         </div>

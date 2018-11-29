@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-//import { getProductDetailsRequest } from '../../services/apiRequest';
-
 class ProductDetails extends Component {
-
-
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +7,6 @@ class ProductDetails extends Component {
             price: '',
         }
     }
-
 
     onSubmit = (e) => {
         e.preventDefault();
@@ -31,23 +26,34 @@ class ProductDetails extends Component {
         this.setState({ qty: this.state.qty - 1 });
     }
 
-    checkoutDetails = (name, price, qty) => {
+    /*checkoutDetails = (name, price, qty) => {
         this.setState({
             name: name,
             price: price,
             qty: qty
         })
+    }*/
+
+    addToStorage = () => {
+        let storedArray = [];
+        let checkProduct = JSON.parse(localStorage.getItem('product'));
+        if (!Array.isArray(checkProduct) || checkProduct === null) {
+            alert('Item added to cart')
+            let productData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props.id }
+            storedArray.push(productData)
+            localStorage.setItem('product', JSON.stringify(storedArray))
+
+            //  window.location.reload();
+        } else {
+            alert('Item added to cart')
+            let getItem = JSON.parse(localStorage.getItem('product'));
+            let newData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props.id }
+            getItem.push(newData)
+            localStorage.setItem('product', JSON.stringify(getItem))
+            // window.location.reload();
+
+        }
     }
-
-    addToStorage =() => {
-        const productData = {name: this.props.name, price: this.props.price, image: this.props.image }
-        localStorage.setItem('product',JSON.stringify(productData))
-    }
-
-
-
-
-
 
     render() {
         return (
@@ -95,7 +101,7 @@ class ProductDetails extends Component {
                                     <span className="qty-down" onClick={this.onQtySubstract}>-</span>
                                 </div>
                             </div>
-                            <button onClick={(e) => {e.preventDefault(); this.addToStorage(); alert('Added to cart'); this.checkoutDetails() } } className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                            <button onClick={(e) => { e.preventDefault(); this.addToStorage(); }} className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                         </div>
 
                         <ul className="product-btns">
