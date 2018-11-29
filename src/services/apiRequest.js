@@ -10,7 +10,7 @@ const GetUserAuthToken = () => {
     }
   };
 
-  //Don't forget to comment http://localhost:3000 during production
+//Don't forget to comment http://localhost:3000 during production
 const apiUrl = 'https://arcane-shelf-55983.herokuapp.com';
 //const apiUrl = 'http://localhost:3000';
 const productApiUrl = `${apiUrl}/products`;
@@ -18,6 +18,15 @@ const authApiUrl = `${apiUrl}/auth`;
 const userApiUrl = `${apiUrl}/users`;
 const cartApiUrl = `${apiUrl}/addtocart`;
 const vendorApiUrl = `${apiUrl}/vendors`;
+
+
+/**
+ * Simple Search Query for 
+ * @param {string} -search_query goes here
+ */
+export const searchQuery = (query) => {
+  return Axios.get(`${productApiUrl}/search?name=${query}`)
+}
 
 /**
  * 

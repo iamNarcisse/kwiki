@@ -34,7 +34,7 @@ class SectionThree extends Component {
 	getTopProductDetails = () => {
 		getTopProduct()
 		.then(axiosResponse => {
-			console.log(this.state)
+			//console.log(this.state)
 			if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
 				this.setState({
 					topProduct: axiosResponse.data.data

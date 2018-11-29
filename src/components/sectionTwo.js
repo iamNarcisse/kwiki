@@ -48,13 +48,13 @@ class SectionTwo extends Component {
                         </div>
                         {
                             this.state.product.map(item => {
-                                
-                                
+
+
                                 return (
-                                    <div key={item._id}  className="col-md-4 col-xs-6" >
+                                    <div key={item._id} className="col-md-4 col-xs-6" >
                                         <div className="product">
                                             <div className="product-img">
-                                               {<img src={item.image} alt="" />}  
+                                                {<img src={item.image} alt="" />}
                                                 <div className="product-label">
                                                     <span className="sale">-30%</span>
                                                     <span className="new">NEW</span>
@@ -90,7 +90,7 @@ class SectionTwo extends Component {
                                                             const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
                                                             storedArray.push(productData)
                                                             localStorage.setItem('product', JSON.stringify(storedArray))
-                                                            
+
                                                             //  window.location.reload();
 
                                                         } else {
