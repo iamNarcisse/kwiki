@@ -34,8 +34,13 @@ class Register extends React.Component {
             this.state.phoneNumber
             )
             .then(axiosRes => {
+                if(axiosRes) {
+                    this.setState({
+                        showError : false
+                    })
+                }
                 console.log(axiosRes);
-                this.registerMessage()
+                this.registerMessage();
             })
             .catch(err => {
                 console.log(err);
@@ -51,8 +56,8 @@ class Register extends React.Component {
             <div className="row">
           
                 <div className="col-xs-11 col-md-6 col-sm-8 give" style={{ paddingTop: '40px', marginBottom: '12px' }} >
-                <center>{this.state.register && <RegisterMessage />}</center>
-                {this.state.showError && (<p style={{color: 'red'}}>{this.state.response}</p>)}
+                <center>{this.state.register  && <RegisterMessage />}</center>
+                {this.state.showError === true && (<p style={{color: 'red'}}>{this.state.response}</p>)}
                     <h2>Register</h2>
                     <form >
                         <div className="form-group">

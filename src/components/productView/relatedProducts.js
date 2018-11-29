@@ -55,7 +55,7 @@ class RelatedProduct extends Component {
                                 <div className="product-body">
                                     <p className="product-category">Category</p>
                                     <h3 className="product-name"><a href="#productname">{item.name}</a></h3>
-                                    <h4 className="product-price">${item.price} <del className="product-old-price">${item.oldprice}</del></h4>
+                                    <h4 className="product-price">&#8358;{item.price} <del className="product-old-price">&#8358;{item.oldprice}</del></h4>
                                     <div className="product-rating">
                                     </div>
                                     <div className="product-btns">

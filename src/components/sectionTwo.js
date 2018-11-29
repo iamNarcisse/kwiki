@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getProductInfo } from '../services/apiRequest';
+import { getProductInfo} from '../services/apiRequest';
 
 const storedArray = [];
 class SectionTwo extends Component {
@@ -14,6 +14,7 @@ class SectionTwo extends Component {
 
     componentDidMount() {
         this.getProductDetails();
+        
     }
 
     getProductDetails = () => {
@@ -22,10 +23,11 @@ class SectionTwo extends Component {
                 if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                     this.setState({
                         product: axiosResponse.data.data
-                    })
+                    }, () => { this.setState({ showNewProduct: true }) })
                 }
             })
     }
+
 
 
 
@@ -40,7 +42,7 @@ class SectionTwo extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="section-title">
-                                <h3 className="title">New Products</h3>
+                                {this.state.showNewProduct && (<h3 className="title">New Products</h3>)}
                                 <div className="section-nav">
 
                                 </div>

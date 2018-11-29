@@ -20,7 +20,7 @@ class Footer extends Component {
                                         <ul className="footer-links">
                                             <li><a href="#moreInfo"><i className="fa fa-map-marker"></i>Shop 5, Kuti Hall, University of Ibadan</a></li>
                                             <li><a href="#moreInfo"><i className="fa fa-phone"></i>+234 706-622-3284</a></li>
-                                            <li><a href="#moreInfo"><i className="fa fa-envelope-o"></i>info@kwikikarts.ng</a></li>
+                                            <li><a href="#moreInfo"><i className="fa fa-envelope-o"></i>kwikikarts@gmail.com</a></li>
                                         </ul>
                                     </div>
                                 </div>
