@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-class ProductMainImage extends Component {
+import React, { Component, Suspense, lazy } from 'react';
 
+const ImageComponent = lazy(() => import ('./imageComponent'));
+
+
+class ProductMainImage extends Component {
     render() {
         return (
-            <div className="col-md-5 col-md-push-2">
-                <div id="product-main-img">
-                    <div className="product-preview">
-                        <img src={this.props.image} alt="" />
-                    </div>
-                </div>
-            </div>
+            <Suspense fallback={<p>Image loading...</p>} >
+            <ImageComponent image={this.props.image} />
+            </Suspense>
         )
     }
 }

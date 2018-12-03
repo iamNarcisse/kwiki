@@ -7,11 +7,14 @@ class CartDetails extends Component {
             cart: [],
             qty: ''
         }
+
+        
     }
+
     componentDidMount() {
         this.getFromStorage();
     }
-
+       
 
     getFromStorage = () => {
         const getFromStorage = JSON.parse(localStorage.getItem('product'));
@@ -68,20 +71,8 @@ class CartDetails extends Component {
                                         }
                                     } className="delete"><i className="fa fa-close"></i></button>
                                 </div>
-
-
                             )
                         })}
-
-
-                        {  /*     <div className="product-widget">
-          <div className="product-img"> <img src={this.state.cart.image} alt="" /></div>
-          <div className="product-body">
-          <h3 className="product-name"><a href="#moreInfo">{this.props.name}</a></h3>
-          <h4 className="product-price"><span className="qty"> {this.props.qty} x </span>&#8358; {this.props.price}</h4>
-            </div>
-          <button className="delete"><i className="fa fa-close"></i></button>
-         </div>*/}
                     </div>
                     <div className="cart-summary">
                         <small>  Item(s) selected</small>
@@ -92,8 +83,8 @@ class CartDetails extends Component {
                         })}
                     </div>
                     <div className="cart-btns">
-                        <a href="#moreInfo">View Cart</a>
-                        <Link to="/pay">Checkout  <i className="fa fa-arrow-circle-right"></i></Link>
+                        <Link to="/pay">View Cart</Link>
+                        <Link to="/pay">Checkout<i className="fa fa-arrow-circle-right"></i></Link>
                     </div>
                 </div>
             </div >

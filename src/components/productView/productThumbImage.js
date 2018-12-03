@@ -1,18 +1,12 @@
-import React, { Component } from 'react';
-//import photo from '../store/product07.png';
-
+import React, { Component, Suspense, lazy } from 'react';
+const ThumbImageComponent = lazy(()=> import('./thumbImageComponent'))
 
 class ProductThumbImage extends Component {
     render() {
         return (
-            <div className="col-md-2  col-md-pull-5">
-                <div id="product-imgs">
-                    <div className="product-preview">
-                        <img src={this.props.image} alt="product" />
-                    </div>
-
-                </div>
-            </div>
+            <Suspense fallback={<p>Image loading...</p>}>
+            <ThumbImageComponent image={this.props.image}/>
+            </Suspense>
         )
     }
 }

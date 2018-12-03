@@ -27,13 +27,6 @@ class SectionTwo extends Component {
                 }
             })
     }
-
-
-
-
-
-
-
     render() {
 
         return (
@@ -50,13 +43,11 @@ class SectionTwo extends Component {
                         </div>
                         {
                             this.state.product.map(item => {
-
-
                                 return (
                                     <div key={item._id} className="col-md-4 col-xs-6" >
                                         <div className="product">
                                             <div className="product-img">
-                                                {<img src={item.image} alt="" />}
+                                            <img src={item.image} alt="food" />
                                                 <div className="product-label">
                                                     <span className="sale">-30%</span>
                                                     <span className="new">NEW</span>

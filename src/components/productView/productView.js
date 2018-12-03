@@ -128,7 +128,6 @@ class ProductView extends Component {
 
     getTopProductDetails = () => {
         let top_product_id = this.props.match.params.item_id;
-        console.log(' Here i am : ' +  top_product_id)
         getTopProductRequestDetails(top_product_id) 
         .then(axiosResponse => {
             //console.log(axiosResponse)

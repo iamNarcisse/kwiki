@@ -17,7 +17,6 @@ class RelatedProduct extends Component {
     getRelatedProduct = () => {
         getProductInfo()
             .then(axiosResponse => {
-                console.log(axiosResponse)
 
                 if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                     this.setState({
