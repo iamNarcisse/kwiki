@@ -601,6 +601,12 @@ textarea.input {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 920px) {
+  .cart-dropdown .cart-btns>Link {
+    cursor: pointer;
+  }
+}
+
 .cart-dropdown .cart-btns>Link:first-child {
   margin-right: -4px;
   background-color: #1e1f29;

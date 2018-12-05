@@ -6,10 +6,7 @@ import HotDeals from './hotDeals';
 import SectionThree from './sectionThree';
 import NewsLetter from './newsletter';
 import Footer from './footer';
-
-
 class HomePage extends Component {
-
     render() {
         return (
             <div>

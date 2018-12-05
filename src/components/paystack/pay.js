@@ -3,7 +3,7 @@ import { addToCart } from '../../services/apiRequest';
 import Footer from '../footer';
 
 import PaystackButton from 'react-paystack';
-
+const product_details = JSON.parse(localStorage.getItem('product')); //Fetches product added to cart
 const user_details = JSON.parse(localStorage.getItem('user_details')); //Fetches user_details
 const order_details = JSON.parse(localStorage.getItem('order_details')); //Fetches order_details from localstorage
 
@@ -32,14 +32,19 @@ class Pay extends Component {
 
   callback = (response) => {
     console.log(response); // card charged successfully, get reference here
-    addToCart(order_details.item_id,
-      order_details.user_id,
-      order_details.item_name,
-      order_details.user_firstName,
-      order_details.user_lastName,
-      order_details.user_email,
-      order_details.user_tel,
-      order_details.user_address, order_details.user_city);
+
+    for (let i = 0; i<product_details.length; i++) {
+      addToCart(
+        product_details[i].id,
+        user_details._id,
+        product_details[i].name,
+        order_details.user_firstName,
+        order_details.user_lastName,
+        user_details.email,
+        order_details.user_tel,
+        order_details.user_address, order_details.user_city);
+    }
+    
     localStorage.removeItem('order_placed');
     localStorage.removeItem('product');
      window.location.reload();

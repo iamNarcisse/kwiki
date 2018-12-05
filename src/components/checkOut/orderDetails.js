@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PlaceOrderButton from './placeOrderComponent';
 //import {addToCart} from '../../services/apiRequest';
 class OrderDetails extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class OrderDetails extends Component {
         } else {
             this.setState({
                 total : 0
-            })
+            }, ()=> {this.setState({Delivery : 0})})
         }
 
     }
@@ -122,40 +123,8 @@ class OrderDetails extends Component {
                         I've read and accept the <a href="#terms">terms & conditions</a>
                     </label>
                 </div>
-                {this.state.product.map((item, index) => {
-                    return (
-                        <a key={index} href="#placeOrder" className="primary-btn order-submit" onClick={
-                            () => {
-                                let user_details = JSON.parse(localStorage.getItem('user_details'));
-                                if (item.id === undefined || item.id === null) {
-                                    alert('Kindly add an Item to cart to Proceed')
-                                } else if (user_details === null || user_details === undefined) {
-                                    alert('Kindly login to proceed')
-                                } else {
-                                    let addToCart = {
-                                        item_id: item.id,
-                                        user_id: user_details._id,
-                                        item_name: item.name,
-                                        user_firstName: this.props.firstName,  /**   Storing Billing Details to localStorage so that it can be fetched after payment is successful  */
-                                        user_lastName: this.props.lastName,
-                                        user_email: this.props.email,
-                                        user_tel: this.props.tel,
-                                        user_address: this.props.address,
-                                        user_city: this.props.city
-                                    }
-                                    localStorage.setItem('order_details', JSON.stringify(addToCart));
-                                    localStorage.setItem('order_placed', true);
-                                    window.location.reload();
-                                }
-                            }
-
-
-                        }>Place order</a>
-
-
-                    )
-                })}
                 <br /><br />
+                <PlaceOrderButton firstName={this.props.firstName} lastName={this.props.lastName} email={this.props.email} city={this.props.city} tel={this.props.tel} address={this.props.address} />
             </div>
         )
     }

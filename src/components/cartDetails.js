@@ -7,14 +7,16 @@ class CartDetails extends Component {
             cart: [],
             qty: ''
         }
-
-        
     }
-
     componentDidMount() {
         this.getFromStorage();
     }
-       
+
+    youClick = (e) => {
+      e.preventDefault();
+
+      alert('You click me')
+    }
 
     getFromStorage = () => {
         const getFromStorage = JSON.parse(localStorage.getItem('product'));
@@ -55,7 +57,7 @@ class CartDetails extends Component {
                                     </div>
 
                                     <button onClick={
-                                    
+
                                         () => {
                                             const id = item.id;
                                             console.log(id)

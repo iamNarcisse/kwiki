@@ -6,7 +6,7 @@ const ImageComponent = lazy(() => import ('./imageComponent'));
 class ProductMainImage extends Component {
     render() {
         return (
-            <Suspense fallback={<p>Image loading...</p>} >
+            <Suspense fallback={<p style={{fontWeight: '6px'}}>Image loading...</p>} >
             <ImageComponent image={this.props.image} />
             </Suspense>
         )
