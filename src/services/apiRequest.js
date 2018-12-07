@@ -197,4 +197,8 @@ export const getUserDetailsRequest = () => {
     return Axios.get(`${vendorApiUrl}/getvendor`)
   }
 
-  
+  //Pick router is here oo
+
+  export const sendPickUpAndDelivery = (data) => {
+   return  Axios.post(`${apiUrl}/pickups/add`, data)
+  }

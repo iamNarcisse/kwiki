@@ -3,52 +3,70 @@ import Header from '../header';
 import Footer from '../footer';
 import Axios from 'axios';
 import AlertMessage from '../alertMessages';
-
-const PickUpAddressArray = ['Agbowo', 'Bodija', 'Mokola', 'Ajibode', 'Sango', 'UI'];
-const deliveryAddressArray = ['Agbowo', 'Bodija', 'Mokola', 'Ajibode', 'Sango', 'UI'];
+import { API_KEY } from '../../services/api_key';
+import { sendPickUpAndDelivery } from '../../services/apiRequest';
 
 class Pickup extends Component {
 
     constructor() {
         super();
         this.state = {
-            pickuparray: PickUpAddressArray,
-            deliveryaddress: deliveryAddressArray,
-            pickupaddress: '',
-            receiveraddress: '',
             amount: '',
-            data: [{
-                senderfullname: '',
-                senderemail: '',
-                senderphoneno: '',
-                item: '',
-                receiveremail: '',
-                receiverfullname: '',
-                receiverphoneno: '',
-            }],
+            start: '',
+            destination: '',
+            senderfullname: '',
+            senderemail: '',
+            senderphoneno: '',
+            item: '',
+            receiveremail: '',
+            receiverfullname: '',
+            receiverphoneno: '',
+            
             alert: false
         };
 
     }
 
-    handleAmount = () => {
-        const pickupaddress = this.state.pickupaddress;
-        const receiveraddress = this.state.receiveraddress
-        if (pickupaddress === 'Bodija' && receiveraddress === 'Sango') {
-            this.setState({
-                amount: 500
-            })
+    onChangeState = (e) => {
+        e.preventDefault()
+        this.setState({
+            [e.target.name]: e.target.value
+        })
 
-        } else if (pickupaddress === 'Agbowo' && receiveraddress === 'UI') {
-            this.setState({
-                amount: 300
-            })
+    }
 
-        }else if(pickupaddress === 'Bodija' && receiveraddress === 'Mokola') {
-            this.setState({
-                amount: 1000
+    onSubmit = (e) => {
+        let start = this.state.start;
+        let destination = this.state.destination;
+        e.preventDefault()
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/" //Don't forget to create your own proxy domain on heroku
+        const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${start}&destinations=${destination}&key=` + API_KEY;
+        Axios.get(proxyUrl + url)
+            .then(axiosResonse => {
+                let data = axiosResonse.data.rows;
+
+                for (let i = 0; i < data.length; i++) {
+
+                    let dataValue = data[i].elements;
+
+                    for (let i = 0; i < dataValue.length; i++) {
+
+                        let distance = dataValue[i].distance;
+                    
+                        let convertedToNumber = parseInt(distance.text, 10);
+                        
+                        let price = (convertedToNumber * 2 * 40);
+
+                        console.log(price)
+
+                        this.setState({
+                            amount: price
+                        })
+                    }
+                }
+
             })
-        }
+            .catch(err => { console.log(err) })
     }
 
     alertMessage = () => {
@@ -68,11 +86,7 @@ class Pickup extends Component {
         })
     }
 
-    onAmount = (e) => {
-        this.setState({
-            amount: e.target.value
-        })
-    }
+
 
     handleReceiveAddress = (e) => {
         this.setState({
@@ -83,13 +97,16 @@ class Pickup extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const data = this.state;
-        //changed url from http://localhost:3000 to https://arcane-shelf-55983.herokuapp.com
-        Axios.post("https://arcane-shelf-55983.herokuapp.com/pickups/add", data).then(
-            (results) => {
-                console.log(results);
-                this.alertMessage();
-            }
-        );
+        sendPickUpAndDelivery(data)
+            .then(
+                (results) => {
+                    console.log(results)
+                    this.alertMessage();
+                }
+            )
+            .catch(err => {
+                console.log('Pickup not send ' + err)
+            })
 
     }
 
@@ -109,78 +126,66 @@ class Pickup extends Component {
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label >Full Name</label>
-                                <input type="text" className="form-control" id="inputEmail4" onChange={this.onChange} value={this.state.data.senderfullname} name="senderfullname" placeholder="First & Last Name" required />
+                                <input type="text" className="form-control" id="inputEmail4" onChange={this.onChange} value={this.state.senderfullname} name="senderfullname" placeholder="First & Last Name" required />
                             </div>
                             <div className="form-group col-md-6">
                                 <label >Email</label>
-                                <input type="email" className="form-control" name="senderemail" onChange={this.onChange} value={this.state.data.senderemail} id="email" placeholder="Enter your Email Address" />
+                                <input type="email" className="form-control" name="senderemail" onChange={this.onChange} value={this.state.senderemail} id="email" placeholder="Enter your Email Address" />
                             </div>
                         </div>
 
                         <div className="form-group col-md-6 ">
                             <label >Amount</label>
-                            <input type="text" className="form-control" name="amount" onChange={this.onAmount} value={this.state.amount} placeholder="Amount" disabled />
+                            <input type="text" className="form-control" name="amount" value={this.state.amount} placeholder="Amount" disabled />
                         </div>
 
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label >Sender's Phone Number</label>
-                                <input type="tel" className="form-control" onChange={this.onChange} value={this.state.data.senderphoneno} maxLength="11" name="senderphoneno" placeholder="Sender's Phone number" required />
+                                <input type="tel" className="form-control" onChange={this.onChange} value={this.state.senderphoneno} maxLength="11" name="senderphoneno" placeholder="Sender's Phone number" required />
                             </div>
                             <div className="form-group col-md-6">
                                 <label >Item</label>
-                                <input type="text" className="form-control" onChange={this.onChange} value={this.state.data.item} name="item" placeholder="Enter your Email Address" />
+                                <input type="text" className="form-control" onChange={this.onChange} value={this.state.item} name="item" placeholder="Enter your Email Address" />
                             </div>
                         </div>
 
                         <div className="form-group col-md-6">
                             <label>PickUp Address:</label>
-                            <select onChange={this.handlePickAddress} className="form-control"  >
-                                {this.state.pickuparray.map((pickuparray, index) => {
-                                    return (
-                                        <option key={index} value={pickuparray}>{pickuparray}</option>
-                                    )
-                                })}
-                            </select>
+                            <input type="text" className="form-control" name="start" value={this.state.start} onChange={this.onChangeState} placeholder="Enter pickup address" />
+                           
                         </div>
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label >Receiver's Name</label>
-                                <input type="text" className="form-control" name="receiverfullname" onChange={this.onChange} value={this.state.data.receiverfullname} placeholder="Receiver's Name" required />
+                                <input type="text" className="form-control" name="receiverfullname" onChange={this.onChange} value={this.state.receiverfullname} placeholder="Receiver's Name" required />
                             </div>
                             <div className="form-group col-md-6">
                                 <label >Receiver's Phone Number</label>
-                                <input type="tel" className="form-control" name="receiverphoneno" onChange={this.onChange} value={this.state.data.receiverphoneno} placeholder="Receiver's Phone Number" maxLength="11" required />
+                                <input type="tel" className="form-control" name="receiverphoneno" onChange={this.onChange} value={this.state.receiverphoneno} placeholder="Receiver's Phone Number" maxLength="11" required />
                             </div>
                         </div>
 
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label >Receiver's Email</label>
-                                <input type="email" className="form-control" name="receiveremail" value={this.state.data.receiveremail} onChange={this.onChange} placeholder="Receiver's Email" />
+                                <input type="email" className="form-control" name="receiveremail" value={this.state.receiveremail} onChange={this.onChange} placeholder="Receiver's Email" />
                             </div>
 
 
                             <div className="form-group col-md-6">
                                 <label>Receivers address:</label>
-                                <select onChange={this.handleReceiveAddress} className="form-control">
-                                    {this.state.deliveryaddress.map((deliveraddress, index) => {
-                                        return (
-                                            <option key={index} value={deliveraddress}>{deliveraddress}</option>
 
-                                        )
-                                    })}
+                                <input type="text" className="form-control" name="destination" value={this.state.destination} onChange={this.onChangeState} placeholder="Enter delivery address" />
 
-
-                                </select>
-                            </div> 
+                            </div>
                         </div>
 
-                                     
+
 
                         <div >
-                               
-                               <p><input style={{position : 'relative', left: '20px', marginRight: '25px'}} type="checkbox" onChange={this.handleAmount}  /> Kindly Click to get amount for Delivery</p>
+
+                            <p><input style={{ position: 'relative', left: '20px', marginRight: '25px' }} type="checkbox" onChange={this.onSubmit} /> Kindly Click to get amount for Delivery</p>
                         </div>
                         <center><button type="submit" className="btn " style={{ backgroundColor: '#ff0066', color: '#fff' }} >Send</button></center>
 

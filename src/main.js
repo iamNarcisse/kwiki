@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Distance from './components/distanceApi/distance';
 import HomePage from './components/homePage';
 import Store from './components/store/store';
 import CheckOut from './components/checkOut/checkOut';
@@ -55,7 +54,6 @@ class Main extends Component {
                 <Route exact path="/femalecloth" component={WomenCloth} />
                 <Route exact path="/womenaccessories" component={WomenAccessories} />
                 <Route exact path="/menaccessories" component={MenAccessories} />
-                <Route exact path="/distance"  component={Distance} />
                 <Route exact path="/cakes" component={Cakes} />
                 {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}
                 {this.state.user_token &&(  <Route exact path="/account" component={Profile} />)}
