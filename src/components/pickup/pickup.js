@@ -54,7 +54,7 @@ class Pickup extends Component {
         let destination = this.state.destination;
         e.preventDefault()
         const proxyUrl = "https://cors-anywhere.herokuapp.com/" //Don't forget to create your own proxy domain on heroku
-        const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${start}&destinations=${destination}&key=` + API_KEY;
+        const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${start}&destinations=${destination}&key=` + API_KEY + `&region=ng`;
         Axios.get(proxyUrl + url)
             .then(axiosResonse => {
                 let data = axiosResonse.data.rows;
