@@ -43,7 +43,7 @@ class ProductDetails extends Component {
             storedArray.push(productData)
             localStorage.setItem('product', JSON.stringify(storedArray))
 
-            //  window.location.reload();
+           // window.location.reload();
         } else {
             alert('Item added to cart')
             let getItem = JSON.parse(localStorage.getItem('product'));

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 class WishList extends Component {
 
     render() {
         return (
             <div>
-                <a href="#wishlist">
-                    <i className="fa fa-heart-o"></i>
-                    <span>Your Wishlist</span>
-                    <div className="qty">2</div>
-                </a>
+                < Link to="/pay">
+                    <i className="fa fa-handshake-o"></i>
+                    <span>Check Out</span>
+                    {/*  <div className="qty"></div> */}
+                </Link>
             </div>
         )
     }
