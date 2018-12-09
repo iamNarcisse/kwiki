@@ -50,7 +50,7 @@ class CartDetails extends Component {
 
                                 <div key={item.id} className="product-widget">
 
-                                    <div className="product-img"> <img src={item.image} alt="" /></div>
+                                    <div className="product-img" > <img src={item.image} alt="product" /></div>
                                     <div className="product-body">
                                         <h3 className="product-name"><a href="#moreInfo">{item.name}</a></h3>
                                         <h4 className="product-price"><span className="qty">  x </span>&#8358; {item.price}</h4>
@@ -84,7 +84,7 @@ class CartDetails extends Component {
                             )
                         })}
                     </div>
-                    <div className="cart-btns">
+                    <div className="cart-btns" >
                         <Link to="/pay">View Cart</Link>
                         <Link to="/pay">Checkout<i className="fa fa-arrow-circle-right"></i></Link>
                     </div>

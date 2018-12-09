@@ -42,7 +42,8 @@ class Pay extends Component {
         order_details.user_lastName,
         user_details.email,
         order_details.user_tel,
-        order_details.user_address, order_details.user_city);
+        order_details.user_address, order_details.user_city,
+        product_details[i].price);
     }
     
     localStorage.removeItem('order_placed');

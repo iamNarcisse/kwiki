@@ -5,6 +5,8 @@ import Axios from 'axios';
 import AlertMessage from '../alertMessages';
 import { API_KEY } from '../../services/api_key';
 import { sendPickUpAndDelivery } from '../../services/apiRequest';
+import {location, location_02} from './locations';
+import AutoComplete from '../autoSuggest';
 
 class Pickup extends Component {
 
@@ -22,9 +24,21 @@ class Pickup extends Component {
             receiverfullname: '',
             receiverphoneno: '',
             
-            alert: false
+            alert: false,
         };
 
+    }
+
+    handleStart = (value) => {
+        this.setState ({
+            start : value
+        })
+    }
+
+    handleDestination = (value) => {
+        this.setState({
+            destination : value
+        })
     }
 
     onChangeState = (e) => {
@@ -44,7 +58,6 @@ class Pickup extends Component {
         Axios.get(proxyUrl + url)
             .then(axiosResonse => {
                 let data = axiosResonse.data.rows;
-
                 for (let i = 0; i < data.length; i++) {
 
                     let dataValue = data[i].elements;
@@ -56,12 +69,27 @@ class Pickup extends Component {
                         let convertedToNumber = parseInt(distance.text, 10);
                         
                         let price = (convertedToNumber * 2 * 40);
+                        //console.log(price)
+                        if( price === null || price === 0 || price ===undefined ) {
+                               // checkUI(start, destination)
+                               for (let i = 0; i < location.length; i++) {
+                                for (let l = 0; l < location_02.length; l++) {
+                                    if (start === location[i].name && destination === location_02[l].name) {
+                                        this.setState({
+                                            amount : 300
+                                        })
+                                    }
+                        
+                                }
+                            }
+                              
+                        } else {
+                            this.setState({
+                                amount : price
+                            })
+                        }
 
-                        console.log(price)
-
-                        this.setState({
-                            amount: price
-                        })
+                        
                     }
                 }
 
@@ -152,7 +180,9 @@ class Pickup extends Component {
 
                         <div className="form-group col-md-6">
                             <label>PickUp Address:</label>
-                            <input type="text" className="form-control" name="start" value={this.state.start} onChange={this.onChangeState} placeholder="Enter pickup address" />
+                       <AutoComplete work={this.handleStart} placeholder="Enter pickup address eg. Kuti Hall, UI" />
+
+                            {/* <input type="text" className="form-control" name="start" value={this.state.start} onChange={this.onChangeState} placeholder="Enter pickup address eg. Awo Hall, UI" />*/}
                            
                         </div>
                         <div className="form-row">
@@ -176,11 +206,13 @@ class Pickup extends Component {
                             <div className="form-group col-md-6">
                                 <label>Receivers address:</label>
 
-                                <input type="text" className="form-control" name="destination" value={this.state.destination} onChange={this.onChangeState} placeholder="Enter delivery address" />
+                       <AutoComplete work={this.handleDestination} placeholder="Enter delivery address eg. Awo Hall, UI" />
+
+
+                                {/* <input type="text" className="form-control" name="destination" value={this.state.destination} onChange={this.onChangeState} placeholder="Enter delivery address eg. Kuti Hall, UI" /> */} 
 
                             </div>
                         </div>
-
 
 
                         <div >

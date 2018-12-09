@@ -99,7 +99,7 @@ export const getUserDetailsRequest = () => {
   };
 
   //Add to cart Api here;
-  export const addToCart = (productId, userId,productName, firstName, lastName, email, tel, address, city) => {
+  export const addToCart = (productId, userId,productName, firstName, lastName, email, tel, address, city, amount) => {
     //You are meant to use product, but for the sake of testing use productDetails
     let body = {
       product_id : productId,
@@ -110,7 +110,8 @@ export const getUserDetailsRequest = () => {
       email: email,
       tel : tel,
       address : address,
-      city : city
+      city : city,
+      amount: amount
     }
     Axios.post(`${cartApiUrl}/add`, body)
 
