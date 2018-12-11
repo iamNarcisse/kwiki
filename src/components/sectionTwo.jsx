@@ -83,7 +83,7 @@ class SectionTwo extends Component {
                                                             const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
                                                             storedArray.push(productData)
                                                             localStorage.setItem('product', JSON.stringify(storedArray))
-
+            
                                                             //  window.location.reload();
 
                                                         } else {
@@ -92,7 +92,7 @@ class SectionTwo extends Component {
                                                             const newData = { name: item.name, price: item.price, image: item.image, id: item._id }
                                                             getItem.push(newData)
                                                             localStorage.setItem('product', JSON.stringify(getItem))
-
+                                                            
                                                             // window.location.reload();
 
                                                         }

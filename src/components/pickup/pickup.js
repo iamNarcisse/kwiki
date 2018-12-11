@@ -25,8 +25,14 @@ class Pickup extends Component {
             receiverphoneno: '',
             
             alert: false,
+            showSend: false
         };
 
+    }
+
+    disabled = () => {
+        let text = 'disabled';
+        return text
     }
 
     handleStart = (value) => {
@@ -77,7 +83,9 @@ class Pickup extends Component {
                                     if (start === location[i].name && destination === location_02[l].name) {
                                         this.setState({
                                             amount : 300
-                                        })
+                                        }, ()=> {this.setState({
+                                            showSend : true
+                                        })})
                                     }
                         
                                 }
@@ -86,7 +94,9 @@ class Pickup extends Component {
                         } else {
                             this.setState({
                                 amount : price
-                            })
+                            }, ()=> {this.setState({
+                                showSend : true
+                            })})
                         }
 
                         
@@ -214,13 +224,14 @@ class Pickup extends Component {
                             </div>
                         </div>
 
-
                         <div >
-
-                            <p><input style={{ position: 'relative', left: '20px', marginRight: '25px' }} type="checkbox" onChange={this.onSubmit} /> Kindly Click to get amount for Delivery</p>
+                            <p><input style={{ position: 'relative', left: '20px', marginRight: '25px' }} type="checkbox" onChange={this.onSubmit} /> Kindly Click to get amount for delivery</p>
                         </div>
-                        <center><button type="submit" className="btn " style={{ backgroundColor: '#ff0066', color: '#fff' }} >Send</button></center>
-
+                        <center>
+                        <input type="reset" value="Cancel" onClick={ (e)=> {e.preventDefault(); window.location.reload()}} style={{  marginRight: '25px' }} className="btn btn-danger" />
+                             {
+                            this.state.showSend === true && (<button type="submit" className="btn " style={{ backgroundColor: '#ff0066', color: '#fff' }} >Send</button>)} 
+                            {this.state.showSend === false && (<button type="submit" className="btn " style={{ backgroundColor: '#ff0066', color: '#fff' }} disabled >Send</button>)}  </center>
                     </form>
 
                 </div><br />

@@ -12,11 +12,6 @@ class CartDetails extends Component {
         this.getFromStorage();
     }
 
-    youClick = (e) => {
-      e.preventDefault();
-
-      alert('You click me')
-    }
 
     getFromStorage = () => {
         const getFromStorage = JSON.parse(localStorage.getItem('product'));
