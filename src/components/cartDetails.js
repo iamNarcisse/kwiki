@@ -8,23 +8,41 @@ class CartDetails extends Component {
             qty: ''
         }
     }
+
+    work = () => {
+
+        setInterval(() => {
+            const getFromStorage = JSON.parse(localStorage.getItem('product'));
+            if (Array.isArray(getFromStorage)) {
+                this.setState({ qty: getFromStorage.length })
+            } else {
+                this.setState({ qty: 0 })
+            }
+        }, 1000)
+    }
+
     componentDidMount() {
         this.getFromStorage();
+        this.work();
+
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.work())
     }
 
 
     getFromStorage = () => {
-        const getFromStorage = JSON.parse(localStorage.getItem('product'));
+        let getFromStorage = JSON.parse(localStorage.getItem('product'));
 
         if (getFromStorage !== undefined && getFromStorage !== null) {
-            const getNumber = getFromStorage.length
             this.setState({
                 cart: getFromStorage
-            }, () => { this.setState({ qty: getNumber }) })
+            })
         } else {
             this.setState({
                 cart: [0]
-            }, () => { this.setState({ qty: 0 }) })
+            })
         }
 
     }
