@@ -1,34 +1,42 @@
 import React, { Component } from 'react';
 import { searchQuery } from '../services/apiRequest';
+import { Modal, Button } from 'react-bootstrap';
+import { Card, CardActions, CardText, CardTitle } from 'react-mdl';
+import { Link } from 'react-router-dom';
 class SearchBar extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            query: ''
+            query: '',
+            show: false,
+            products: []
         }
     }
-
+    
+    handleClose = () => {
+        this.setState({ show: false });
+    }
     onChange = (e) => {
         this.setState({
             query: e.target.value
         })
     }
 
-    onClick = (e) => {
+    onHandleShow = (e) => {
         e.preventDefault();
-        console.log(this.state.query)
-        searchQuery (this.state.query)
-        .then(AxiosRes => {
-            console.log(AxiosRes.data.data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        searchQuery(this.state.query)
+            .then(AxiosRes => {
+                this.setState({
+                    products: AxiosRes.data.data
+                })
+            })
+            .then(
+                this.setState({ show: true })
+            )
+            .catch(err => {
+                console.log(err)
+            })
     }
-
-
-
 
     render() {
         return (
@@ -45,9 +53,49 @@ class SearchBar extends Component {
                             <option value="1">Accessories</option>
                         </select>
                         <input onChange={this.onChange} className="input" placeholder="Search here" />
-                        <button onClick={this.onClick} className="search-btn">Search</button>
+                        <button onClick={this.onHandleShow} className="search-btn">Search</button>
+                        {
+                            this.state.show && (
+                                <div>
+                                    <Modal show={this.state.show} onHide={this.handleClose}>
+                                        <Modal.Header closeButton>
+                                            <Modal.Title>Search Result</Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>
+                                            <div>
+                                                {this.state.products.map(item => {
+                                                    return (
+                                                        <div key={item._id}>
+
+                                                            <Card shadow={0} style={{ width: '320px', height: '320px', margin: 'auto' }}>
+                                                                <CardTitle expand style={{ color: '#ff0066', height: '200px ', background: `url(${item.image}) bottom right 15% no-repeat #46B6AC` }}>{item.name}</CardTitle>
+                                                                <CardText style={{ color: '#ff0066' }}>
+                                                                    {item.name}
+                                                                </CardText>
+                                                                <CardText>
+                                                                    {item.details}
+                                                                </CardText>
+                                                                <CardText>&#8358;{item.price}</CardText>
+                                                                <CardActions border>
+                                                                    <Link to={`/productview/${item._id}`} className="btn" style={{ backgroundColor: '#ff0066', color: '#fff' }}>View</Link>
+                                                                </CardActions>
+                                                            </Card>
+
+
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        </Modal.Body>
+                                        <Modal.Footer>
+                                            <Button onClick={this.handleClose}>Close</Button>
+                                        </Modal.Footer>
+                                    </Modal>
+                                </div>
+                            )}
                     </form>
                 </div>
+
             </div>
         )
     }

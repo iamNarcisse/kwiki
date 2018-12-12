@@ -28,12 +28,14 @@ class CartDetails extends Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.work())
+        clearInterval(this.work());
+        clearInterval(this.getFromStorage())
     }
 
 
     getFromStorage = () => {
-        let getFromStorage = JSON.parse(localStorage.getItem('product'));
+        setInterval ( ()=> {
+            let getFromStorage = JSON.parse(localStorage.getItem('product'));
 
         if (getFromStorage !== undefined && getFromStorage !== null) {
             this.setState({
@@ -45,6 +47,7 @@ class CartDetails extends Component {
             })
         }
 
+        }, 1200)
     }
 
     render() {
