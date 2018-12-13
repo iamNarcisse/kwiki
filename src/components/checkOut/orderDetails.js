@@ -80,6 +80,7 @@ class OrderDetails extends Component {
                                                 }
                                             }
                                             localStorage.setItem('product', JSON.stringify(getFromStorage))
+                                            window.location.reload()
                                         }
                                     } className="delete"><i className="fa fa-close"></i></button>
                                     <div>&#8358;{item.price}</div></div></div>
