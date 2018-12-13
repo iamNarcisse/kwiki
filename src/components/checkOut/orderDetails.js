@@ -29,8 +29,8 @@ class OrderDetails extends Component {
 
         } else {
             this.setState({
-                total : 0
-            }, ()=> {this.setState({Delivery : 0})})
+                total: 0
+            }, () => { this.setState({ Delivery: 0 }) })
         }
 
     }
@@ -64,10 +64,24 @@ class OrderDetails extends Component {
                     </div>
                     {this.state.product.map(item => {
                         return (
-
                             <div key={item.id} className="order-products">
                                 <div className="order-col">
-                                    <div>1 x {item.name}</div>
+                                    <div>1 x {item.name}</div> <button onClick={
+
+                                        () => {
+                                            const id = item.id;
+                                            console.log(id)
+                                            //Get products from localstorage
+                                            let getFromStorage = JSON.parse(localStorage.getItem('product'));
+                                            //Loop through the array
+                                            for (let i = 0; i < getFromStorage.length; i++) {
+                                                if (getFromStorage[i].id === id) {
+                                                    getFromStorage.splice(i, 1);
+                                                }
+                                            }
+                                            localStorage.setItem('product', JSON.stringify(getFromStorage))
+                                        }
+                                    } className="delete"><i className="fa fa-close"></i></button>
                                     <div>&#8358;{item.price}</div></div></div>
                         )
 
