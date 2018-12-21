@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "jquery": "^3.3.1",
+    "mdbreact": "^4.8.5-patch.1",
     "react": "^16.6.0",
     "react-autosuggest": "^9.4.2",
     "react-bootstrap": "^0.32.4",
@@ -20,7 +21,7 @@
     "serve": "^10.1.1"
   },
   "scripts": {
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

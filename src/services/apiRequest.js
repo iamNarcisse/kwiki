@@ -203,3 +203,8 @@ export const getUserDetailsRequest = () => {
   export const sendPickUpAndDelivery = (data) => {
    return  Axios.post(`${apiUrl}/pickups/add`, data)
   }
+
+  //Admin router here
+  export const getEntireCustomers = () => {
+    return Axios.get(`${apiUrl}/customers/get`)
+  }
