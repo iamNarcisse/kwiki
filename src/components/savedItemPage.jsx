@@ -20,7 +20,7 @@ class SavedItemPage extends Component {
 
     handleSavedItem = () => {
 
-        if (JSON.parse(localStorage.getItem('user_details'))) {
+        if (JSON.parse(localStorage.getItem('user_details')) && Array.isArray(JSON.parse(localStorage.getItem('wishlist')))) {
 
             let savedItem = JSON.parse(localStorage.getItem('wishlist'));
 
@@ -28,6 +28,10 @@ class SavedItemPage extends Component {
                 savedItem: savedItem
             })
 
+        } else {
+            this.setState({
+                savedItem: []
+            })
         }
     }
 
