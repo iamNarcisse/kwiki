@@ -17,6 +17,12 @@ import WomenCloth from './components/womenCloth/womenCloth';
 import WomenAccessories from './components/womenAccessories/womenAccessories';
 import MenAccessories from './components/menAccessories/menAccessories';
 import UserDetails from './components/profile/accountDetails';
+import Admin from './components/Admin/admin';
+import Orders from './components/Admin/orders/order';
+import LoginAdmin from './components/Admin/login/login';
+import OrderHistory from './components/profile/orderHistory';
+import AboutUs from './components/aboutUs/aboutUsComponent'; 
+import SavedItemPage from './components/savedItemPage';
 class Main extends Component {
     constructor() {
         super();
@@ -24,8 +30,16 @@ class Main extends Component {
     }
     componentDidMount () {
         this.getUserToken();
+        this.getAdminToken();
         this.getOrderIsTrue();
     }
+
+    getAdminToken = () => {
+        this.setState({
+            admin_token : localStorage.getItem("admin_token")
+        })
+    }
+
     getUserToken = () => {
        this.setState({
         user_token: localStorage.getItem("user_token")
@@ -42,6 +56,7 @@ class Main extends Component {
     render() {
         return (
             <Switch>
+                <Route exact path="/aboutus" component={AboutUs} />
                 {this.state.order_made && ( <Route exact path="/pay" component={Pay} />)}
                 <Route exact path="/store" component={Store} />
                 {!this.state.order_made && (<Route exact path="/pay" component={CheckOut} />)}
@@ -55,9 +70,14 @@ class Main extends Component {
                 <Route exact path="/womenaccessories" component={WomenAccessories} />
                 <Route exact path="/menaccessories" component={MenAccessories} />
                 <Route exact path="/cakes" component={Cakes} />
+                <Route exact path="/wishlist" component={SavedItemPage} />
+                {!this.state.admin_token && (<Route exact path="/admin_login" component={LoginAdmin} />)}
+                {this.state.admin_token && (<Route exact path="/admin_login" component={Admin} />)}
                 {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}
                 {this.state.user_token &&(  <Route exact path="/account" component={Profile} />)}
                 {this.state.user_token &&(  <Route exact path="/userDetails" component={UserDetails} />)}
+                {this.state.user_token &&(  <Route exact path="/orderHistory" component={OrderHistory} />)}
+                {this.state.admin_token && (<Route exact path="/customer_orders" component={Orders} />)}
                 <Route path="/" component={HomePage} />
             </Switch>
         )

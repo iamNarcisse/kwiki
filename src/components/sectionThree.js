@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { getTopProduct, getFood} from '../services/apiRequest';
-import {Link} from 'react-router-dom';
+import { getTopProduct, getFood, addToWish} from '../services/apiRequest';
+import { Link } from 'react-router-dom';
 //import ShowTopFood from './showTopFood';
 
 const storedArray = [];
@@ -90,7 +90,61 @@ class SectionThree extends Component {
 															<i className="fa fa-star"></i>
 														</div>
 														<div className="product-btns">
-															<button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+															<button className="add-to-wishlist" onClick={ (e) => {
+																
+																if (!JSON.parse(localStorage.getItem('user_details'))) {
+
+																	alert('You must be logged in')
+		
+																} else {
+																	e.preventDefault(); alert('Item added to wishlist')
+		
+																	if (JSON.parse(localStorage.getItem('wishlist')) === null || JSON.parse(localStorage.getItem('wishlist')) === undefined || !Array.isArray(JSON.parse(localStorage.getItem('wishlist')))) {
+																		let userData  = JSON.parse(localStorage.getItem('user_details'));
+																		let wishedListArray = [];
+		
+																		let wishedItem = {
+																			productID: item._id,
+																			productName: item.name,
+																			productPrice: item.price,
+																			productImage: item.image,
+																			vendor: item.seller,
+		
+																		}
+																		wishedListArray.push(wishedItem);
+																		localStorage.setItem('wishlist', JSON.stringify(wishedListArray))
+																		addToWish(item._id, userData._id, item.name, userData.firstname + userData.lastname)
+																		.then(result=> {console.log(result)})
+																		.catch(err=> {console.log(err)})
+																	} else {
+																		let userData  = JSON.parse(localStorage.getItem('user_details'));
+																		let wishedItem = JSON.parse(localStorage.getItem('wishlist'));
+																		
+		
+																		let list = {
+																			productID: item._id,
+																			productName: item.name,
+																			productPrice: item.price,
+																			productImage: item.image,
+																			vendor: item.seller,
+		
+																		}
+		
+																		wishedItem.push(list);
+		
+																		localStorage.setItem('wishlist', JSON.stringify(wishedItem))
+																		addToWish(item._id, userData._id, item.name, userData.firstname + userData.lastname)
+																		.then(result=> {console.log(result)})
+																		.catch(err=> {console.log(err)})
+		
+		
+																	}
+		
+																}
+		
+
+
+															}}><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
 															<button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
 															<button className="quick-view"><Link to ={`productview/${item._id}`} ><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
 														</div>

@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import TopHeader from './topHeader';
 import Logo from './logo';
 import SearchBar from './searchBar';
-import WishList from './wishList';
+import CheckOut from './checkoutComponent';
 import Cart from './cart';
 import MenuToggle from './menuToggle';
 import Navigation from './navigation';
-
+import { Link } from 'react-router-dom';
 class Header extends Component {
-
     render() {
         return (
             <div>
@@ -20,9 +19,21 @@ class Header extends Component {
                             <SearchBar />
                             <div className="col-md-3 clearfix">
                                 <div className="header-ctn">
-                                    {<WishList />}
-                                    <Cart />
+                                    {  JSON.parse(localStorage.getItem('user_details')) && <CheckOut />}
+                                    <Cart /> 
                                     <MenuToggle />
+                                    {
+                                         JSON.parse(localStorage.getItem('user_details')) && (
+                                            <div className="wishy" >
+                                            < Link to="/wishlist">
+                                                <i className="fa fa-heart-o" aria-hidden="true" ></i>
+                                                <span>Saved Item</span>
+                                                {/*  <div className="qty"></div> */}
+                                            </Link>
+                                        </div>
+                                        )
+                                    }
+                                   
                                 </div>
                             </div>
                         </div>

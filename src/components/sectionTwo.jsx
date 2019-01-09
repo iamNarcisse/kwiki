@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getProductInfo} from '../services/apiRequest';
+import { getProductInfo, addToWish } from '../services/apiRequest';
 
 const storedArray = [];
 class SectionTwo extends Component {
@@ -14,7 +14,7 @@ class SectionTwo extends Component {
 
     componentDidMount() {
         this.getProductDetails();
-        
+
     }
 
     getProductDetails = () => {
@@ -47,7 +47,7 @@ class SectionTwo extends Component {
                                     <div key={item._id} className="col-md-4 col-xs-6" >
                                         <div className="product">
                                             <div className="product-img">
-                                            <img src={item.image} alt="food" />
+                                                <img src={item.image} alt="food" />
                                                 <div className="product-label">
                                                     <span className="sale">-30%</span>
                                                     <span className="new">NEW</span>
@@ -66,7 +66,58 @@ class SectionTwo extends Component {
                                                     <i className="fa fa-star"></i>
                                                 </div>
                                                 <div className="product-btns">
-                                                    <button className="add-to-wishlist"><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
+                                                    <button className="add-to-wishlist" onClick={(e) => {
+
+                                                        if (!JSON.parse(localStorage.getItem('user_details'))) {
+
+                                                            alert('You must be logged in')
+
+                                                        } else {
+                                                            e.preventDefault(); alert('Item added to wishlist')
+
+                                                            if (JSON.parse(localStorage.getItem('wishlist')) === null || JSON.parse(localStorage.getItem('wishlist')) === undefined || !Array.isArray(JSON.parse(localStorage.getItem('wishlist')))) {
+                                                                let userData = JSON.parse(localStorage.getItem('user_details'));
+                                                                let wishedListArray = [];
+
+                                                                let wishedItem = {
+                                                                    productID: item._id,
+                                                                    productName: item.name,
+                                                                    productPrice: item.price,
+                                                                    productImage: item.image,
+                                                                    vendor: item.seller,
+
+                                                                }
+                                                                wishedListArray.push(wishedItem);
+                                                                localStorage.setItem('wishlist', JSON.stringify(wishedListArray));
+                                                                addToWish(item._id, userData._id, item.name, userData.firstname + userData.lastname)
+                                                                    .then(result => { console.log(result) })
+                                                                    .catch(err => { console.log(err) })
+                                                            } else {
+                                                                let userData = JSON.parse(localStorage.getItem('user_details'));
+                                                                let wishedItem = JSON.parse(localStorage.getItem('wishlist'));
+                                                                let list = {
+                                                                    productID: item._id,
+                                                                    productName: item.name,
+                                                                    productPrice: item.price,
+                                                                    productImage: item.image,
+                                                                    vendor: item.seller,
+
+                                                                }
+
+                                                                wishedItem.push(list);
+
+                                                                localStorage.setItem('wishlist', JSON.stringify(wishedItem));
+                                                                addToWish(item._id, userData._id, item.name, userData.firstname + userData.lastname)
+                                                                    .then(result => { console.log(result) })
+                                                                    .catch(err => { console.log(err) })
+
+
+                                                            }
+
+                                                        }
+
+                                                    }
+                                                    } ><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
                                                     <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
                                                     <button className="quick-view"><Link to={`/productview/${item._id}`} ><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
                                                 </div>
@@ -83,7 +134,7 @@ class SectionTwo extends Component {
                                                             const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
                                                             storedArray.push(productData)
                                                             localStorage.setItem('product', JSON.stringify(storedArray))
-            
+
                                                             //  window.location.reload();
 
                                                         } else {
@@ -92,7 +143,7 @@ class SectionTwo extends Component {
                                                             const newData = { name: item.name, price: item.price, image: item.image, id: item._id }
                                                             getItem.push(newData)
                                                             localStorage.setItem('product', JSON.stringify(getItem))
-                                                            
+
                                                             // window.location.reload();
 
                                                         }

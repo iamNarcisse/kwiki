@@ -5,8 +5,8 @@ class ProfileNavBar extends Component {
 
     logout = (e) => {
         e.preventDefault();
-        localStorage.removeItem('user_details');
-        localStorage.removeItem('user_token');
+        localStorage.removeItem('admin_details');
+        localStorage.removeItem('admin_token');
         window.location.reload()
     }
 
@@ -24,13 +24,13 @@ class ProfileNavBar extends Component {
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <ul className="nav navbar-nav">
-                            <li className="active"><Link to="/account">Home</Link></li>
-                            <li><Link  to="/userDetails">Account Details</Link></li>
-                            <li><a href="orderHistory">Orders</a></li>
+                            <li className="active"><Link to="/admin_login">Home</Link></li>
+                            <li><Link  to="#manage">Manage Products</Link></li>
+                            <li><Link to="/customer_orders">Orders</Link></li>
                             <li><a href="#paymentmethod">Payment Methods</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
-                            <li><a href="#logout" onClick={this.logout} ><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                            <li><a href="##d" onClick={this.logout}><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
                         </ul>
                     </div>
                 </div>

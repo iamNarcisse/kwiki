@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addToWish } from '../../services/apiRequest';
 class ProductDetails extends Component {
     constructor(props) {
         super(props);
@@ -43,7 +44,7 @@ class ProductDetails extends Component {
             storedArray.push(productData)
             localStorage.setItem('product', JSON.stringify(storedArray))
 
-           // window.location.reload();
+            // window.location.reload();
         } else {
             alert('Item added to cart')
             let getItem = JSON.parse(localStorage.getItem('product'));
@@ -105,7 +106,58 @@ class ProductDetails extends Component {
                         </div>
 
                         <ul className="product-btns">
-                            <li><a href="#whish"><i className="fa fa-heart-o"></i> add to wishlist</a></li>
+                            <li><a href="#whish" onClick={
+                                (e) => {
+                                    if (!JSON.parse(localStorage.getItem('user_details'))) {
+
+                                        alert('You must be logged in')
+
+                                    } else {
+                                        e.preventDefault(); alert('Item added to wishlist')
+
+                                        if (JSON.parse(localStorage.getItem('wishlist')) === null || JSON.parse(localStorage.getItem('wishlist')) === undefined || !Array.isArray(JSON.parse(localStorage.getItem('wishlist')))) {
+                                            let userData = JSON.parse(localStorage.getItem('user_details'));
+                                            let wishedListArray = [];
+
+                                            let wishedItem = {
+                                                productID: this.props.id,
+                                                productName: this.props.name,
+                                                productPrice: this.props.price,
+                                                productImage: this.props.image,
+                                                vendor: this.props.seller,
+
+                                            }
+                                            wishedListArray.push(wishedItem);
+                                            localStorage.setItem('wishlist', JSON.stringify(wishedListArray));
+                                            addToWish(this.props.id, userData._id, this.props.name, userData.firstname + userData.lastname)
+                                                .then(result => { console.log(result) })
+                                                .catch(err => { console.log(err) })
+                                        } else {
+                                            let userData = JSON.parse(localStorage.getItem('user_details'));
+                                            let wishedItem = JSON.parse(localStorage.getItem('wishlist'));
+
+                                            let list = {
+                                                productID: this.props.id,
+                                                productName: this.props.name,
+                                                productPrice: this.props.price,
+                                                productImage: this.props.image,
+                                                vendor: this.props.seller,
+
+                                            }
+
+                                            wishedItem.push(list);
+
+                                            localStorage.setItem('wishlist', JSON.stringify(wishedItem));
+                                            addToWish(this.props.id, userData._id, this.props.name, userData.firstname + userData.lastname)
+                                            .then(result => { console.log(result) })
+                                            .catch(err => { console.log(err) })
+
+
+                                        }
+
+                                    }
+                                }
+                            }><i className="fa fa-heart-o"></i> add to wishlist</a></li>
                             <li><a href="#compare"><i className="fa fa-exchange"></i> add to compare</a></li>
                         </ul>
 

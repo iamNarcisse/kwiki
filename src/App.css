@@ -383,3 +383,74 @@
   }
   
   /** Admin styels comes here*/
+.search input[type=search] {
+    width : 200px;
+    height: 35px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.search input[type=submit] {
+height: 35px;
+border: none;
+border-radius: 4px;
+margin: 4px
+}
+
+@media only screen and (max-width: 996px){
+
+    .myrow {
+        display: flex
+    }
+
+}
+.card-login {
+    max-width: 25rem;
+  }
+
+  
+@media screen and (min-width: 1021px) {
+
+    .login {
+        position: relative;
+        float: left;
+        left : 318px;
+        margin: 20px
+      }
+}
+  
+
+  @media screen and (max-width: 992px) {
+    
+    .login {
+        position: relative;
+        float: left;
+        left : 65px;
+        margin: 20px
+      }
+
+  }
+
+  @media only screen and (width: 411px) {
+    
+    .login {
+        position: relative;
+        float: left;
+        left : 120px;
+        margin: 20px
+      }
+
+  }
+
+  @media only screen and (max-width: 568px) {
+    
+    .login {
+        position: relative;
+        float: left;
+        left : 40px;
+        margin: 20px
+      }
+
+  }

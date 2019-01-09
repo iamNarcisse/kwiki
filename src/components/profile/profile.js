@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 //import Header from '../header';
-import avatar from './avatar.png';
 import Footer from '../footer';
-import Card from './card';
+//import Card from './card';
 import ProfileNavBar from './navBar';
 import { getUserDetailsRequest } from '../../services/apiRequest';
+import ProfileDisplay from './profileDisplay';
 
-
-const myStyle = {
-    width: '70px',
-    borderRadius: '200px',
-}
 
 
 class Profile extends Component {
@@ -30,7 +25,6 @@ class Profile extends Component {
     getUserDetails = () => {
         getUserDetailsRequest()
             .then(axiosResponse => {
-                console.log(axiosResponse);
                 if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                     this.setState({
                         user: axiosResponse.data.data
@@ -47,14 +41,14 @@ class Profile extends Component {
         return (
             <div>
                <ProfileNavBar />
-                <div className="avatar">
-               <center> <img src={avatar}  style={myStyle} alt="ava"/></center>
-                </div>
 
                 <div className="card-details">
 
-                <Card name={this.state.user.firstname} email={this.state.user.email} lastname={this.state.user.lastname} phone={this.state.user.phoneNumber}/>
+                <ProfileDisplay  name={this.state.user.firstname} email={this.state.user.email} lastname={this.state.user.lastname} phone={this.state.user.phoneNumber} address={this.state.user.address}/>
+
+               { /*<Card name={this.state.user.firstname} email={this.state.user.email} lastname={this.state.user.lastname} phone={this.state.user.phoneNumber} address={this.state.user.address} /> */}
                 </div>
+
 
                 
                <Footer />

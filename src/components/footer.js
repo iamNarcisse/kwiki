@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-
-class Footer extends Component {
-
-    render() {
+import React from 'react';
+import { Link } from 'react-router-dom';
+const Footer = (props) => {
         return (
             <div>
                 {/* FOOTER */}
@@ -44,7 +42,7 @@ class Footer extends Component {
                                     <div className="footer">
                                         <h3 className="footer-title">Information</h3>
                                         <ul className="footer-links">
-                                            <li><a href="#moreInfo">About Us</a></li>
+                                            <li><Link to="/aboutus">About Us</Link></li>
                                             <li><a href="#moreInfo">Contact Us</a></li>
                                             <li><a href="#moreInfo">Privacy Policy</a></li>
                                             <li><a href="#moreInfo">Orders and Returns</a></li>
@@ -98,7 +96,6 @@ class Footer extends Component {
                 {/* /FOOTER */}
             </div>
         )
-    }
 }
 
 export default Footer;

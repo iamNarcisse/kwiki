@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-class WishList extends Component {
+import { Link } from 'react-router-dom';
+class CheckOut extends Component {
 
     render() {
         return (
@@ -15,4 +15,4 @@ class WishList extends Component {
     }
 }
 
-export default WishList;
+export default CheckOut;

@@ -5,8 +5,8 @@ class ProfileNavBar extends Component {
 
     logout = (e) => {
         e.preventDefault();
-        localStorage.removeItem('user_details');
-        localStorage.removeItem('user_token');
+        localStorage.removeItem('admin_details');
+        localStorage.removeItem('admin_token');
         window.location.reload()
     }
 
@@ -20,13 +20,13 @@ class ProfileNavBar extends Component {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <Link className="navbar-brand" to="#hh">Kwikikarts</Link>
+                        <Link className="navbar-brand" to="/">Kwikikarts</Link>
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <ul className="nav navbar-nav">
-                            <li className="active"><Link to="/admin">Home</Link></li>
-                            <li><Link  to="/manage">Manage Products</Link></li>
-                            <li><Link to="/orders">Orders</Link></li>
+                            <li className="active"><Link to="/admin_login">Home</Link></li>
+                            <li><Link  to="#manage">Manage Products</Link></li>
+                            <li><Link to="/customer_orders">Orders</Link></li>
                             <li><a href="#paymentmethod">Payment Methods</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">

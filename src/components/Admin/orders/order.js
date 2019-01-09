@@ -1,6 +1,7 @@
 import React, {Component} from 'react'; 
-import NavBar from '../navBar';
-import DatatablePage from './dataTable';
+import NavBar from './navBar';
+//import DatatablePage from './dataTable';
+import OrderTable from './orderTable';
 class Orders extends Component {
     render() {
         return(
@@ -8,7 +9,7 @@ class Orders extends Component {
                 <NavBar />
                 <div className="container">
                 <h2>Customer Order History</h2>
-                <DatatablePage />
+                <OrderTable />
                 
                 </div>
             </div>

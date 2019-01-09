@@ -5,7 +5,7 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
         }
     }
 
@@ -35,17 +35,17 @@ class Login extends Component {
             })
             .catch(err => {
                 console.log(err);
-                this.setState({response : 'Invalid Email/Password'}, ()=> {this.setState({showError : true})})
+                this.setState({ response: 'Invalid Email/Password' }, () => { this.setState({ showError: true }) })
             });
     }
 
     render() {
         return (
             <div className="row" >
-                <div className="col-xs-11 col-md-6 col-sm-8 give" style={{marginRight: '70px', marginTop: '40px'}}>
+                <div className="col-xs-11 col-md-6 col-sm-8 give" style={{ marginRight: '70px', marginTop: '40px' }}>
                     <form >
                         <h2>Login</h2>
-                        {this.state.showError ===true && (<p style={{color: 'red'}}>{this.state.response}</p>)}
+                        {this.state.showError === true && (<p style={{ color: 'red' }}>{this.state.response}</p>)}
                         <div className="form-group">
                             <label >Email address</label>
                             <input type="email" onChange={this.onChange} className="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" />

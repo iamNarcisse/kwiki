@@ -172,11 +172,7 @@ class Pickup extends Component {
                             </div>
                         </div>
 
-                        <div className="form-group col-md-6 ">
-                            <label >Amount</label>
-                            <input type="text" className="form-control" name="amount" value={this.state.amount} placeholder="Amount" disabled />
-                        </div>
-
+                        
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label >Sender's Phone Number</label>
@@ -218,10 +214,14 @@ class Pickup extends Component {
 
                        <AutoComplete work={this.handleDestination} placeholder="Enter delivery address eg. Awo Hall, UI" />
 
-
                                 {/* <input type="text" className="form-control" name="destination" value={this.state.destination} onChange={this.onChangeState} placeholder="Enter delivery address eg. Kuti Hall, UI" /> */} 
 
                             </div>
+                        </div>
+
+                        <div className="form-group col-md-6 ">
+                            <label >Amount</label>
+                            <input type="text" className="form-control" name="amount" value={this.state.amount} placeholder="Amount" disabled />
                         </div>
 
                         <div >

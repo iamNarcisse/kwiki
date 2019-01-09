@@ -12,7 +12,7 @@ class Card extends Component {
                                 <p className="card-text">FirstName: {this.props.name}</p>
                                 <p className="card-text">LastName: {this.props.lastname}</p>
                                 <p className="card-text">Email: {this.props.email}</p>
-                                <p className="card-text">Address: {this.props.email}</p>
+                                <p className="card-text">Address: {this.props.address}</p>
                                 <p className="card-text">Number: {this.props.phone}</p>
                             </div>
                         </div>
