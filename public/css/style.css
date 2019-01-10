@@ -2318,6 +2318,7 @@ Profile-display & Profile-card here
   position: relative;
   clear: both;
 }
+
 .head1 {
   text-align: center;
   color: #ff0066;
@@ -2386,4 +2387,61 @@ Profile-display & Profile-card here
   padding: 10px 30px;
   text-align: center;
   text-decoration: none;
+  border-radius: 5px;
+}
+
+
+.blended_grid {
+  display: block;
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+
+.row1 {
+  clear: both;
+  text-align: center;
+  padding-top: 10px;
+  width: 100%;
+  max-width: 1170px;
+  line-height: 2;
+}
+
+.span1{
+font-size: 34px;
+color : #ff0066;
+margin-top: -10px;
+
+}
+
+.clor {
+  text-decoration: none;
+  color: #ff0066;
+  text-align: center;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.bgbox_grey {
+  border: 1px solid #efefef;
+  border-radius: 2px;
+  background: #F8F8F8;
+}
+.question {
+  font-size: 18px;
+  color: #ff0066;
+  margin: 20px 0;
+}
+
+.txt {
+  text-align: left;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 400;
+  padding: 0 22px;
+}
+.lst {
+  padding: 0 50px;
 }

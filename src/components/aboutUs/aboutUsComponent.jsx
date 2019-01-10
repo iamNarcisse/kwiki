@@ -2,6 +2,7 @@ import React from "react";
 import Header from '../header';
 import Footer from '../footer';
 import { Link } from 'react-router-dom';
+import Gesture from './gesture.jpg';
 class AboutUs extends React.Component {
 
   render() {
@@ -22,7 +23,11 @@ class AboutUs extends React.Component {
           <br className="clear" />
           <div className="about-row">
             <div>
-              <img style={{ verticalAlign: 'middle', maxWidth: '100%', border: '0' }} src="https://static.jumia.com.ng/cms/content-pages/About/KE_W19_LP_About_Us_01.jpg" alt="about" />
+              <img style={{ verticalAlign: 'middle', maxWidth: '100%', border: '0' }} src={Gesture} alt="about" />
+              
+              <br/>
+              <span style={{fontFamily : 'verdana', fontWeight : 'bold'}}>We are Africans building for Africans the most trusted and easy e-commerce/logistics platform.
+             </span>
             </div>
             <p className="sub-head"></p>
 
@@ -86,12 +91,12 @@ class AboutUs extends React.Component {
             </div>
 
             <div className="about-row">
-            <br/>
-            <br/>
-            <center>
-            <Link to="/" class="btnn">Shop Now</Link>
-            <Link to="/pickup" class="btnn" style={{marginLeft: "5%"}}>Lets handle your Pickup/Delivery Today</Link>
-            </center>
+              <br />
+              <br />
+              <center>
+                <Link to="/" class="btnn">Shop Now</Link>
+                <Link to="/pickup" class="btnn" style={{ marginLeft: "5%" }}>Pickup/Delivery</Link>
+              </center>
             </div>
 
 

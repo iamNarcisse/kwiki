@@ -23,6 +23,8 @@ import LoginAdmin from './components/Admin/login/login';
 import OrderHistory from './components/profile/orderHistory';
 import AboutUs from './components/aboutUs/aboutUsComponent'; 
 import SavedItemPage from './components/savedItemPage';
+import Terms from './components/terms/terms';
+import Privacy from './components/terms/privacy';
 class Main extends Component {
     constructor() {
         super();
@@ -71,6 +73,8 @@ class Main extends Component {
                 <Route exact path="/menaccessories" component={MenAccessories} />
                 <Route exact path="/cakes" component={Cakes} />
                 <Route exact path="/wishlist" component={SavedItemPage} />
+                <Route exact path="/terms" component={Terms} />
+                <Route exact path="/privacy" component={Privacy} />
                 {!this.state.admin_token && (<Route exact path="/admin_login" component={LoginAdmin} />)}
                 {this.state.admin_token && (<Route exact path="/admin_login" component={Admin} />)}
                 {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}

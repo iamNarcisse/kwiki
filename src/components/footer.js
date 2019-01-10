@@ -44,9 +44,9 @@ const Footer = (props) => {
                                         <ul className="footer-links">
                                             <li><Link to="/aboutus">About Us</Link></li>
                                             <li><a href="#moreInfo">Contact Us</a></li>
-                                            <li><a href="#moreInfo">Privacy Policy</a></li>
+                                            <li><Link to="/privacy">Privacy Policy</Link></li>
                                             <li><a href="#moreInfo">Orders and Returns</a></li>
-                                            <li><a href="#moreInfo">Terms & Conditions</a></li>
+                                            <li><Link to="/terms">Terms & Conditions</Link></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -19,7 +19,7 @@ class Header extends Component {
                             <SearchBar />
                             <div className="col-md-3 clearfix">
                                 <div className="header-ctn">
-                                    {  JSON.parse(localStorage.getItem('user_details')) && <CheckOut />}
+                                     <CheckOut />
                                     <Cart /> 
                                     <MenuToggle />
                                     {
