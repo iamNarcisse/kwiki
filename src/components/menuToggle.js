@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
 
 class MenuToggle extends Component {
@@ -34,7 +34,7 @@ class MenuToggle extends Component {
 
                                 <li className="active"><Link to="/">Home</Link></li>
                                 <li><a href="#Categories">Categories</a></li>
-                                <li><Link to="/cakes">Cakes</Link></li>
+                                <li><NavLink to="/cakes">Cakes</NavLink></li>
                                 <li className="dropdown">
                                     <Link className="dropdown-toogle" data-toggle="dropdown" to="#men">Clothes
                                 <span className="caret"></span>

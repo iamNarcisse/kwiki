@@ -57,7 +57,8 @@ class Main extends Component {
 
     render() {
         return (
-            <Switch>
+            <Switch >
+              
                 <Route exact path="/aboutus" component={AboutUs} />
                 {this.state.order_made && ( <Route exact path="/pay" component={Pay} />)}
                 <Route exact path="/store" component={Store} />

@@ -58,7 +58,7 @@ class Register extends React.Component {
                 <div className="col-xs-11 col-md-6 col-sm-8 give" style={{ paddingTop: '40px', marginBottom: '12px' }} >
                 <center>{this.state.register  && <RegisterMessage />}</center>
                 {this.state.showError === true && (<p style={{color: 'red'}}>{this.state.response}</p>)}
-                    <h2>Register</h2>
+                    <h2>SignUp</h2>
                     <form >
                         <div className="form-group">
                             <label >Fisrt Name</label>

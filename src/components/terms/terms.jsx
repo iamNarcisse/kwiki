@@ -8,6 +8,8 @@ const Terms = (props) => {
             <Header />
             <br/>
             <br/>
+
+            <div className="container">
             <div className="blended_grid">
 
             <div className="row1">
@@ -210,7 +212,7 @@ Both parties agree that this website may only be used in accordance with these T
             <div style={{color : '#ff0066', textAlign: 'left', fontSize: '18px', lineHeight: '22px', marginBottom: '5px'}}>How do I return an Item?</div>
 
             <div style={{textAlign: 'justify', fontSize: '12px', lineHeight: '22px'}}>
-                Online of Offline at our office.
+                Online or Offline at our office.
  <br />
                 <br />
             </div>
@@ -248,7 +250,7 @@ Both parties agree that this website may only be used in accordance with these T
  <br />
                 <br /> </div>
 
-            <div style={{color:'#ff0066', textAlign: 'left', fontSize: '18px', lineHeight: '22px', marginBottom: '5px'}}>Can I return an Item aftere 7 days?</div>
+            <div style={{color:'#ff0066', textAlign: 'left', fontSize: '18px', lineHeight: '22px', marginBottom: '5px'}}>Can I return an Item after 7 days?</div>
 
             <div style={{textAlign: 'justify', fontSize: '12px', lineHeight: '22px'}}>
                 You will not be able to return an item after 7 days but if it is faulty, it may be covered under warranty.
@@ -269,6 +271,8 @@ Both parties agree that this website may only be used in accordance with these T
 
 
         </div>
+            </div>
+            
         <br/>
         <br/>
 

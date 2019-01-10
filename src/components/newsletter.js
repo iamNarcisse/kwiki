@@ -29,9 +29,7 @@ class NewsLetter extends Component {
                                         <li>
                                             <a href="#moreInfo"><i className="fa fa-instagram"></i></a>
                                         </li>
-                                        <li>
-                                            <a href="#moreInfo"><i className="fa fa-pinterest"></i></a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>

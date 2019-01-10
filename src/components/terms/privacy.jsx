@@ -8,6 +8,8 @@ const Privacy = (props) => {
             <Header />
             <br />
             <br />
+            <div className="container">
+
             <div className="blended_grid">
                 <div className="row1">
                     <span className="span1">Privacy Policy</span>
@@ -95,7 +97,10 @@ const Privacy = (props) => {
                 </div>
 
 
-            </div><br />
+            </div>
+            
+            </div>
+            <br />
             <br/>
 
             <Footer />

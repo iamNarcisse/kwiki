@@ -14,7 +14,7 @@ const Footer = (props) => {
                                 <div className="col-md-3 col-xs-6">
                                     <div className="footer">
                                         <h3 className="footer-title">About Us</h3>
-                                        <p>Kwikikarts, a top notch online delivery that gets you want you want just the way you like with no extra charge</p>
+                                        <p>Kwikikarts, Your One Stop Virtual Mall</p>
                                         <ul className="footer-links">
                                             <li><a href="#moreInfo"><i className="fa fa-map-marker"></i>Shop 5, Kuti Hall, University of Ibadan</a></li>
                                             <li><a href="#moreInfo"><i className="fa fa-phone"></i>+234 706-622-3284</a></li>
@@ -42,11 +42,11 @@ const Footer = (props) => {
                                     <div className="footer">
                                         <h3 className="footer-title">Information</h3>
                                         <ul className="footer-links">
-                                            <li><Link to="/aboutus">About Us</Link></li>
+                                            <li><Link to="/aboutus" >About Us</Link></li>
                                             <li><a href="#moreInfo">Contact Us</a></li>
                                             <li><Link to="/privacy">Privacy Policy</Link></li>
                                             <li><a href="#moreInfo">Orders and Returns</a></li>
-                                            <li><Link to="/terms">Terms & Conditions</Link></li>
+                                            <li><Link to="/terms" >Terms & Conditions</Link></li>
                                         </ul>
                                     </div>
                                 </div>
