@@ -55,7 +55,7 @@ class SavedItemPage extends Component {
 
                 <div className="saved">
 
-                    <h2 style={savedItemStyle}>Saved Item</h2>
+                    <h2 style={savedItemStyle}>Your Wishlist</h2>
 
                     <table className="table table-striped">
 

@@ -27,7 +27,7 @@ class Header extends Component {
                                             <div className="wishy" >
                                             < Link to="/wishlist">
                                                 <i className="fa fa-heart-o" aria-hidden="true" ></i>
-                                                <span>Saved Item</span>
+                                                <span>Wishlist</span>
                                                 {/*  <div className="qty"></div> */}
                                             </Link>
                                         </div>

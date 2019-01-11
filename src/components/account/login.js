@@ -56,7 +56,7 @@ class Login extends Component {
                             <input type="password" onChange={this.onChange} name="password" className="form-control" placeholder="Password" />
                         </div>
 
-                        <button onClick={this.onClick} type="submit" className="btn" style={{ backgroundColor: '#ff0066', color: '#fff' }}>Login</button>
+                        <center><button onClick={this.onClick} type="submit" className="btn" style={{ backgroundColor: '#ff0066', color: '#fff' }}>Login</button></center>
 
                     </form></div></div>
 
