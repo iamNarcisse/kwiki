@@ -24,8 +24,8 @@ const adminConfig = {
 
 //Naricsse
 //Don't forget to comment http://localhost:3000 during production
-//const apiUrl = 'https://arcane-shelf-55983.herokuapp.com';
-const apiUrl = 'http://localhost:3000';
+const apiUrl = 'https://arcane-shelf-55983.herokuapp.com';
+//const apiUrl = 'http://localhost:3000';
 const productApiUrl = `${apiUrl}/products`;
 const authApiUrl = `${apiUrl}/auth`;
 const userApiUrl = `${apiUrl}/users`;
