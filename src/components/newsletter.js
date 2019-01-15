@@ -15,13 +15,13 @@ class NewsLetter extends Component {
                                     </form>
                                     <ul className="newsletter-follow">
                                         <li>
-                                            <a href="#moreInfo" className="facebook"><i className="fa fa-facebook"></i></a>
+                                            <a href="https://m.facebook.com/kwikideliveries/?ref=bookmarks" className="facebook"><i className="fa fa-facebook"></i></a>
                                         </li>
                                         <li>
                                             <a href="https://twitter.com/kwikikartsng?s=08" className="twitter"><i className="fa fa-twitter"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#moreInfo" className="instagram"><i className="fa fa-instagram"></i></a>
+                                            <a href="https://www.instagram.com/kwikikartsng/" className="instagram"><i className="fa fa-instagram"></i></a>
                                         </li>
                                         <li>
                                             <a href=" https://wa.me/2347066223284" className="whatsapp"><i className="fa fa-whatsapp" ></i></a>

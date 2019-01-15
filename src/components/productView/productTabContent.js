@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Tab3 from './tab3';
 
-class ProductTabContent extends Component {
-    render() {
+const  ProductTabContent =  (props) => {
+
         return (
             <div className="tab-content">
 
                 <div id="tab1" className="tab-pane fade in active">
                     <div className="row">
                         <div className="col-md-12">
-                            <p>Quality Product, I recommend</p>
+                            <p>{props.details}</p>
                         </div>
                     </div>
                 </div>
@@ -17,7 +17,7 @@ class ProductTabContent extends Component {
                 <div id="tab2" className="tab-pane fade in">
                     <div className="row">
                         <div className="col-md-12">
-                            <p>Exquisite</p>
+                            <p>{props.details}</p>
                         </div>
                     </div>
                 </div>
@@ -28,6 +28,5 @@ class ProductTabContent extends Component {
             </div>
         )
     }
-}
 
 export default ProductTabContent;

@@ -64,7 +64,7 @@ class Main extends Component {
                 {this.state.order_made && (<Route exact path="/pay" component={Pay} />)}
                 <Route exact path="/store" component={Store} />
                 {!this.state.order_made && (<Route exact path="/pay" component={CheckOut} />)}
-                <Route exact path="/productView/:item_id" component={ProductView} />
+                <Route exact path="/:item_id" component={ProductView} />
                 <Route exact path="/pickup" component={Pickup} />
                 <Route exact path="/food" component={Food} />
                 <Route exact path="/menshoe" component={MenShoe} />

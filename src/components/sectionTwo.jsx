@@ -35,7 +35,7 @@ class SectionTwo extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="section-title">
-                                {this.state.showNewProduct && (<h3 className="title" style={{fontFamily : 'verdana', fontSize : '15px'}}>New Products</h3>)}
+                                {this.state.showNewProduct && (<h3 className="title" style={{ fontFamily: 'verdana', fontSize: '15px' }}>New Products</h3>)}
                                 <div className="section-nav">
 
                                 </div>
@@ -51,7 +51,7 @@ class SectionTwo extends Component {
                                                 <div className="product-img">
                                                     <img src={item.image} alt="food" />
                                                     <div className="product-label">
-                                                        <span className="sale">-30%</span>
+                                                        {/*<span className="sale">-30%</span>*/}
                                                         <span className="new">NEW</span>
                                                     </div>
                                                 </div>
@@ -59,9 +59,9 @@ class SectionTwo extends Component {
                                             </Link>
 
                                             <div className="product-body">
-                                                <p className="product-category">Category</p>
+                                                <p className="product-category">{item.category}</p>
                                                 <h3 className="product-name"><a href="#add">{item.name}</a></h3>
-                                                <h4 className="product-price">&#8358;{item.price} <del className="product-old-price">&#8358;990.00</del></h4>
+                                                <h4 className="product-price">&#8358;{item.price} { item.oldprice && <del className="product-old-price">&#8358;{item.oldprice}</del>}</h4>
                                                 <h4 className="product-name">Sold By <a href="#add">{item.seller}</a></h4>
                                                 <div className="product-rating">
                                                     <i className="fa fa-star"></i>
@@ -124,7 +124,7 @@ class SectionTwo extends Component {
                                                     }
                                                     } ><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
                                                     <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                                                    <button className="quick-view"><Link to={`/productview/${item._id}`} ><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
+                                                    <button className="quick-view"><Link to={`/${item._id}`} ><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
                                                 </div>
                                             </div>
                                             <div className="add-to-cart">

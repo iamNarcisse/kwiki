@@ -74,11 +74,9 @@ class ProductDetails extends Component {
                             <a className="review-link" href="#review">10 Review(s) | Add your review</a>
                         </div>
                         <div>
-                            <h3 className="product-price" value={this.props.price} >&#8358;{this.props.price} <del className="product-old-price"> &#8358;{this.props.oldprice}</del></h3>
+                            <h3 className="product-price" value={this.props.price} >&#8358;{this.props.price} {this.props.oldprice && <del className="product-old-price"> &#8358;{this.props.oldprice}</del>}</h3>
                             <span className="product-available">In Stock</span>
                         </div>
-                        <p>{this.props.details}</p>
-
                         <div className="product-options">
                             <label>
                                 Size
