@@ -70,7 +70,7 @@ class SectionThree extends Component {
 										return (
 											<div className="col-md-4 col-xs-6" key={item._id}>
 												<div className="product">
-													<Link to={`productview/${item._id}`} >
+													<Link to={`/${item._id}`} >
 
 														<div className="product-img">
 															<img src={item.image} alt="" />

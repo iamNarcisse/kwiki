@@ -46,7 +46,7 @@ class SectionTwo extends Component {
                                 return (
                                     <div key={item._id} className="col-md-4 col-xs-6" >
                                         <div className="product">
-                                            <Link to={`/productview/${item._id}`} >
+                                            <Link to={`/${item._id}`} >
 
                                                 <div className="product-img">
                                                     <img src={item.image} alt="food" />
