@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { addToWish } from '../../services/apiRequest';
+import { Link } from 'react-router-dom';
 class ProductDetails extends Component {
     constructor(props) {
         super(props);
@@ -73,7 +74,7 @@ class ProductDetails extends Component {
                             <a className="review-link" href="#review">10 Review(s) | Add your review</a>
                         </div>
                         <div>
-                            <h3 className="product-price" value={this.props.price} >&#8358;{this.props.price} <del className="product-old-price"> ${this.props.oldprice}</del></h3>
+                            <h3 className="product-price" value={this.props.price} >&#8358;{this.props.price} <del className="product-old-price"> &#8358;{this.props.oldprice}</del></h3>
                             <span className="product-available">In Stock</span>
                         </div>
                         <p>{this.props.details}</p>
@@ -149,8 +150,8 @@ class ProductDetails extends Component {
 
                                             localStorage.setItem('wishlist', JSON.stringify(wishedItem));
                                             addToWish(this.props.id, userData._id, this.props.name, userData.firstname + userData.lastname)
-                                            .then(result => { console.log(result) })
-                                            .catch(err => { console.log(err) })
+                                                .then(result => { console.log(result) })
+                                                .catch(err => { console.log(err) })
 
 
                                         }
@@ -163,12 +164,12 @@ class ProductDetails extends Component {
 
                         <ul className="product-links">
                             <li>Category:</li>
-                            <li><a href="#headphone">Headphones</a></li>
-                            <li><a href="#acessories">Accessories</a></li>
+                            <li><Link  to="/food">{this.props.category}</Link></li>
+                            {/*<li><a href="#acessories">Accessories</a></li>*/}
                         </ul>
 
                         <ul className="product-links">
-                            <li>Share:</li>
+                            <li>Share:</li>6
                             <li><a href="#facebook"><i className="fa fa-facebook"></i></a></li>
                             <li><a href="#twitter"><i className="fa fa-twitter"></i></a></li>
                             <li><a href="#google"><i className="fa fa-google-plus"></i></a></li>

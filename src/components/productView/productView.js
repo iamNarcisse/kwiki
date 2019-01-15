@@ -233,7 +233,7 @@ class ProductView extends Component {
                         {this.state.showFood === true && (<div>
                             <ProductMainImage image={this.state.food.image}/>
                             <ProductThumbImage image={this.state.food.image} />
-                            <ProductDetails name={this.state.food.name} price={this.state.food.price}  oldprice={this.state.food.oldprice} details={this.state.food.details} id={this.state.food._id} /></div>
+                            <ProductDetails name={this.state.food.name} price={this.state.food.price}  oldprice={this.state.food.oldprice} details={this.state.food.details} id={this.state.food._id} category={this.state.food.category} /></div>
                         )}
 
                         {this.state.showCake === true && (<div>

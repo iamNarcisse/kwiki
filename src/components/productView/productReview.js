@@ -21,39 +21,7 @@ class ProductReview extends Component {
                                 </div>
                             </div>
                             <div className="review-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="review-heading">
-                                <h5 className="name">John</h5>
-                                <p className="date">27 DEC 2018, 8:0 PM</p>
-                                <div className="review-rating">
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star-o empty"></i>
-                                </div>
-                            </div>
-                            <div className="review-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="review-heading">
-                                <h5 className="name">John</h5>
-                                <p className="date">27 DEC 2018, 8:0 PM</p>
-                                <div className="review-rating">
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star-o empty"></i>
-                                </div>
-                            </div>
-                            <div className="review-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p>Quality Product, delivery was speedy</p>
                             </div>
                         </li>
                     </ul>

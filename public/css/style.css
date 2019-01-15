@@ -2445,3 +2445,18 @@ margin-top: -10px;
 .lst {
   padding: 0 50px;
 }
+
+.whatsapp {
+  color: rgb(126, 245, 162) !important
+}
+
+.twitter {
+  color: rgb(67, 152, 223) !important
+}
+
+.facebook {
+  color: rgb(62, 129, 216) !important
+}
+.instagram {
+  color : #ff0066;
+}

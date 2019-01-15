@@ -9,7 +9,7 @@ class ProductTabContent extends Component {
                 <div id="tab1" className="tab-pane fade in active">
                     <div className="row">
                         <div className="col-md-12">
-                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Quality Product, I recommend</p>
                         </div>
                     </div>
                 </div>
@@ -17,7 +17,7 @@ class ProductTabContent extends Component {
                 <div id="tab2" className="tab-pane fade in">
                     <div className="row">
                         <div className="col-md-12">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
+                            <p>Exquisite</p>
                         </div>
                     </div>
                 </div>

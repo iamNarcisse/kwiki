@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-
 class NewsLetter extends Component {
-
     render() {
         return (
             <div>
-                {/* NEWSLETTER*/}
-                
                 <div id="newsletter" className="section">
-                    {/* container*/}
                     <div className="container">
-                        {/* row*/}
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="newsletter">
@@ -21,24 +15,23 @@ class NewsLetter extends Component {
                                     </form>
                                     <ul className="newsletter-follow">
                                         <li>
-                                            <a href="#moreInfo"><i className="fa fa-facebook"></i></a>
+                                            <a href="#moreInfo" className="facebook"><i className="fa fa-facebook"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#moreInfo"><i className="fa fa-twitter"></i></a>
+                                            <a href="https://twitter.com/kwikikartsng?s=08" className="twitter"><i className="fa fa-twitter"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#moreInfo"><i className="fa fa-instagram"></i></a>
+                                            <a href="#moreInfo" className="instagram"><i className="fa fa-instagram"></i></a>
                                         </li>
-                                        
+                                        <li>
+                                            <a href=" https://wa.me/2347066223284" className="whatsapp"><i className="fa fa-whatsapp" ></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        {/* /row*/}
                     </div>
-                    {/* /container*/}
                 </div>
-                {/* /NEWSLETTER*/}
             </div >
         )
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlaceOrderButton from './placeOrderComponent';
-//import {addToCart} from '../../services/apiRequest';
+import OrderButton from './placeOrderButton2';
+import { Link } from 'react-router-dom';
 class OrderDetails extends Component {
     constructor(props) {
         super(props);
@@ -14,6 +15,19 @@ class OrderDetails extends Component {
     componentDidMount() {
         this.getFrom();
         this.getTotal();
+    }
+
+    PayOnline = () => {
+        this.setState({
+            online: true
+        }, ()=> {this.setState({onDelivery : false})})
+
+    }
+
+    onDelivery = () => {
+        this.setState(
+            { onDelivery: true }, ()=> {this.setState({online : false})}
+        )
     }
 
     getTotal = () => {
@@ -42,8 +56,6 @@ class OrderDetails extends Component {
             this.setState({
                 product: productData
             }, () => { this.setState({ user: userData }) })
-
-            // console.log(this.state.user)
         } else {
             this.setState({
                 product: [0]
@@ -101,33 +113,23 @@ class OrderDetails extends Component {
                 </div>
                 <div className="payment-method">
                     <div className="input-radio">
-                        <input type="radio" name="payment" id="payment-1" />
-                        <label htmlFor="payment-1">
-                            <span></span>
-                            Direct Bank Transfer
-								</label>
-                        <div className="caption">
-                            <p>Bank Transfer to this account: 000000000</p>
-                        </div>
-                    </div>
-                    <div className="input-radio">
-                        <input type="radio" name="payment" id="payment-2" />
+                        <input type="radio" name="payment" id="payment-2" onClick={this.onDelivery} />
                         <label htmlFor="payment-2">
                             <span></span>
                             Pay On Delivery
 								</label>
                         <div className="caption">
-                            <p>Pay on Item Delivery</p>
+                            <p></p>
                         </div>
                     </div>
                     <div className="input-radio">
-                        <input type="radio" name="payment" id="payment-3" />
+                        <input type="radio" name="payment" id="payment-3" onClick={this.PayOnline} />
                         <label htmlFor="payment-3">
                             <span></span>
-                            Paystack System
+                            Pay Online
 								</label>
                         <div className="caption">
-                            <p>Pay online </p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -135,11 +137,16 @@ class OrderDetails extends Component {
                     <input type="checkbox" id="terms" />
                     <label htmlFor="terms">
                         <span></span>
-                        I've read and accept the <a href="#terms">terms & conditions</a>
+                        I've read and accepted the <Link to="/terms">terms & conditions</Link>
                     </label>
                 </div>
                 <br /><br />
+                {this.state.online && (
                 <PlaceOrderButton firstName={this.props.firstName} lastName={this.props.lastName} email={this.props.email} city={this.props.city} tel={this.props.tel} address={this.props.address} />
+                )}
+                {this.state.onDelivery && (
+                <OrderButton firstName={this.props.firstName} lastName={this.props.lastName} email={this.props.email} city={this.props.city} tel={this.props.tel} address={this.props.address} />                  
+                )}
             </div>
         )
     }

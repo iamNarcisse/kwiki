@@ -35,7 +35,7 @@ class SectionTwo extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="section-title">
-                                {this.state.showNewProduct && (<h3 className="title">New Products</h3>)}
+                                {this.state.showNewProduct && (<h3 className="title" style={{fontFamily : 'verdana', fontSize : '15px'}}>New Products</h3>)}
                                 <div className="section-nav">
 
                                 </div>
@@ -46,13 +46,18 @@ class SectionTwo extends Component {
                                 return (
                                     <div key={item._id} className="col-md-4 col-xs-6" >
                                         <div className="product">
-                                            <div className="product-img">
-                                                <img src={item.image} alt="food" />
-                                                <div className="product-label">
-                                                    <span className="sale">-30%</span>
-                                                    <span className="new">NEW</span>
+                                            <Link to={`/productview/${item._id}`} >
+
+                                                <div className="product-img">
+                                                    <img src={item.image} alt="food" />
+                                                    <div className="product-label">
+                                                        <span className="sale">-30%</span>
+                                                        <span className="new">NEW</span>
+                                                    </div>
                                                 </div>
-                                            </div>
+
+                                            </Link>
+
                                             <div className="product-body">
                                                 <p className="product-category">Category</p>
                                                 <h3 className="product-name"><a href="#add">{item.name}</a></h3>

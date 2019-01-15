@@ -21,16 +21,17 @@ import Admin from './components/Admin/admin';
 import Orders from './components/Admin/orders/order';
 import LoginAdmin from './components/Admin/login/login';
 import OrderHistory from './components/profile/orderHistory';
-import AboutUs from './components/aboutUs/aboutUsComponent'; 
+import AboutUs from './components/aboutUs/aboutUsComponent';
 import SavedItemPage from './components/savedItemPage';
 import Terms from './components/terms/terms';
 import Privacy from './components/terms/privacy';
+//import OrderSuccess from './components/checkOut/orderSuccess';
 class Main extends Component {
     constructor() {
         super();
-        this.state={}
+        this.state = {}
     }
-    componentDidMount () {
+    componentDidMount() {
         this.getUserToken();
         this.getAdminToken();
         this.getOrderIsTrue();
@@ -38,33 +39,33 @@ class Main extends Component {
 
     getAdminToken = () => {
         this.setState({
-            admin_token : localStorage.getItem("admin_token")
+            admin_token: localStorage.getItem("admin_token")
         })
     }
 
     getUserToken = () => {
-       this.setState({
-        user_token: localStorage.getItem("user_token")
-       });
+        this.setState({
+            user_token: localStorage.getItem("user_token")
+        });
     }
 
     //This gets from localstorage whether order_purchased is set to true
     getOrderIsTrue = () => {
         this.setState({
-            order_made : localStorage.getItem('order_placed')
+            order_made: localStorage.getItem('order_placed')
         })
     }
 
     render() {
         return (
             <Switch >
-              
+
                 <Route exact path="/aboutus" component={AboutUs} />
-                {this.state.order_made && ( <Route exact path="/pay" component={Pay} />)}
+                {this.state.order_made && (<Route exact path="/pay" component={Pay} />)}
                 <Route exact path="/store" component={Store} />
                 {!this.state.order_made && (<Route exact path="/pay" component={CheckOut} />)}
                 <Route exact path="/productView/:item_id" component={ProductView} />
-                <Route exact path="/pickup"   component={Pickup} />
+                <Route exact path="/pickup" component={Pickup} />
                 <Route exact path="/food" component={Food} />
                 <Route exact path="/menshoe" component={MenShoe} />
                 <Route exact path="/femaleshoe" component={FemaleShoe} />
@@ -76,12 +77,13 @@ class Main extends Component {
                 <Route exact path="/wishlist" component={SavedItemPage} />
                 <Route exact path="/terms" component={Terms} />
                 <Route exact path="/privacy" component={Privacy} />
+                {/*Route exact path="/success" component={OrderSuccess} />*/}
                 {!this.state.admin_token && (<Route exact path="/admin_login" component={LoginAdmin} />)}
                 {this.state.admin_token && (<Route exact path="/admin_login" component={Admin} />)}
-                {!this.state.user_token && ( <Route exact path="/account"   component={Account} />)}
-                {this.state.user_token &&(  <Route exact path="/account" component={Profile} />)}
-                {this.state.user_token &&(  <Route exact path="/userDetails" component={UserDetails} />)}
-                {this.state.user_token &&(  <Route exact path="/orderHistory" component={OrderHistory} />)}
+                {!this.state.user_token && (<Route exact path="/account" component={Account} />)}
+                {this.state.user_token && (<Route exact path="/account" component={Profile} />)}
+                {this.state.user_token && (<Route exact path="/userDetails" component={UserDetails} />)}
+                {this.state.user_token && (<Route exact path="/orderHistory" component={OrderHistory} />)}
                 {this.state.admin_token && (<Route exact path="/customer_orders" component={Orders} />)}
                 <Route path="/" component={HomePage} />
             </Switch>

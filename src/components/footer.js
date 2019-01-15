@@ -18,7 +18,7 @@ const Footer = (props) => {
                                         <ul className="footer-links">
                                             <li><a href="#moreInfo"><i className="fa fa-map-marker"></i>Shop 5, Kuti Hall, University of Ibadan</a></li>
                                             <li><a href="#moreInfo"><i className="fa fa-phone"></i>+234 706-622-3284</a></li>
-                                            <li><a href="#moreInfo"><i className="fa fa-envelope-o"></i>kwikikarts@gmail.com</a></li>
+                                            <li><a href="#moreInfo"><i className="fa fa-envelope-o"></i>enquiries@kwikikarts.com.ng</a></li>
                                         </ul>
                                     </div>
                                 </div>

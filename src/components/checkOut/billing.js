@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import OrderDetails from './orderDetails';
+import { Link, Redirect } from 'react-router-dom';
 class Billing extends Component {
     constructor(props) {
         super(props);
@@ -13,42 +14,54 @@ class Billing extends Component {
         }
     }
 
-    handleFirstName = (e) => {
-        this.setState({
-            firstName: e.target.value
-        }
+    handleClick = () => {
+        return (
+            <Redirect to="/account" />
         )
     }
-    handleEmail = (e) => {
+
+    handleInputChange = (e) => {
         this.setState({
-            email: e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
-    handlelastName = (e) => {
-        this.setState({
-            lastName: e.target.value
-        })
-    }
+    /*handleFirstName = (e) => {
+         this.setState({
+             firstName: e.target.value
+         }
+         )
+     }
+     handleEmail = (e) => {
+         this.setState({
+             email: e.target.value
+         })
+     }
+ 
+     handlelastName = (e) => {
+         this.setState({
+             lastName: e.target.value
+         })
+     }
+ 
+     handleCity = (e) => {
+         this.setState({
+             city: e.target.value
+         })
+     }
+ 
+     handleTel = (e) => {
+         this.setState({
+             tel: e.target.value
+         })
+     }
+ 
+     handleAddress = (e) => {
+         this.setState({
+             address: e.target.value
+         })
+     }*/
 
-    handleCity = (e) => {
-        this.setState({
-            city: e.target.value
-        })
-    }
-
-    handleTel = (e) => {
-        this.setState({
-            tel: e.target.value
-        })
-    }
-
-    handleAddress = (e) => {
-        this.setState({
-            address: e.target.value
-        })
-    }
-    
     render() {
         return (<div>
             <div className="col-md-7">
@@ -57,33 +70,35 @@ class Billing extends Component {
                         <h3 className="title">Billing address</h3>
                     </div>
                     <div className="form-group">
-                        <input className="input form-control" type="text" onChange={this.handleFirstName} value={this.state.firstName} name="firstName" placeholder="First Name" />
+                        <input className="input form-control" type="text" onChange={this.handleInputChange} value={this.state.firstName} name="firstName" placeholder="First Name" />
                     </div>
                     <div className="form-group">
-                        <input className="input form-control" type="text" onChange={this.handlelastName} value={this.state.lastName} name="lastName" placeholder="Last Name" />
+                        <input className="input form-control" type="text" onChange={this.handleInputChange} value={this.state.lastName} name="lastName" placeholder="Last Name" />
                     </div>
                     <div className="form-group">
-                        <input className="input form-control" type="email" onChange={this.handleEmail} value={this.state.email} name="email" placeholder="Email" />
+                        <input className="input form-control" type="email" onChange={this.handleInputChange} value={this.state.email} name="email" placeholder="Email" />
                     </div>
                     <div className="form-group">
-                        <input className="input form-control" type="text" onChange={this.handleAddress} value={this.state.address} name="address" placeholder="Address" />
+                        <input className="input form-control" type="text" onChange={this.handleInputChange} value={this.state.address} name="address" placeholder="Address" />
                     </div>
                     <div className="form-group">
-                        <input className="input form-control" type="text" name="city" onChange={this.handleCity} value={this.state.city} placeholder="City" />
+                        <input className="input form-control" type="text" name="city" onChange={this.handleInputChange} value={this.state.city} placeholder="City" />
                     </div>
 
                     <div className="form-group">
-                        <input className="input form-control" type="tel" onChange={this.handleTel} value={this.state.tel} name="tel" placeholder="Telephone" />
+                        <input className="input form-control" type="tel" onChange={this.handleInputChange} value={this.state.tel} name="tel" placeholder="Telephone" />
                     </div>
                     <div className="form-group">
                         <div className="input-checkbox">
-                            <input type="checkbox" id="create-account" />
-                            <label htmlFor="create-account">
-                                <span></span>
-                                Create Account?
-									</label>
+                            {/*<input type="checkbox" id="create-account"  />*/}
+                            {!JSON.parse(localStorage.getItem('user_details')) && (
+                                <label htmlFor="create-account">
+                                    <span></span>
+                                    <Link to="/account">Create Account?</Link>
+                                </label>
+                            )}
                             <div className="caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                <p></p>
                                 <input className="input" type="password" name="password" placeholder="Enter Your Password" />
                             </div>
                         </div>
