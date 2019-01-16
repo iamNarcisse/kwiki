@@ -46,7 +46,7 @@ class SectionTwo extends Component {
                                 return (
                                     <div key={item._id} className="col-md-4 col-xs-6" >
                                         <div className="product">
-                                            <Link to={`/${item._id}`} >
+                                            <Link to={`/productview/${item._id}`} >
 
                                                 <div className="product-img">
                                                     <img src={item.image} alt="food" />
@@ -124,7 +124,7 @@ class SectionTwo extends Component {
                                                     }
                                                     } ><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
                                                     <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                                                    <button className="quick-view"><Link to={`/${item._id}`} ><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
+                                                    <button className="quick-view"><Link to={`/productview/${item._id}`} ><i className="fa fa-eye"></i></Link><span className="tooltipp">quick view</span></button>
                                                 </div>
                                             </div>
                                             <div className="add-to-cart">

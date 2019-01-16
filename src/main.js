@@ -25,6 +25,7 @@ import AboutUs from './components/aboutUs/aboutUsComponent';
 import SavedItemPage from './components/savedItemPage';
 import Terms from './components/terms/terms';
 import Privacy from './components/terms/privacy';
+import RelatedView from './components/productView/relatedview';
 //import OrderSuccess from './components/checkOut/orderSuccess';
 class Main extends Component {
     constructor() {
@@ -64,7 +65,8 @@ class Main extends Component {
                 {this.state.order_made && (<Route exact path="/pay" component={Pay} />)}
                 <Route exact path="/store" component={Store} />
                 {!this.state.order_made && (<Route exact path="/pay" component={CheckOut} />)}
-                <Route exact path="/:item_id" component={ProductView} />
+                <Route exact path="/productview/:item_id" component={ProductView} />
+                <Route exact path="/relatedview/:item_id" component={RelatedView} />
                 <Route exact path="/pickup" component={Pickup} />
                 <Route exact path="/food" component={Food} />
                 <Route exact path="/menshoe" component={MenShoe} />

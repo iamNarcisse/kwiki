@@ -44,7 +44,7 @@ class RelatedProduct extends Component {
 
                                 <div key={item._id} className="col-md-3 col-xs-6">
                                     <div className="product">
-                                        <Link to={`/${item._id}`} onClick={() => { window.location.reload() }}>
+                                        <Link to={`/relatedview/${item._id}`} >
                                             <div className="product-img">
                                                 <img src={item.image} alt="product" />
                                                 <div className="product-label">
@@ -115,7 +115,7 @@ class RelatedProduct extends Component {
 
                                                 }><i className="fa fa-heart-o"></i><span className="tooltipp">add to wishlist</span></button>
                                                 <button className="add-to-compare"><i className="fa fa-exchange"></i><span className="tooltipp">add to compare</span></button>
-                                                <button className="quick-view"><Link to={`/${item._id}`} onClick={() => { window.location.reload() }}><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></Link></button>
+                                                <button className="quick-view"><Link to={`/relatedview/${item._id}`} ><i className="fa fa-eye"></i><span className="tooltipp">quick view</span></Link></button>
                                             </div>
                                         </div>
                                         <div className="add-to-cart">
