@@ -34,7 +34,7 @@ class OrderButton extends React.Component {
                                   }
                                   localStorage.setItem('on_delivery', true) 
                                   localStorage.removeItem('product');
-                                  
+                                  window.location.reload();
                             }
                         }
                     }
