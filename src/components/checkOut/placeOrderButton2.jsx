@@ -1,9 +1,10 @@
 import React from 'react';
 import { addToCart } from '../../services/apiRequest';
+import { Link } from 'react-router-dom';
 class OrderButton extends React.Component {
     render() {
         return (
-            <a href="#placeOrder" className="primary-btn order-submit" onClick={
+            <Link to="/success" className="primary-btn order-submit" onClick={
                 () => {
                     let user_details = JSON.parse(localStorage.getItem('user_details'));
                     let productData = JSON.parse(localStorage.getItem('product'));
@@ -32,13 +33,13 @@ class OrderButton extends React.Component {
                                       productData[i].price);
                                   }
                                   localStorage.setItem('on_delivery', true) 
-                                  //localStorage.removeItem('product');
-                                window.location.reload();
+                                  localStorage.removeItem('product');
+                                  
                             }
                         }
                     }
                 }
-            } >Place Order</a>
+            } >Place Order</Link>
         )
     }
 }

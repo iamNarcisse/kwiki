@@ -26,7 +26,7 @@ import SavedItemPage from './components/savedItemPage';
 import Terms from './components/terms/terms';
 import Privacy from './components/terms/privacy';
 import RelatedView from './components/productView/relatedview';
-//import OrderSuccess from './components/checkOut/orderSuccess';
+import OrderSuccess from './components/checkOut/orderSuccess';
 class Main extends Component {
     constructor() {
         super();
@@ -36,6 +36,13 @@ class Main extends Component {
         this.getUserToken();
         this.getAdminToken();
         this.getOrderIsTrue();
+        this.getOnDelivery();
+    }
+
+    getOnDelivery = () => {
+        this.setState({
+            on_delivery : localStorage.getItem('on_delivery')
+        })
     }
 
     getAdminToken = () => {
@@ -79,7 +86,7 @@ class Main extends Component {
                 <Route exact path="/wishlist" component={SavedItemPage} />
                 <Route exact path="/terms" component={Terms} />
                 <Route exact path="/privacy" component={Privacy} />
-                {/*Route exact path="/success" component={OrderSuccess} />*/}
+                {this.state.on_delivery  && (<Route exact path="/success" component={OrderSuccess} />)}
                 {!this.state.admin_token && (<Route exact path="/admin_login" component={LoginAdmin} />)}
                 {this.state.admin_token && (<Route exact path="/admin_login" component={Admin} />)}
                 {!this.state.user_token && (<Route exact path="/account" component={Account} />)}

@@ -17,7 +17,7 @@ const OrderSuccess = () => {
                     <div style={{ textAlign: 'center' }}><em >Thanks for choosing Kwikikarts, we will always serve you better!</em></div>
                 </div>
 
-                <Link to="/" style={{ textAlign: 'center' }} ><h2 style={{fontFamily : 'verdana'}}>Back to Homepage</h2></Link>
+                <Link to="/" style={{ textAlign: 'center' }}  onClick={()=> localStorage.removeItem("on_delivery")}><h2 style={{fontFamily : 'verdana'}}>Back to Homepage</h2></Link>
                 <div>
 
                 </div>
