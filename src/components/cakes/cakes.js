@@ -1,24 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Header from '../header';
 import BreadCrumb from './breadCrumb';
 import Section from './section';
 import Newsletter from '../newsletter';
 import Footer from '../footer';
 
-class Cakes extends Component{ 
+const Cakes = () => {
 
-    render() {
-        return(
-            <div>
-                <Header />
-                <BreadCrumb />
-                <Section />
-                <Newsletter />
-                <Footer />
-            </div>
+    return (
+        <div>
+            <Header />
+            <BreadCrumb />
+            <Section />
+            <Newsletter />
+            <Footer />
+        </div>
 
-        )
-    }
+    )
 }
 
 export default Cakes;

@@ -161,9 +161,14 @@ class ProductDetails extends Component {
                         </ul>
 
                         <ul className="product-links">
+                            <li>Sold By:</li>
+                            <li>{this.props.seller}</li>
+                        </ul>
+
+                        <ul className="product-links">
                             <li>Category:</li>
                             <li><Link  to="/food">{this.props.category}</Link></li>
-                            {/*<li><a href="#acessories">Accessories</a></li>*/}
+                            <li>{this.props.seller}</li>
                         </ul>
 
                         <ul className="product-links">

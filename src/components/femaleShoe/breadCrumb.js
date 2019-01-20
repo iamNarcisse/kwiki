@@ -12,7 +12,7 @@ class BreadCrumb extends Component {
 							<li><Link to="/">Home</Link></li>
                 <li><a href="#Categories">All Categories</a></li>
                 <li><a href="#Accessories">Shoes</a></li>
-                <li className="active">Ladies Shoes (22 Results)</li>
+                <li className="active">Ladies Shoes</li>
 						</ul >
 					</div >
 				</div >

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TopHeader from './topHeader';
 import Logo from './logo';
 import SearchBar from './searchBar';
-import CheckOut from './checkoutComponent';
+//import CheckOut from './checkoutComponent';
 import Cart from './cart';
 import MenuToggle from './menuToggle';
 import Navigation from './navigation';
@@ -19,21 +19,21 @@ class Header extends Component {
                             <SearchBar />
                             <div className="col-md-3 clearfix">
                                 <div className="header-ctn">
-                                     <CheckOut />
-                                    <Cart /> 
+                                    { /*<CheckOut />*/}
+                                    <Cart />
                                     <MenuToggle />
                                     {
-                                         JSON.parse(localStorage.getItem('user_details')) && (
+                                        JSON.parse(localStorage.getItem('user_details')) && (
                                             <div className="wishy" >
-                                            < Link to="/wishlist">
-                                                <i className="fa fa-heart-o" aria-hidden="true" ></i>
-                                                <span>Wishlist</span>
-                                                {/*  <div className="qty"></div> */}
-                                            </Link>
-                                        </div>
+                                                < Link to="/wishlist">
+                                                    <i className="fa fa-heart-o" aria-hidden="true" ></i>
+                                                    <span>Wishlist</span>
+                                                    {/*  <div className="qty"></div> */}
+                                                </Link>
+                                            </div>
                                         )
                                     }
-                                   
+
                                 </div>
                             </div>
                         </div>

@@ -304,8 +304,8 @@ class ProductView extends Component {
                             )}
 
                             {showProduct === true && (<div><ProductMainImage image={product_details.image} />
-                                <ProductThumbImage image={product_details.image} />
-                                <ProductDetails name={product_details.name} price={product_details.price} oldprice={product_details.oldprice} details={product_details.details} image={product_details.image} id={product_details._id} /></div>)}
+                            {<ProductThumbImage image={product_details.image} name={product_details.name} />}
+                                <ProductDetails name={product_details.name} price={product_details.price} oldprice={product_details.oldprice} details={product_details.details} image={product_details.image} id={product_details._id} category={product_details.category} seller={product_details.seller} /></div>)}
                           
                             {showProduct && <ProductTab details={product_details.details} />}
                             {showTop && <ProductTab details={top.details} />}

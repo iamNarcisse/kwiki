@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getTopProduct} from '../../services/apiRequest';
+import { getTopProduct } from '../../services/apiRequest';
 
 class AsideFour extends Component {
 	constructor(props) {
@@ -21,6 +21,15 @@ class AsideFour extends Component {
 			})
 	}
 
+	productBody = (name, price) => (
+		<div className="product-body">
+			<p className="product-category">Category</p>
+			<h3 className="product-name"><a href="#name">{name}</a></h3>
+			<h4 className="product-price">&#8358;{price}</h4>
+		</div>
+
+	);
+
 	render() {
 
 		return (
@@ -32,11 +41,7 @@ class AsideFour extends Component {
 							<div className="product-img">
 								<img src={item.image} alt="Phone" />
 							</div>
-							<div className="product-body">
-								<p className="product-category">Category</p>
-								<h3 className="product-name"><a href="#name">{item.name}</a></h3>
-								<h4 className="product-price">&#8358;{item.price}</h4>
-							</div>
+							{this.productBody(item.name, item.price)}
 						</div>
 					)
 				})}

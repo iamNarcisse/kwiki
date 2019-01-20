@@ -1,64 +1,51 @@
-import React, { Component } from 'react';
+import React from 'react';
+const AsideOne = () => {
 
-class AsideOne extends Component {
-    render() {
+    const CheckBox = (value, category) => (
+        <div className="input-checkbox">
+            <input type="checkbox" id={`${category}`} />
+            <label >
+                <span></span>
+                {value}
+                <small>(120)</small>
+            </label>
+        </div>
+    );
 
-        return (
+    return (
+        <div className="aside">
+            <h3 className="aside-title">Categories</h3>
+            <div className="checkbox-filter">
 
-                <div className="aside">
-                    <h3 className="aside-title">Categories</h3>
-                    <div className="checkbox-filter">
+                {CheckBox(Food)}
 
-                        <div className="input-checkbox">
-                            <input type="checkbox" id="category-1" />
-                            <label >
-                                <span></span>
-                                Laptops
-										<small>(120)</small>
-                            </label>
-                        </div>
+                {CheckBox(Cake)}
 
-                        <div className="input-checkbox">
-                            <input type="checkbox" id="category-2" />
-                            <label >
-                                <span></span>
-                                Smartphones
-										<small>(740)</small>
-                            </label>
-                        </div>
+                {CheckBox(Shows)}
 
-                        <div className="input-checkbox">
-                            <input type="checkbox" id="category-3" />
-                            <label >
-                                <span></span>
-                                Cameras
-										<small>(1450)</small>
-                            </label>
-                        </div>
-
-                        <div className="input-checkbox">
-                            <input type="checkbox" id="category-4" />
-                            <label>
-                                <span></span>
-                                Accessories
+                <div className="input-checkbox">
+                    <input type="checkbox" id="category-4" />
+                    <label>
+                        <span></span>
+                        Accessories
 										<small>(578)</small>
-                            </label>
-                        </div>
-
-                        <div className="input-checkbox">
-                            <input type="checkbox" id="category-5" />
-                            <label >
-                                <span></span>
-                                Laptops
-										<small>(120)</small>
-                            </label>
-                        </div>
-
-
-                    </div>
+                    </label>
                 </div>
-        )
-    }
+
+                <div className="input-checkbox">
+                    <input type="checkbox" id="category-5" />
+                    <label >
+                        <span></span>
+                        Laptops
+										<small>(120)</small>
+                    </label>
+                </div>
+
+
+            </div>
+        </div>
+    )
 }
+
 
 export default AsideOne;

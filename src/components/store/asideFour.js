@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import { getTopProduct } from '../../services/apiRequest';
-
 class AsideFour extends Component {
 	constructor(props) {
 		super(props);
@@ -22,12 +20,21 @@ class AsideFour extends Component {
 			})
 	}
 
+	productBody = (name, price, oldprice) => (
+		<div className="product-body">
+			<p className="product-category">Category</p>
+			<h3 className="product-name"><a href="#name">{name}</a></h3>
+			<h4 className="product-price">&#8358;{price} {/*<del className="product-old-price">$990.00</del>*/}</h4>
+		</div>
+	);
+
+
+
 	render() {
 
 		return (
 			<div className="aside">
 				<h3 className="aside-title">Top selling</h3>
-
 				{
 					this.state.topProduct.map(item => {
 						return (
@@ -35,11 +42,7 @@ class AsideFour extends Component {
 								<div className="product-img">
 									<img src={item.image} alt="Phone" />
 								</div>
-								<div className="product-body">
-									<p className="product-category">Category</p>
-									<h3 className="product-name"><a href="#name">{item.name}</a></h3>
-									<h4 className="product-price">&#8358;{item.price} {/*<del className="product-old-price">$990.00</del>*/}</h4>
-								</div>
+								{this.productBody(item.name, item.price)}
 							</div>
 						)
 					})

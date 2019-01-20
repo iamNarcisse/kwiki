@@ -1,27 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MainAside from './mainAside';
 import SectionStore from './sectionStore';
 
-class Section extends Component {
+const Section = () => {
 
-    render() {
+    return (
 
-        return (
+        <div class="section">
 
-            <div class="section">
-
-                <div class="container">
-                    <div class="row">
+            <div class="container">
+                <div class="row">
 
                     <MainAside />
                     <SectionStore />
 
-                    </div>
                 </div>
             </div>
+        </div>
 
-        )
-    }
+    )
 }
 
 export default Section;

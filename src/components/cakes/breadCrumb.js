@@ -11,7 +11,7 @@ class BreadCrumb extends Component {
 						<ul className="breadcrumb-tree">
 							<li><Link to="/">Home</Link></li>
                 <li><a href="#Categories">All Categories</a></li>
-                <li className="active">Cakes (02 Results)</li>
+                <li className="active">Cakes</li>
 						</ul >
 					</div >
 				</div >
