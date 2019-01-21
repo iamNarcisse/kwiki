@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { searchQuery } from '../services/apiRequest';
+import { category, searchMeQuery } from '../services/apiRequest';
 import { Modal, Button } from 'react-bootstrap';
 import { Card, CardActions, CardText, CardTitle } from 'react-mdl';
 import { Link } from 'react-router-dom';
@@ -12,45 +12,55 @@ class SearchBar extends Component {
             products: []
         }
     }
-    
+
     handleClose = () => {
         this.setState({ show: false });
     }
     onChange = (e) => {
         this.setState({
-            query: e.target.value
+            query: e.target.value.trim()
         })
     }
 
     onHandleShow = (e) => {
         e.preventDefault();
-        searchQuery(this.state.query)
+        searchMeQuery(this.state.category, this.state.query)
             .then(AxiosRes => {
                 this.setState({
                     products: AxiosRes.data.data
-                })
+                }, () => this.setState({ show: true }))
             })
-            .then(
-                this.setState({ show: true })
-            )
             .catch(err => {
                 console.log(err)
             })
     }
+
+    getCategory = (e) => {
+        let category = e.target.value;
+        this.setState({
+            category: category
+        })
+    }
+
 
     render() {
         return (
             <div className="col-md-6">
                 <div className="header-search">
                     <form>
-                        <select className="input-select">
-                            <option value="0">All Categories</option>
-                            <option value="1">Food</option>
+                        <select className="input-select" onChange={this.getCategory}>
+                            {category.map((item, index) => {
+                                return (
+                                    <option key={index} value={item} > {item} </option>
+                                )
+                            })}
+
+                            {/*<option value="1">Food</option>
                             <option value="1">Shoes</option>
                             <option value="1">Sandals</option>
                             <option value="1">Cakes</option>
                             <option value="1">Clothes</option>
-                            <option value="1">Accessories</option>
+                            <option value="1">Accessories</option> */}
                         </select>
                         <input onChange={this.onChange} className="input" placeholder="Search here" />
                         <button onClick={this.onHandleShow} className="search-btn">Search</button>

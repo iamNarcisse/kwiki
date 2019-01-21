@@ -17,7 +17,6 @@ class ProductDetails extends Component {
             price: this.props.price,
             name: this.props.name
         })
-        console.log(this.state.name);
     }
     onQtyAdd = () => {
         this.setState({ qty: this.state.qty + 1 });
@@ -36,20 +35,20 @@ class ProductDetails extends Component {
         })
     }*/
 
-    addToStorage = () => {
+    addToStorage = (qty) => {
         let storedArray = [];
         let checkProduct = JSON.parse(localStorage.getItem('product'));
         if (!Array.isArray(checkProduct) || checkProduct === null) {
-            alert('Item added to cart')
-            let productData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props.id }
+            alert('Item added to cart');
+            let productData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props.id, qty: qty }
             storedArray.push(productData)
             localStorage.setItem('product', JSON.stringify(storedArray))
 
             // window.location.reload();
         } else {
-            alert('Item added to cart')
+            alert('Item added to cart');
             let getItem = JSON.parse(localStorage.getItem('product'));
-            let newData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props.id }
+            let newData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props.id, qty: qty }
             getItem.push(newData)
             localStorage.setItem('product', JSON.stringify(getItem))
             // window.location.reload();
@@ -96,12 +95,12 @@ class ProductDetails extends Component {
                             <div className="qty-label">
                                 Qty :
 									<div className="input-number">
-                                    <input type="number" value={this.state.qty} />
+                                    <input type="number" value={this.state.qty} onChange={()=>console.log(this.state.qty)} />
                                     <span className="qty-up" onClick={this.onQtyAdd}>+</span>
                                     <span className="qty-down" onClick={this.onQtySubstract}>-</span>
                                 </div>
                             </div>
-                            <button onClick={(e) => { e.preventDefault(); this.addToStorage(); }} className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
+                            <button onClick={(e) => { e.preventDefault(); this.addToStorage(this.state.qty); }} className="add-to-cart-btn"><i className="fa fa-shopping-cart"></i> add to cart</button>
                         </div>
 
                         <ul className="product-btns">

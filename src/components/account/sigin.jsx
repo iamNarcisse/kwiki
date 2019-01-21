@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { LoginRequest } from "../../services/apiRequest";
-class Login extends Component {
+class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            redirectToReferrer : false
         }
     }
 
     onChange = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
+        
     }
 
     onClick = (e) => {
@@ -27,8 +29,10 @@ class Login extends Component {
                         "user_details",
                         JSON.stringify(axiosRes.data.data)
                     );
-
-                    window.location.reload();
+                    this.setState({
+                        redirectToReferrer : true
+                    });
+                   // window.location.reload();
                 }
             })
             .catch(err => {
@@ -38,6 +42,11 @@ class Login extends Component {
     }
 
     render() {
+
+        let { from } = this.props.location.state || {from : {pathname : "/pay"}};
+        let { redirectToReferrer } = this.state;
+
+        if(redirectToReferrer) return <Redirect to={from}/>
         return (
             <div className="row" >
                 <div className="col-xs-11 col-md-6 col-sm-8 give" style={{ marginRight: '70px', marginTop: '40px' }}>
@@ -61,4 +70,4 @@ class Login extends Component {
         )
     }
 }
-export default Login;
+export default SignIn;

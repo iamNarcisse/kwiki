@@ -31,14 +31,25 @@ class OrderDetails extends Component {
     }
 
     getTotal = () => {
-        let data = JSON.parse(localStorage.getItem('product'));
-        if (data !== null) {
-
-            let msgTotal = data.reduce(function (prev, curl) {
-                return prev + curl.price;
+        let product = JSON.parse(localStorage.getItem('product'));
+        if (product !== null) {
+            let price = product.map(item => {
+                return item.price
+            } );
+            let qty = product.map(item => {
+                return item.qty
+            });
+    
+            let sum = price.map((me, you) => {
+              return me * qty[you]
+            });
+    
+            let total = sum.reduce((prev, cur) => {
+                return prev + cur
             }, 0);
+    
             this.setState({
-                total: (msgTotal + this.state.Delivery)
+                total: (total + this.state.Delivery)
             }, () => { localStorage.setItem('SumTotal', JSON.stringify(this.state.total)) })
 
         } else {
@@ -78,7 +89,7 @@ class OrderDetails extends Component {
                         return (
                             <div key={item.id} className="order-products">
                                 <div className="order-col">
-                                    <div>1 x {item.name}</div> <button onClick={
+                                    <div>{item.qty} x {item.name}</div> <button onClick={
 
                                         () => {
                                             const id = item.id;
@@ -95,7 +106,7 @@ class OrderDetails extends Component {
                                             window.location.reload()
                                         }
                                     } className="delete"><i className="fa fa-close"></i></button>
-                                    <div>&#8358;{item.price}</div></div></div>
+                                    <div>&#8358;{ item.qty * item.price}</div></div></div>
                         )
 
                     })}

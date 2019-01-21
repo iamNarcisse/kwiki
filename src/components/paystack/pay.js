@@ -43,7 +43,7 @@ class Pay extends Component {
         user_details.email,
         order_details.user_tel,
         order_details.user_address, order_details.user_city,
-        product_details[i].price);
+        product_details[i].price, product_details[i].qty);
     }
     
     localStorage.removeItem('order_placed');

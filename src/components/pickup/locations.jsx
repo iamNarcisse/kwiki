@@ -29,6 +29,10 @@ export const location = [
 
     {
         name : 'Indy Hall, UI'
+    },
+
+    {
+        name : 'Abadina, UI'
     }
 
 ];
@@ -64,6 +68,9 @@ export const location_02 = [
 
     {
         name : 'Indy Hall, UI'
+    },
+    {
+        name : 'Abadina, UI'
     }
 
 ]

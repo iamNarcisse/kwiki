@@ -30,7 +30,7 @@ class OrderButton extends React.Component {
                                       user_details.email,
                                       this.props.tel,
                                       this.props.address, this.props.city,
-                                      productData[i].price);
+                                      productData[i].price, productData[i].qty);
                                   }
                                   localStorage.setItem('on_delivery', true) 
                                   localStorage.removeItem('product');

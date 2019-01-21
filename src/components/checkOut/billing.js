@@ -97,10 +97,7 @@ class Billing extends Component {
                                     <Link to="/account">Create Account?</Link>
                                 </label>
                             )}
-                            <div className="caption">
-                                <p></p>
-                                <input className="input" type="password" name="password" placeholder="Enter Your Password" />
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

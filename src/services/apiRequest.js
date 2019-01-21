@@ -33,13 +33,28 @@ const cartApiUrl = `${apiUrl}/addtocart`;
 const vendorApiUrl = `${apiUrl}/vendors`;
 
 
+export const category = [ 'None', 'Products', 'Food', 'Cake'];
+
 /**
  * Simple Search Query for 
  * @param {string} -search_query goes here
  */
-export const searchQuery = (query) => {
-  return Axios.get(`${productApiUrl}/search?name=${query}`)
+export const searchMeQuery = (category, query) => {
+  if(category === undefined || category === 'Products') {
+    let category = 'search';
+   // console.log(category)
+    return Axios.get(`${productApiUrl}/${category}?name=${query}`)
+  }else if (category === 'Food') {
+    let category = 'search_food';
+    return Axios.get(`${productApiUrl}/${category}?name=${query}`)
+  }else if(category === 'Cake') {
+    let category = 'search_cake';
+    return Axios.get(`${productApiUrl}/${category}?name=${query}`)
+  }else {
+
+  }
 }
+
 
 /**
  * 
@@ -112,7 +127,7 @@ export const SignupRequest = (
 };
 
 //Add to cart Api here;
-export const addToCart = (productId, userId, productName, firstName, lastName, email, tel, address, city, amount) => {
+export const addToCart = (productId, userId, productName, firstName, lastName, email, tel, address, city, amount, qty) => {
   //You are meant to use product, but for the sake of testing use productDetails
   let body = {
     product_id: productId,
@@ -124,7 +139,8 @@ export const addToCart = (productId, userId, productName, firstName, lastName, e
     tel: tel,
     address: address,
     city: city,
-    amount: amount
+    amount: amount,
+    qty: qty
   }
   Axios.post(`${cartApiUrl}/add`, body)
 

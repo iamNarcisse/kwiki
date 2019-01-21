@@ -78,7 +78,7 @@ class CartDetails extends Component {
                             <div className="product-img" > <img src={item.image} alt="product" /></div>
                             <div className="product-body">
                                 <h3 className="product-name"><a href="#moreInfo">{item.name}</a></h3>
-                                <h4 className="product-price"><span className="qty">  x </span>&#8358; {item.price}</h4>
+                                <h4 className="product-price"><span className="qty"> {item.qty} x </span>&#8358; {item.price}</h4>
                             </div>
 
                             <button onClick={
@@ -99,7 +99,7 @@ class CartDetails extends Component {
 
                         <div className="cart-summary">
                             <small>  Item(s) selected</small>
-                                    <h5  >SUBTOTAL: &#8358; {1 * item.price}</h5>
+                                    <h5  >SUBTOTAL: &#8358; {item.qty * item.price}</h5>
                         </div>
                         <div className="cart-btns">
                             <Link className="btnn" to="/pay">Checkout<i className="fa fa-arrow-circle-right"></i></Link>

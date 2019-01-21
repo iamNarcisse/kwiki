@@ -180,7 +180,7 @@ class Pickup extends Component {
                             </div>
                             <div className="form-group col-md-6">
                                 <label >Item</label>
-                                <input type="text" className="form-control" onChange={this.onChange} value={this.state.item} name="item" placeholder="Enter your Email Address" />
+                                <input type="text" className="form-control" onChange={this.onChange} value={this.state.item} name="item" placeholder="Item" />
                             </div>
                         </div>
 

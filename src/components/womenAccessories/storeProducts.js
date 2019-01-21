@@ -81,14 +81,14 @@ class StoreProducts extends Component {
                                             const checkProduct = JSON.parse(localStorage.getItem('product'));
                                             if (checkProduct === undefined || checkProduct === null) {
                                                 alert('Item added to cart')
-                                                const productData = { name: item.name, price: item.price, image: item.image, id: item._id }
+                                                const productData = { name: item.name, price: item.price, image: item.image, id: item._id, qty: 1 }
                                                 storedArray.push(productData)
                                                 localStorage.setItem('product', JSON.stringify(storedArray))
                                                 //  window.location.reload();
                                             } else {
                                                 alert('Item added to cart')
                                                 const getItem = JSON.parse(localStorage.getItem('product'));
-                                                const newData = { name: item.name, price: item.price, image: item.image, id: item._id }
+                                                const newData = { name: item.name, price: item.price, image: item.image, id: item._id, qty: 1 }
                                                 getItem.push(newData)
                                                 localStorage.setItem('product', JSON.stringify(getItem))
                                                 // window.location.reload();
