@@ -86,7 +86,7 @@ class SectionThree extends Component {
 														<p className="product-category">{item.category}</p>
 														<h3 className="product-name"><a href="#url">{item.name}</a></h3>
 														<h4 className="product-price">&#8358;{item.price} { item.oldprice && <del className="product-old-price">&#8358;{item.oldprice}</del>}</h4>
-														<h4 className="product-name">Sold By <a href="#add">{item.seller}</a></h4>
+														<h4 className="product-name">Sold By <a href="#add">{item.vendor}</a></h4>
 														<div className="product-rating">
 															<i className="fa fa-star"></i>
 															<i className="fa fa-star"></i>
@@ -113,7 +113,7 @@ class SectionThree extends Component {
 																			productName: item.name,
 																			productPrice: item.price,
 																			productImage: item.image,
-																			vendor: item.seller,
+																			vendor: item.vendor,
 
 																		}
 																		wishedListArray.push(wishedItem);
@@ -131,7 +131,7 @@ class SectionThree extends Component {
 																			productName: item.name,
 																			productPrice: item.price,
 																			productImage: item.image,
-																			vendor: item.seller,
+																			vendor: item.vendor,
 
 																		}
 
