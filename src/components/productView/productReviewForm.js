@@ -19,7 +19,7 @@ class ProductReviewForm extends Component {
                                 <input id="star1" name="rating" value="1" type="radio" />
                             </div>
                         </div>
-                        <button className="primary-btn">Submit</button>
+                        <button onClick={(e)=>e.preventDefault()} className="primary-btn">Submit</button>
                     </form>
                 </div>
             </div>

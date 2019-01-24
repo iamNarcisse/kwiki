@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getMenAccessories } from '../../services/apiRequest';
+import Pagination from '../../utils/Pagination';
 
 
 class StoreProducts extends Component {
@@ -8,37 +9,43 @@ class StoreProducts extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            products: []
+            products: [],
+            exampleItems : [],
+            pageOfItems: []
         }
 
         // this.getProduct = this.getProduct.bind(this);
     }
 
     componentDidMount() {
-        this.getProduct();
+        this.fetchProduct();
     }
 
-    getProduct = () => {
+    fetchProduct = () => {
         getMenAccessories()
-            .then(axiosResponse => {
-                if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
-                    this.setState({
-                        products: axiosResponse.data.data
-                        //  products: this.state.products.concat(axiosResponse.data.data)
-                    })
-                }
-            }).catch(err => {
-                console.log('here is the error : ' + err)
-            })
+        .then(Response=>{
+            this.setState({
+                exampleItems : Response.data.data
+            }, ()=> {this.setState({products : Response.data.data})})
+        })
+        .catch(error=> {
+            console.log(error)
+        })
     }
 
+    onChangePage = (pageOfItems) => {
+        //update state with new page of items
+        this.setState({
+          pageOfItems: pageOfItems
+        });
+      }
     render() {
 
         return (
 
-            <div class="row">
-
-                {this.state.products.map(item => {
+            <div>
+            <div className="row">
+                {this.state.pageOfItems.map(item => {
 
                     return (
 
@@ -46,13 +53,13 @@ class StoreProducts extends Component {
 
                         <div className="col-md-4 col-xs-6" key={item._id}>
                             <div className="product">
-                                <div className="product-img">
-                                    <img src={item.image} alt="" />
+                              <Link to={`productview/${item._id}`}><div className="product-img">
+                                    <img src={item.image} alt="product" />
                                     <div className="product-label">
-                                        <span className="sale">-30%</span>
+                                       { item.discount && <span className="sale">-30%</span>}
                                         <span className="new">NEW</span>
                                     </div>
-                                </div>
+                                </div></Link>
                                 <div className="product-body">
                                     <p className="product-category">{item.category}</p>
                                     <h3 className="product-name"><a href="#url">{item.name}</a></h3>
@@ -106,6 +113,8 @@ class StoreProducts extends Component {
                     )
 
                 })}
+            </div>
+            <Pagination  items={this.state.exampleItems} onChangePage={this.onChangePage} />
             </div>
 
         )

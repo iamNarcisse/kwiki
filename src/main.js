@@ -27,11 +27,13 @@ import Terms from './components/terms/terms';
 import Privacy from './components/terms/privacy';
 import RelatedView from './components/productView/relatedview';
 import OrderSuccess from './components/checkOut/orderSuccess';
+import AuthExample from './utils/PrivateRouteComponent';
 class Main extends Component {
     constructor() {
         super();
         this.state = {}
     }
+    
     componentDidMount() {
         this.getUserToken();
         this.getAdminToken();
@@ -67,7 +69,6 @@ class Main extends Component {
     render() {
         return (
             <Switch >
-
                 <Route exact path="/aboutus" component={AboutUs} />
                 {this.state.order_made && (<Route exact path="/pay" component={Pay} />)}
                 <Route exact path="/store" component={Store} />
@@ -86,6 +87,7 @@ class Main extends Component {
                 <Route exact path="/wishlist" component={SavedItemPage} />
                 <Route exact path="/terms" component={Terms} />
                 <Route exact path="/privacy" component={Privacy} />
+                <Route exact path="/work" component={AuthExample} />
                 {this.state.on_delivery  && (<Route exact path="/success" component={OrderSuccess} />)}
                 {!this.state.admin_token && (<Route exact path="/admin_login" component={LoginAdmin} />)}
                 {this.state.admin_token && (<Route exact path="/admin_login" component={Admin} />)}

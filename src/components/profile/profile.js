@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-//import Header from '../header';
 import Footer from '../footer';
-//import Card from './card';
 import ProfileNavBar from './navBar';
 import { getUserDetailsRequest } from '../../services/apiRequest';
 import ProfileDisplay from './profileDisplay';
@@ -9,7 +7,6 @@ import ProfileDisplay from './profileDisplay';
 
 
 class Profile extends Component {
-
     constructor(props) {
         super(props);
         this.state={
@@ -38,15 +35,15 @@ class Profile extends Component {
     }
 
     render() {
+        const { user } = this.state;
         return (
             <div>
                <ProfileNavBar />
 
                 <div className="card-details">
 
-                <ProfileDisplay  name={this.state.user.firstname} email={this.state.user.email} lastname={this.state.user.lastname} phone={this.state.user.phoneNumber} address={this.state.user.address}/>
+                <ProfileDisplay  {...user} />
 
-               { /*<Card name={this.state.user.firstname} email={this.state.user.email} lastname={this.state.user.lastname} phone={this.state.user.phoneNumber} address={this.state.user.address} /> */}
                 </div>
 
 

@@ -55,6 +55,10 @@ export const searchMeQuery = (category, query) => {
   }
 }
 
+export const relatedProduct = (query) => {
+  return Axios.get(`${productApiUrl}/search?name=${query}`)
+}
+
 
 /**
  * 

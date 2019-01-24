@@ -9,7 +9,6 @@ class ProductDetails extends Component {
             price: '',
         }
     }
-
     onSubmit = (e) => {
         e.preventDefault();
         alert('Added to Cart');
@@ -40,7 +39,7 @@ class ProductDetails extends Component {
         let checkProduct = JSON.parse(localStorage.getItem('product'));
         if (!Array.isArray(checkProduct) || checkProduct === null) {
             alert('Item added to cart');
-            let productData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props.id, qty: qty }
+            let productData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props._id, qty: qty }
             storedArray.push(productData)
             localStorage.setItem('product', JSON.stringify(storedArray))
 
@@ -48,7 +47,7 @@ class ProductDetails extends Component {
         } else {
             alert('Item added to cart');
             let getItem = JSON.parse(localStorage.getItem('product'));
-            let newData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props.id, qty: qty }
+            let newData = { name: this.props.name, price: this.props.price, image: this.props.image, id: this.props._id, qty: qty }
             getItem.push(newData)
             localStorage.setItem('product', JSON.stringify(getItem))
             // window.location.reload();
@@ -57,6 +56,20 @@ class ProductDetails extends Component {
     }
 
     render() {
+
+        function lable(type, value) {
+            //example of type: Size, color etc
+            return (
+                <label>
+                    {type}
+					<select className="input-select">
+                        <option value="0">{value}</option>
+                    </select>
+                </label>
+            )
+        };
+
+
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="col-md-5">
@@ -77,25 +90,15 @@ class ProductDetails extends Component {
                             <span className="product-available">In Stock</span>
                         </div>
                         <div className="product-options">
-                            <label>
-                                Size
-									<select className="input-select">
-                                    <option value="0">X</option>
-                                </select>
-                            </label>
-                            <label>
-                                Color
-									<select className="input-select">
-                                    <option value="0">Red</option>
-                                </select>
-                            </label>
+                            { this.props.color && lable()}
+                            { this.props.size && lable()}
                         </div>
 
                         <div className="add-to-cart">
                             <div className="qty-label">
                                 Qty :
 									<div className="input-number">
-                                    <input type="number" value={this.state.qty} onChange={()=>console.log(this.state.qty)} />
+                                    <input type="number" value={this.state.qty} onChange={() => console.log(this.state.qty)} />
                                     <span className="qty-up" onClick={this.onQtyAdd}>+</span>
                                     <span className="qty-down" onClick={this.onQtySubstract}>-</span>
                                 </div>
@@ -118,7 +121,7 @@ class ProductDetails extends Component {
                                             let wishedListArray = [];
 
                                             let wishedItem = {
-                                                productID: this.props.id,
+                                                productID: this.props._id,
                                                 productName: this.props.name,
                                                 productPrice: this.props.price,
                                                 productImage: this.props.image,
@@ -127,7 +130,7 @@ class ProductDetails extends Component {
                                             }
                                             wishedListArray.push(wishedItem);
                                             localStorage.setItem('wishlist', JSON.stringify(wishedListArray));
-                                            addToWish(this.props.id, userData._id, this.props.name, userData.firstname + userData.lastname)
+                                            addToWish(this.props._id, userData._id, this.props.name, userData.firstname + userData.lastname)
                                                 .then(result => { console.log(result) })
                                                 .catch(err => { console.log(err) })
                                         } else {
@@ -135,7 +138,7 @@ class ProductDetails extends Component {
                                             let wishedItem = JSON.parse(localStorage.getItem('wishlist'));
 
                                             let list = {
-                                                productID: this.props.id,
+                                                productID: this.props._id,
                                                 productName: this.props.name,
                                                 productPrice: this.props.price,
                                                 productImage: this.props.image,
@@ -166,7 +169,7 @@ class ProductDetails extends Component {
 
                         <ul className="product-links">
                             <li>Category:</li>
-                            <li><Link  to="/food">{this.props.category}</Link></li>
+                            <li><Link to="/food">{this.props.category}</Link></li>
                             <li>{this.props.seller}</li>
                         </ul>
 

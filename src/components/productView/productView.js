@@ -252,60 +252,60 @@ class ProductView extends Component {
                             {showTop === true && (<div>
                                 <ProductMainImage image={top.image} />
                                 <ProductThumbImage image={top.image} />
-                                <ProductDetails name={top.name} price={top.price} oldprice={top.oldprice} details={top.details} image={top.image} id={top._id} /></div>
+                                <ProductDetails  { ...top } /></div>
                             )}
 
                             {showFood === true && (<div>
                                 <ProductMainImage image={food.image} />
                                 <ProductThumbImage image={food.image} />
-                                <ProductDetails name={food.name} price={food.price} oldprice={food.oldprice} details={food.details} id={food._id} category={food.category} /></div>
+                                <ProductDetails { ...food } /></div>
                             )}
 
                             {showCake === true && (<div>
                                 <ProductMainImage image={cake.image} />
                                 <ProductThumbImage image={cake.image} />
-                                <ProductDetails name={cake.name} price={cake.price} oldprice={cake.oldprice} details={cake.details} id={cake._id} /></div>
+                                <ProductDetails { ...cake }/></div>
                             )}
 
                             {showWomenShoe === true && (<div>
                                 <ProductMainImage image={womenShoe.image} />
                                 <ProductThumbImage image={womenShoe.image} />
-                                <ProductDetails name={womenShoe.name} price={womenShoe.price} oldprice={womenShoe.oldprice} details={womenShoe.details} id={womenShoe._id} /></div>
+                                <ProductDetails {...womenShoe} /></div>
                             )}
 
                             {showMenShoe === true && (<div>
                                 <ProductMainImage image={menShoe.image} />
                                 <ProductThumbImage image={menShoe.image} />
-                                <ProductDetails name={menShoe.name} price={menShoe.price} oldprice={menShoe.oldprice} details={menShoe.details} id={menShoe._id} /></div>
+                                <ProductDetails {...menShoe} /></div>
                             )}
 
                             {showMenAccess === true && (<div>
                                 <ProductMainImage image={menAccess.image} />
                                 <ProductThumbImage image={menAccess.image} />
-                                <ProductDetails name={menAccess.name} price={menAccess.price} oldprice={menAccess.oldprice} details={menAccess.details} id={menAccess._id} /></div>
+                                <ProductDetails {...menAccess} /></div>
                             )}
 
                             {showWomenAccess === true && (<div>
                                 <ProductMainImage image={womenAccess.image} />
                                 <ProductThumbImage image={womenAccess.image} />
-                                <ProductDetails name={womenAccess.name} price={womenAccess.price} oldprice={womenAccess.oldprice} details={womenAccess.details} id={womenAccess._id} /></div>
+                                <ProductDetails {...womenAccess} /></div>
                             )}
 
                             {showMenCloth === true && (<div>
                                 <ProductMainImage image={menCloth.image} />
                                 <ProductThumbImage image={menCloth.image} />
-                                <ProductDetails name={menCloth.name} price={menCloth.price} oldprice={menCloth.oldprice} details={menCloth.details} id={menCloth._id} /></div>
+                                <ProductDetails { ...menCloth } /></div>
                             )}
 
                             {showWomenCloth === true && (<div>
                                 <ProductMainImage image={womenCloth.image} />
                                 <ProductThumbImage image={womenCloth.image} />
-                                <ProductDetails name={womenCloth.name} price={womenCloth.price} oldprice={womenCloth.oldprice} details={womenCloth.details} id={womenCloth._id} /></div>
+                                <ProductDetails { ...womenCloth } /></div>
                             )}
 
                             {showProduct === true && (<div><ProductMainImage image={product_details.image} />
                             {<ProductThumbImage image={product_details.image} name={product_details.name} />}
-                                <ProductDetails name={product_details.name} price={product_details.price} oldprice={product_details.oldprice} details={product_details.details} image={product_details.image} id={product_details._id} category={product_details.category} seller={product_details.seller} /></div>)}
+                                <ProductDetails {...product_details}  /></div>)}
                           
                             {showProduct && <ProductTab details={product_details.details} />}
                             {showTop && <ProductTab details={top.details} />}
@@ -321,7 +321,16 @@ class ProductView extends Component {
                         </div>
                     </div>
                 </div>
-                <RelatedProduct />
+                { showProduct && <RelatedProduct { ...product_details } />}
+                { showCake && <RelatedProduct { ...cake} />}
+                { showFood && <RelatedProduct { ...food } />}
+                { showTop && <RelatedProduct { ...top } />}
+                { showMenAccess && <RelatedProduct { ...menAccess } />}
+                { showWomenAccess && <RelatedProduct { ...womenAccess } />}
+                { showMenCloth && <RelatedProduct { ...menCloth } />}
+                { showWomenCloth && <RelatedProduct { ...womenCloth } />}
+                { showMenShoe && <RelatedProduct { ...menShoe } />}
+                { showWomenShoe && <RelatedProduct { ...womenShoe } />}
                 <Footer />
             </div>
 

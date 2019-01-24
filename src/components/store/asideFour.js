@@ -20,9 +20,9 @@ class AsideFour extends Component {
 			})
 	}
 
-	productBody = (name, price, oldprice) => (
+	productBody = (name, price, oldprice, category) => (
 		<div className="product-body">
-			<p className="product-category">Category</p>
+			<p className="product-category">{category}</p>
 			<h3 className="product-name"><a href="#name">{name}</a></h3>
 			<h4 className="product-price">&#8358;{price} {/*<del className="product-old-price">$990.00</del>*/}</h4>
 		</div>
@@ -40,9 +40,9 @@ class AsideFour extends Component {
 						return (
 							<div key={item._id} className="product-widget">
 								<div className="product-img">
-									<img src={item.image} alt="Phone" />
+									<img src={item.image} alt="Product" />
 								</div>
-								{this.productBody(item.name, item.price)}
+								{this.productBody(item.name, item.price, '' , item.category)}
 							</div>
 						)
 					})

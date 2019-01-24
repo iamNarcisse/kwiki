@@ -36,7 +36,7 @@ class AsideThree extends Component {
                             <div className="checkbox-filter">
                                 <div className="input-checkbox">
                                     <input type="checkbox" id="brand-1" />
-                                    <label for="brand-1">
+                                    <label htmlFor="brand-1">
                                         <span></span>
                                         {vendor.name}
                                         <small>(12)</small>

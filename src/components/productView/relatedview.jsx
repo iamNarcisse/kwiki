@@ -75,7 +75,6 @@ class RelatedView extends Component {
     }
 
     showMenAccess = () => {
-
         let cloth_id = this.props.match.params.item_id;
         // console.log(' Here i am : ' +  top_product_id)
         getMenAccessoriesRequest(cloth_id)

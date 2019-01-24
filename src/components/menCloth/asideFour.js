@@ -29,10 +29,10 @@ constructor(props) {
 								return(
 									<div key={item._id} className="product-widget">
 								<div className="product-img">
-									<img src={item.image} alt="Phone"  />
+									<img src={item.image} alt="product"  />
 								</div>
 								<div className="product-body">
-									<p className="product-category">Category</p>
+									<p className="product-category">{item.category}</p>
 									<h3 className="product-name"><a href="#name">{item.name}</a></h3>
 									<h4 className="product-price">&#8358;{item.price} {/* <del className="product-old-price">$990.00</del>*/}</h4>
 								</div>

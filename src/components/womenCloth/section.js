@@ -8,10 +8,10 @@ class Section extends Component {
 
         return (
 
-            <div class="section">
+            <div className="section">
 
-                <div class="container">
-                    <div class="row">
+                <div className="container">
+                    <div className="row">
 
                     <MainAside />
                     <SectionStore />

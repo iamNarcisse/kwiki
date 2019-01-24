@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getProductInfo, addToWish } from '../../services/apiRequest';
+import { relatedProduct, addToWish } from '../../services/apiRequest';
 import { Link } from 'react-router-dom';
 
 class RelatedProduct extends Component {
@@ -15,9 +15,9 @@ class RelatedProduct extends Component {
     }
 
     getRelatedProduct = () => {
-        getProductInfo()
+        let search = this.props.name;
+        relatedProduct(search)
             .then(axiosResponse => {
-
                 if (axiosResponse && axiosResponse.data && axiosResponse.data.data) {
                     this.setState({
                         related: axiosResponse.data.data
@@ -27,19 +27,19 @@ class RelatedProduct extends Component {
     }
 
     render() {
+        let { related } = this.state;
         return (
             <div className="section">
                 <div className="container">
-
                     <div className="row">
 
                         <div className="col-md-12">
                             <div className="section-title text-center">
-                                <h3 className="title">Related Products</h3>
+                                <h3 className="title">{ related && 'Related Products'}</h3>
                             </div>
                         </div>
 
-                        {this.state.related.map(item => {
+                        {related.map(item => {
                             return (
 
                                 <div key={item._id} className="col-md-3 col-xs-6">
@@ -54,6 +54,7 @@ class RelatedProduct extends Component {
                                         <div className="product-body">
                                             <p className="product-category">{item.category}</p>
                                             <h3 className="product-name"><a href="#productname">{item.name}</a></h3>
+                                            <h4 className="product-name">Sold By <a href="#add">{item.vendor}</a></h4>
                                             <h4 className="product-price">&#8358;{item.price}  { item.oldprice && <del className="product-old-price">&#8358;{item.oldprice}</del>}</h4>
                                             <div className="product-rating">
                                             </div>

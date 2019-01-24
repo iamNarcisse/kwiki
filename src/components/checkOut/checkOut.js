@@ -1,19 +1,16 @@
-import React, {Component} from 'react';
-import Header from  '../header';
+import React, { Component } from 'react';
+import Header from '../header';
 import CheckOutBreadCrumb from './checkOutBreadCrumb';
 import Billing from './billing';
 import NewsLetter from '../newsletter';
 import Footer from '../footer';
 class CheckOut extends Component {
-
     render() {
-
-        return(
-
+        return (
             <div>
                 <Header />
                 <CheckOutBreadCrumb />
-                <Billing  />
+                <Billing />
                 <NewsLetter />
                 <Footer />
             </div>

@@ -38,7 +38,7 @@ class AsideOne extends Component {
 
                         <div className="input-checkbox">
                             <input type="checkbox" id="category-4" />
-                            <label hmtlFor="category-4">
+                            <label htmlFor="category-4">
                                 <span></span>
                                 Accessories
 										<small>(578)</small>

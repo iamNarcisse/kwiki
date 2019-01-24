@@ -47,7 +47,7 @@ class AsideOne extends Component {
 
                         <div className="input-checkbox">
                             <input type="checkbox" id="category-5" />
-                            <label for="category-5">
+                            <label htmlFor="category-5">
                                 <span></span>
                                 Laptops
 										<small>(120)</small>

@@ -1,7 +1,7 @@
 import React from 'react';
 //import AsideOne from './asideOne';
 //import PriceSpinner from './asideTwo';
-import AsideThree from './asideThree';
+//import AsideThree from './asideThree';
 import AsideFour from './asideFour';
 
 const MainAside = () => {
@@ -9,7 +9,7 @@ const MainAside = () => {
         <div id="aside" className="col-md-3">
             {/*<AsideOne />*/}
             {/*<PriceSpinner />*/}
-            <AsideThree />
+            {/*<AsideThree />*/}
             <AsideFour />
         </div>
     )

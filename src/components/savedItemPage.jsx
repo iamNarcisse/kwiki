@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
 import Header from './header';
 import Footer from './footer';
-
+import Timer from '../utils/countDown';
 const savedItemStyle = {
     textAlign: 'center',
     margin: '20px, 20px'
 }
 
 class SavedItemPage extends Component {
-
     state = {
         savedItem: []
     }
-
     componentDidMount() {
-
         this.handleSavedItem();
     }
-
     handleSavedItem = () => {
 
         if (JSON.parse(localStorage.getItem('user_details')) && Array.isArray(JSON.parse(localStorage.getItem('wishlist')))) {
@@ -46,7 +42,6 @@ class SavedItemPage extends Component {
         )
 
     }
-
     render() {
         const { savedItem } = this.state;
         return (
@@ -58,7 +53,6 @@ class SavedItemPage extends Component {
                     <h2 style={savedItemStyle}>Your Wishlist</h2>
 
                     <table className="table table-striped">
-
                         <thead>
                             {JSON.parse(localStorage.getItem('user_details')) && this.table()}
                         </thead>
@@ -98,15 +92,11 @@ class SavedItemPage extends Component {
 
                                 )
                             })}
-
-
                         </tbody>
                     </table>
-
-                </div>
-
+                </div>               
+                <Timer />
                 <Footer />
-
             </div>
 
         )

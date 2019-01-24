@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import AsideOne from './asideOne';
-import PriceSpinner from './asideTwo';
-import AsideThree from './asideThree' ;
+//import AsideOne from './asideOne';
+//import PriceSpinner from './asideTwo';
+//import AsideThree from './asideThree' ;
 import AsideFour from './asideFour';
 
 class MainAside extends Component {
@@ -9,9 +9,9 @@ class MainAside extends Component {
 
         return(
             <div id="aside" className="col-md-3">
-            <AsideOne />
+           { /*<AsideOne />
             <PriceSpinner />
-            <AsideThree />
+           <AsideThree />*/}
             <AsideFour />
             </div>
         )
