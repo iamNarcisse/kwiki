@@ -1,0 +1,14 @@
+@media screen and (min-width : 922px){
+.about-img {
+    vertical-align: middle;
+    border: 0 ;
+    position : relative;
+    left : 250px;
+}
+}
+
+@media screen and (max-width : 922px){
+    .about-img {
+        width : 100%;
+    }
+    }

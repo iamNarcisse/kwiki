@@ -2,7 +2,8 @@ import React from "react";
 import Header from '../header';
 import Footer from '../footer';
 import { Link } from 'react-router-dom';
-import Gesture from './gesture.jpg';
+import Gesture from './handshake.jpg';
+import './about.css';
 class AboutUs extends React.Component {
 
   render() {
@@ -23,10 +24,10 @@ class AboutUs extends React.Component {
           <br className="clear" />
           <div className="about-row">
             <div>
-              <img style={{ verticalAlign: 'middle', maxWidth: '100%', border: '0' }} src={Gesture} alt="about" />
+              <img className="about-img" src={Gesture} alt="about" />
               
               <br/>
-              <span style={{fontFamily : 'verdana', fontWeight : 'bold'}}>We are Africans building for Africans the most trusted and easy e-commerce/logistics platform.
+              <span style={{fontFamily : 'verdana', textAlign: 'center', fontWeight : 'bold'}}>We are Africans building for Africans the most trusted and easy e-commerce/logistics platform.
              </span>
             </div>
             <p className="sub-head"></p>

@@ -23,16 +23,12 @@ class ProductDetails extends Component {
     }
 
     onQtySubstract = () => {
-        this.setState({ qty: this.state.qty - 1 });
+        if(this.state.qty !== 1 ) {
+         
+            this.setState({ qty: this.state.qty - 1 });
+        }
+        
     }
-
-    /*checkoutDetails = (name, price, qty) => {
-        this.setState({
-            name: name,
-            price: price,
-            qty: qty
-        })
-    }*/
 
     addToStorage = (qty) => {
         let storedArray = [];

@@ -27,7 +27,7 @@ import Terms from './components/terms/terms';
 import Privacy from './components/terms/privacy';
 import RelatedView from './components/productView/relatedview';
 import OrderSuccess from './components/checkOut/orderSuccess';
-import AuthExample from './utils/PrivateRouteComponent';
+import SignupComponent from './components/account/signUpComponent';
 class Main extends Component {
     constructor() {
         super();
@@ -87,7 +87,7 @@ class Main extends Component {
                 <Route exact path="/wishlist" component={SavedItemPage} />
                 <Route exact path="/terms" component={Terms} />
                 <Route exact path="/privacy" component={Privacy} />
-                <Route exact path="/work" component={AuthExample} />
+                <Route exact path="/register" component={SignupComponent} />
                 {this.state.on_delivery  && (<Route exact path="/success" component={OrderSuccess} />)}
                 {!this.state.admin_token && (<Route exact path="/admin_login" component={LoginAdmin} />)}
                 {this.state.admin_token && (<Route exact path="/admin_login" component={Admin} />)}

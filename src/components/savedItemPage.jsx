@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './header';
 import Footer from './footer';
-import Timer from '../utils/countDown';
 const savedItemStyle = {
     textAlign: 'center',
     margin: '20px, 20px'
@@ -95,7 +94,6 @@ class SavedItemPage extends Component {
                         </tbody>
                     </table>
                 </div>               
-                <Timer />
                 <Footer />
             </div>
 

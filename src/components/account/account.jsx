@@ -1,38 +1,9 @@
-import React, { Component } from 'react';
-import Header from '../header';
-import Footer from '../footer';
-import Login from './login';
-import Register from './register';
-import RegisterMessage from './registerMessage';
+import React from 'react';
+import LoginComponent from './loginComponent';
 
-
-class Account extends Component {
-    constructor() {
-        super();
-        this.state = {
-            register: false
-        }
-    }
-    registerMessage = () => {
-        this.setState({
-            register: true
-        })
-    }
-
-    render() {
-        return (
-            <div>
-                <Header />
-                <br />
-                <center>{this.state.register && <RegisterMessage />}</center>
-                <div className="account container">
-                    <Login />
-                    <Register />
-                </div><br />
-                <Footer />
-            </div>
-        )
-    }
+const Account = () => {
+    return (
+        <LoginComponent />
+    )
 }
-
 export default Account;

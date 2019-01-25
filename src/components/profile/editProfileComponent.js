@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { updateProfile } from '../../services/apiRequest';
+import { myStyle } from './style';
 class EditProfile extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstname: '',
-            lastname: '',
-            address: '',
-            email: '',
-            phoneNumber: '',
-        }
+    state = {
+        firstname: '',
+        lastname: '',
+        address: '',
+        email: '',
+        phoneNumber: '',
     }
 
     handleInputChange = (e) => {
@@ -34,7 +32,7 @@ class EditProfile extends Component {
                 this.state.phoneNumber
             )
                 .then(axiosRes => {
-                    console.log(axiosRes)
+                    // console.log(axiosRes)
                 })
                 .catch(err => { console.log(err) })
         }
@@ -44,21 +42,20 @@ class EditProfile extends Component {
 
 
     render() {
-
         return (
             <div>
-                <p>Account Details </p>
-                <div className="card-deck row" >
-                    <div className="card bg-success my-5 col-sm-10 col-md-8 col-lg-5">
-                        <div className="card-body" >
+                <div className='container' >
+                    <div style={myStyle.card}>
+                        <p>Account Details </p>
+                        <div >
                             <form onSubmit={this.handleUpdate}>
-                                <p className="card-text">FirstName:<input type="text" id="firstname" className="form-control" value={this.statefirstname} onChange={this.handleInputChange} required /> </p>
-                                <p className="card-text">LastName: <input type="text" id="lastname" className="form-control" value={this.state.lastname} onChange={this.handleInputChange} required /> </p>
-                                <p className="card-text">Email: <input type="email" id="email" className="form-control" value={this.state.email} onChange={this.handleInputChange} required /> </p>
-                                <p className="card-text">Address:<input type="text" id="address" className="form-control" value={this.state.address} onChange={this.handleInputChange} required /> </p>
-                                <p className="card-text">PhoneNumber: <input type="tel" id="phoneNumber" className="form-control" value={this.state.phoneNumber} onChange={this.handleInputChange} required /></p>
+                                <p><input type="text" id="firstname" style={myStyle.input} value={this.statefirstname} onChange={this.handleInputChange} required placeholder="Firstname" /> </p>
+                                <p ><input type="text" id="lastname" style={myStyle.input} value={this.state.lastname} onChange={this.handleInputChange} required placeholder="Lastname" /> </p>
+                                <p><input type="email" id="email" style={myStyle.input} value={this.state.email} onChange={this.handleInputChange} required placeholder="Email" /> </p>
+                                <p><input type="text" id="address" style={myStyle.input} value={this.state.address} onChange={this.handleInputChange} required placeholder="Address" /> </p>
+                                <p ><input type="tel" id="phoneNumber" style={myStyle.input} value={this.state.phoneNumber} onChange={this.handleInputChange} required placeholder="Phone number" /></p>
 
-                                <center><button type="submit" onClick={this.handleUpdate} className=" btn" style={{ marginBottom: '5px', backgroundColor: '#ff0066', color: 'white' }}>Update</button></center>
+                                <center><button type="submit" onClick={this.handleUpdate} style={myStyle.link}>Update</button></center>
                             </form>
                         </div>
                     </div>

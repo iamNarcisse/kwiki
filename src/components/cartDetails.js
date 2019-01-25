@@ -52,16 +52,16 @@ class CartDetails extends Component {
     render() {
 
         function popoverBottom(data) {
-            if (Array.isArray(data)) {
+            if (!Array.isArray(data) || !data.length) {
                 return (
                     <Popover id="popover-positioned-bottom" title="">
-                        {showItemInCart(data)}
+                       <div>No item</div> 
                     </Popover>
                 )
             } else {
                 return (
                     <Popover id="popover-positioned-bottom" title="">
-                        <div>No item</div>
+                        {showItemInCart(data)}
                     </Popover>
                 )
             }

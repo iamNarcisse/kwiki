@@ -28,9 +28,9 @@ const Footer = (props) => {
                                         <h3 className="footer-title">Categories</h3>
                                         <ul className="footer-links">
                                             <li><a href="#moreInfo">Hot deals</a></li>
-                                            <li><a href="#moreInfo">Laptops</a></li>
-                                            <li><a href="#moreInfo">Smartphones</a></li>
-                                            <li><a href="#moreInfo">Cameras</a></li>
+                                            <li><a href="#moreInfo">Food</a></li>
+                                            <li><a href="#moreInfo">Pickup & Delivery</a></li>
+                                            <li><a href="#moreInfo">Cake</a></li>
                                             <li><a href="#moreInfo">Accessories</a></li>
                                         </ul>
                                     </div>

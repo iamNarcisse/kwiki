@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
-import Footer from '../footer';
 import ProfileNavBar from './navBar';
 import { getUserDetailsRequest } from '../../services/apiRequest';
-import ProfileDisplay from './profileDisplay';
-
-
+import ProfileDisplayCard from './profileDisplayComponent';
 
 class Profile extends Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            user: {}
-        }
-        
+    state = {
+        user: {}
     }
 
     componentDidMount() {
@@ -30,7 +23,7 @@ class Profile extends Component {
                     //console.log(user);
                 }
 
-               // console.log(user);
+                // console.log(user);
             })
     }
 
@@ -38,17 +31,13 @@ class Profile extends Component {
         const { user } = this.state;
         return (
             <div>
-               <ProfileNavBar />
+                <ProfileNavBar />
 
-                <div className="card-details">
-
-                <ProfileDisplay  {...user} />
+                <div >
+                    <ProfileDisplayCard {...user} />
 
                 </div>
 
-
-                
-               <Footer />
             </div>
 
         );

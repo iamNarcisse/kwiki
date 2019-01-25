@@ -56,7 +56,9 @@ Table OF Contents
 \*----------------------------*/
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif !important;
   font-weight: 400;
   color: #333;
 }
@@ -2382,7 +2384,7 @@ Profile-display & Profile-card here
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  font-family: Roboto,sans-serif;
+  font-family: Roboto,sans-serif !important;
   color: #ffffff !important;
   font-size: 16px;
   background: #ff0066;
@@ -2398,7 +2400,7 @@ Profile-display & Profile-card here
   width: 100%;
   max-width: 1170px;
   margin: 0 auto;
-  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-family: Roboto,Helvetica,Arial,sans-serif !important;
 }
 
 
