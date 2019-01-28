@@ -33,7 +33,7 @@ const cartApiUrl = `${apiUrl}/addtocart`;
 const vendorApiUrl = `${apiUrl}/vendors`;
 
 
-export const category = [ 'None', 'Products', 'Food', 'Cake'];
+export const category = [ 'None', 'Products', 'Food', 'Accessories'];
 
 /**
  * Simple Search Query for 
@@ -260,7 +260,7 @@ export const adminLoginRequest = (email, password) => {
 
 //Profile Update 
 
-export const updateProfile = (id, fname, lname, email, address, phone) => {
+export const updateProfile = (id, fname, lname, email, address, phone, dob) => {
 
   let body = {
     id : id,
@@ -268,7 +268,8 @@ export const updateProfile = (id, fname, lname, email, address, phone) => {
     lastname : lname,
     email : email,
     address : address,
-    phoneNumber : phone
+    phoneNumber : phone,
+    dob : dob
   };
 
   return Axios.post(`${apiUrl}/users/update_profile`, body, axiosConfig)

@@ -9,7 +9,7 @@ class Navigation extends Component {
                         <ul className="main-nav nav navbar-nav">
                             <li className="active"><Link to="/">Home</Link></li>
                             <li><a href="#Categories">Categories</a></li>
-                            <li><Link to="/cakes">Cakes</Link></li>
+                            <li><Link to="/food">Food</Link></li>
                             <li className="dropdown">
                                 <Link  className="dropdown-toogle" data-toggle="dropdown" to="#men">Clothes
                                 <span className="caret"></span>
@@ -30,7 +30,7 @@ class Navigation extends Component {
 
                                 </ul>
                                 </li>
-                            <li><Link to="/food">Food</Link></li>
+                            
                             <li className="dropdown">
                                 <a className="dropdown-toogle" data-toggle="dropdown" href="#Acessories">Accessories
                                 <span className="caret"></span>

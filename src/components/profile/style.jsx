@@ -33,7 +33,7 @@
         color: '#fff'
     },
     icon: {
-        padding: '10px',
+        padding: '10px', 
 
     },
 

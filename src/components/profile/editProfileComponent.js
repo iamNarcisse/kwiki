@@ -8,6 +8,7 @@ class EditProfile extends Component {
         address: '',
         email: '',
         phoneNumber: '',
+        dob : ''
     }
 
     handleInputChange = (e) => {
@@ -29,7 +30,8 @@ class EditProfile extends Component {
                 this.state.lastname,
                 this.state.email,
                 this.state.address,
-                this.state.phoneNumber
+                this.state.phoneNumber,
+                this.state.dob
             )
                 .then(axiosRes => {
                     // console.log(axiosRes)
@@ -54,6 +56,7 @@ class EditProfile extends Component {
                                 <p><input type="email" id="email" style={myStyle.input} value={this.state.email} onChange={this.handleInputChange} required placeholder="Email" /> </p>
                                 <p><input type="text" id="address" style={myStyle.input} value={this.state.address} onChange={this.handleInputChange} required placeholder="Address" /> </p>
                                 <p ><input type="tel" id="phoneNumber" style={myStyle.input} value={this.state.phoneNumber} onChange={this.handleInputChange} required placeholder="Phone number" /></p>
+                                <p ><input type="text" id="dob" style={myStyle.input} value={this.state.dob} onChange={this.handleInputChange} required placeholder="DOB e.g April 21 " /></p>
 
                                 <center><button type="submit" onClick={this.handleUpdate} style={myStyle.link}>Update</button></center>
                             </form>

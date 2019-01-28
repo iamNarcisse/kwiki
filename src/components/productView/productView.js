@@ -9,8 +9,6 @@ import ProductTab from './productTab';
 import ProductThumbImage from './productThumbImage';
 import RelatedProduct from './relatedProducts';
 import { getProductDetailsRequest, getMenClothRequest, getWomenAccessoriesRequest, getMenAccessoriesRequest, getWomenClothRequest, getTopProductRequestDetails, getFoodRequest, getCakeRequest, getWomenShoeRequest, getMenShoeRequest } from '../../services/apiRequest';
-
-
 class ProductView extends Component {
 
     constructor(props) {

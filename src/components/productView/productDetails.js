@@ -158,15 +158,25 @@ class ProductDetails extends Component {
                             <li><a href="#compare"><i className="fa fa-exchange"></i> add to compare</a></li>
                         </ul>
 
+                        { this.props.category === 'Food'  && <ul className="product-links">
+                            <li>Note : <em style={{textTransform : 'lowercase !important'}}>All pictures of food are not the actual food. The pictures are random.  </em></li>
+                            
+                        </ul>}
+
                         <ul className="product-links">
                             <li>Sold By:</li>
-                            <li>{this.props.seller}</li>
+                            <li>{this.props.vendor}</li>
                         </ul>
 
                         <ul className="product-links">
                             <li>Category:</li>
                             <li><Link to="/food">{this.props.category}</Link></li>
-                            <li>{this.props.seller}</li>
+                            <li>{this.props.vendor}</li>
+                        </ul>
+
+                        <ul className="product-links">
+                            <li>Opening Hours: Mondays-Saturdays</li>
+                            <li>9am-7pm(9pm within the University of Ibadan)</li>
                         </ul>
 
                         <ul className="product-links">
