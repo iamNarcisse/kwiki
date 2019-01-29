@@ -146,7 +146,7 @@ export const addToCart = (productId, userId, productName, firstName, lastName, e
     amount: amount,
     qty: qty
   }
-  Axios.post(`${cartApiUrl}/add`, body)
+ return Axios.post(`${cartApiUrl}/add`, body)
 
 }
 

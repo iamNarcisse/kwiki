@@ -5,7 +5,8 @@ class OrderButton extends React.Component {
     render() {
         return (
             <Link to="/success" className="primary-btn order-submit" onClick={
-                () => {
+                (e) => {
+                    e.preventDefault()
                     let user_details = JSON.parse(localStorage.getItem('user_details'));
                     let productData = JSON.parse(localStorage.getItem('product'));
 
@@ -33,9 +34,10 @@ class OrderButton extends React.Component {
                                         productData[i].price, productData[i].qty)
                                         .then(result => {
                                             console.log(result);
-                                            localStorage.setItem('on_delivery', true)
+                                             localStorage.setItem('on_delivery', true)
                                             localStorage.removeItem('product');
                                             window.location.reload();
+                                          
                                         })
                                         .catch(err => {
                                             console.log(err)
