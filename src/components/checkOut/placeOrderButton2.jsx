@@ -20,21 +20,28 @@ class OrderButton extends React.Component {
                             } else if (this.props.tel === '' || this.props.city === '' || this.props.address === '') {
                                 alert('Billing address must be filled')
                             } else {
-                                for (let i = 0; i<productData.length; i++) {
+                                for (let i = 0; i < productData.length; i++) {
                                     addToCart(
-                                      productData[i].id,
-                                      user_details._id,
-                                      productData[i].name,
-                                      this.props.firstName,
-                                      this.props.lastName,
-                                      user_details.email,
-                                      this.props.tel,
-                                      this.props.address, this.props.city,
-                                      productData[i].price, productData[i].qty);
-                                  }
-                                  localStorage.setItem('on_delivery', true) 
-                                  localStorage.removeItem('product');
-                                  window.location.reload();
+                                        productData[i].id,
+                                        user_details._id,
+                                        productData[i].name,
+                                        this.props.firstName,
+                                        this.props.lastName,
+                                        user_details.email,
+                                        this.props.tel,
+                                        this.props.address, this.props.city,
+                                        productData[i].price, productData[i].qty)
+                                        .then(result => {
+                                            console.log(result);
+                                            localStorage.setItem('on_delivery', true)
+                                            localStorage.removeItem('product');
+                                            window.location.reload();
+                                        })
+                                        .catch(err => {
+                                            console.log(err)
+                                        });
+                                }
+
                             }
                         }
                     }

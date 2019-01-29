@@ -32,7 +32,6 @@ class Pay extends Component {
 
   callback = (response) => {
     console.log(response); // card charged successfully, get reference here
-
     for (let i = 0; i<product_details.length; i++) {
       addToCart(
         product_details[i].id,
@@ -43,12 +42,19 @@ class Pay extends Component {
         user_details.email,
         order_details.user_tel,
         order_details.user_address, order_details.user_city,
-        product_details[i].price, product_details[i].qty);
+        product_details[i].price, product_details[i].qty)
+        .then(result => {
+          console.log(result)
+          localStorage.removeItem('order_placed');
+          localStorage.removeItem('product');
+           window.location.reload();
+        })
+        .catch(err => {
+          console.log(err)
+        });
     }
     
-    localStorage.removeItem('order_placed');
-    localStorage.removeItem('product');
-     window.location.reload();
+   
 
   }
 
