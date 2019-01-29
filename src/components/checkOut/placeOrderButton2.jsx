@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class OrderButton extends React.Component {
     render() {
         return (
-            <Link to="/success" className="primary-btn order-submit" onClick={
+            <Link to="#h" className="primary-btn order-submit" onClick={
                 (e) => {
                     e.preventDefault()
                     let user_details = JSON.parse(localStorage.getItem('user_details'));
