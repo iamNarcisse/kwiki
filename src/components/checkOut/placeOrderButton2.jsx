@@ -34,9 +34,9 @@ class OrderButton extends React.Component {
                                         productData[i].price, productData[i].qty)
                                         .then(result => {
                                             console.log(result);
-                                             localStorage.setItem('on_delivery', true)
-                                            localStorage.removeItem('product');
-                                            window.location.reload();
+                                            // localStorage.setItem('on_delivery', true)
+                                            //localStorage.removeItem('product');
+                                            //window.location.reload();
                                           
                                         })
                                         .catch(err => {
