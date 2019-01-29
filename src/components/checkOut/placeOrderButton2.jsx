@@ -6,7 +6,7 @@ class OrderButton extends React.Component {
         return (
             <Link to="/success" className="primary-btn order-submit" onClick={
                 (e) => {
-                    e.preventDefault()
+                   // e.preventDefault()
                     let user_details = JSON.parse(localStorage.getItem('user_details'));
                     let productData = JSON.parse(localStorage.getItem('product'));
 
