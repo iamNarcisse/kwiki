@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { getProductInfo, addToWish } from '../services/apiRequest';
-
+import MyLoader from '.././utils/ContentLoader';
+const ImageComponent = lazy(()=> import('./ImageComponent'));
 const storedArray = [];
 class SectionTwo extends Component {
 
@@ -28,7 +29,6 @@ class SectionTwo extends Component {
             })
     }
     render() {
-
         return (
             <div className="section">
                 <div className="container">
@@ -49,7 +49,9 @@ class SectionTwo extends Component {
                                             <Link to={`/productview/${item._id}`} >
 
                                                 <div className="product-img">
-                                                    <img src={item.image} alt="food" />
+                                                <Suspense fallback={<MyLoader />}>
+                                                    <ImageComponent image={item.image} alt={'food'} />
+                                                </Suspense>
                                                     <div className="product-label">
                                                         {/*<span className="sale">-30%</span>*/}
                                                         <span className="new">NEW</span>

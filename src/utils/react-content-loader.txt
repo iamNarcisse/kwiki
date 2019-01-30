@@ -1,0 +1,20 @@
+import ContentLoader from "react-content-loader"
+
+const MyLoader = props => (
+  <ContentLoader 
+    height={162}
+    width={400}
+    speed={1}
+    primaryColor="#f3f3f3"
+    secondaryColor="#ecebeb"
+    {...props}
+  >
+    <rect x="124.64" y="112.67" rx="3" ry="3" width="57.89" height="9.46" /> 
+    <rect x="53" y="125.67" rx="3" ry="3" width="199.5" height="7.99" /> 
+    <rect x="74.41" y="2.67" rx="0" ry="0" width="0" height="0" /> 
+    <rect x="51.66" y="0.67" rx="0" ry="0" width="193.17" height="92.91" /> 
+    <rect x="204.41" y="55.67" rx="0" ry="0" width="0" height="0" /> 
+    <rect x="52" y="142.8" rx="3" ry="3" width="199.5" height="7.74" /> 
+    <rect x="97.41" y="96.67" rx="3" ry="3" width="117.71" height="12.03" />
+  </ContentLoader>
+)

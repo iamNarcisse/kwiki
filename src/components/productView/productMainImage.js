@@ -1,13 +1,12 @@
 import React, { Component, Suspense, lazy } from 'react';
-
+import MyLoader from '../../utils/ContentLoader';
 const ImageComponent = lazy(() => import ('./imageComponent'));
-
 
 class ProductMainImage extends Component {
     render() {
         return (
-            <Suspense fallback={<p style={{fontWeight: '6px'}}>Image loading...</p>} >
-            <ImageComponent image={this.props.image} />
+            <Suspense fallback={<MyLoader />} >
+            <ImageComponent  image={this.props.image} />
             </Suspense>
         )
     }
