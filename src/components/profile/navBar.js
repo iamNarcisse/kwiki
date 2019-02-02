@@ -25,7 +25,7 @@ class ProfileNavBar extends Component {
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <ul className="nav navbar-nav">
                             <li className="active"><Link to="/account">Home</Link></li>
-                            <li><Link  to="/userDetails">Account Details</Link></li>
+                            <li><Link  to="/userDetails">Manage Profile</Link></li>
                             <li><a href="orderHistory">Orders</a></li>
                             <li><a href="#paymentmethod">Payment Methods</a></li>
                         </ul>
