@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './components/homePage';
 import Store from './components/store/store';
 import CheckOut from './components/checkOut/checkOut';
@@ -29,12 +29,21 @@ import RelatedView from './components/productView/relatedview';
 import OrderSuccess from './components/checkOut/orderSuccess';
 import SignupComponent from './components/account/signUpComponent';
 import OrdersAndReturns from './components/terms/ordersAndReturns';
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={(props) => ( 
+        JSON.parse(localStorage.getItem('user_details')) ? <Component {...props} /> : <Redirect to={{
+            pathname : "/account",
+            state : { from : props.location }
+        }}/>
+    )} />
+)
 class Main extends Component {
     constructor() {
         super();
         this.state = {}
     }
-    
+
     componentDidMount() {
         this.getUserToken();
         this.getAdminToken();
@@ -44,7 +53,7 @@ class Main extends Component {
 
     getOnDelivery = () => {
         this.setState({
-            on_delivery : localStorage.getItem('on_delivery')
+            on_delivery: localStorage.getItem('on_delivery')
         })
     }
 
@@ -71,9 +80,10 @@ class Main extends Component {
         return (
             <Switch >
                 <Route exact path="/aboutus" component={AboutUs} />
-                {this.state.order_made && (<Route exact path="/pay" component={Pay} />)}
+                {this.state.order_made && (<Route exact path="/checkout" component={Pay} />)}
                 <Route exact path="/store" component={Store} />
-                {!this.state.order_made && (<Route exact path="/pay" component={CheckOut} />)}
+                {/*!this.state.order_made && (<Route exact path="/pay" component={CheckOut} />)*/}
+                {!this.state.order_made &&  (<PrivateRoute exact path="/checkout" component={CheckOut} />)}
                 <Route exact path="/productview/:item_id" component={ProductView} />
                 <Route exact path="/relatedview/:item_id" component={RelatedView} />
                 <Route exact path="/pickup" component={Pickup} />
@@ -90,7 +100,7 @@ class Main extends Component {
                 <Route exact path="/privacy" component={Privacy} />
                 <Route exact path="/register" component={SignupComponent} />
                 <Route exact path="/returns" component={OrdersAndReturns} />
-                {this.state.on_delivery  && (<Route exact path="/success" component={OrderSuccess} />)}
+                {this.state.on_delivery && (<Route exact path="/success" component={OrderSuccess} />)}
                 {!this.state.admin_token && (<Route exact path="/admin_login" component={LoginAdmin} />)}
                 {this.state.admin_token && (<Route exact path="/admin_login" component={Admin} />)}
                 {!this.state.user_token && (<Route exact path="/account" component={Account} />)}

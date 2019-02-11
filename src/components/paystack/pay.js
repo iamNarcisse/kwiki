@@ -1,23 +1,40 @@
 import React, { Component } from 'react';
 import { addToCart } from '../../services/apiRequest';
-import Footer from '../footer';
-
 import PaystackButton from 'react-paystack';
+
 const product_details = JSON.parse(localStorage.getItem('product')); //Fetches product added to cart
 const user_details = JSON.parse(localStorage.getItem('user_details')); //Fetches user_details
 const order_details = JSON.parse(localStorage.getItem('order_details')); //Fetches order_details from localstorage
 
-const amount = JSON.parse(localStorage.getItem('SumTotal'));
-const price = parseInt(amount + '00'); //This converts the amount to an integer
+//const amount = JSON.parse(localStorage.getItem('SumTotal'));
+//const price = parseInt(amount + '00'); //This converts the amount to an integer
+
 class Pay extends Component {
   state = {
     key: "pk_test_e007f471fef14a60a725e1bf80ac234e6fad5764", //PAYSTACK PUBLIC KEY
     email: user_details.email,  // customer email
-    amount: price //equals NGN100,
+    amount: 0 //equals NGN100,
   }
 
   componentDidMount() {
     this.Check();
+    this.checkAmount();
+  }
+
+  checkAmount = () => {
+    let amount = JSON.parse(localStorage.getItem('SumTotal'));
+    let calculatePrice = parseInt(amount + '00'); //This converts the amount to an integer
+    if (amount <= 2000) {
+      let price = calculatePrice + 5000;
+      this.setState({
+        amount: price
+      })
+    } else {
+      let price = calculatePrice + 10000;
+      this.setState({
+        amount: price
+      })
+    }
   }
 
   //This function checks if product array is empty to avoid making payments when product is empty
@@ -32,7 +49,7 @@ class Pay extends Component {
 
   callback = (response) => {
     console.log(response); // card charged successfully, get reference here
-    for (let i = 0; i<product_details.length; i++) {
+    for (let i = 0; i < product_details.length; i++) {
       addToCart(
         product_details[i].id,
         user_details._id,
@@ -42,19 +59,19 @@ class Pay extends Component {
         user_details.email,
         order_details.user_tel,
         order_details.user_address, order_details.user_city,
-        product_details[i].price, product_details[i].qty)
+        product_details[i].price, product_details[i].qty, 'online')
         .then(result => {
           console.log(result)
           localStorage.removeItem('order_placed');
           localStorage.removeItem('product');
-           window.location.reload();
+          window.location.reload();
         })
         .catch(err => {
           console.log(err)
         });
     }
-    
-   
+
+
 
   }
 
@@ -79,7 +96,9 @@ class Pay extends Component {
     return (
       <div>
         <br />
-        <div>Your order is almost placed, make payment to continue. Your payment is secured</div><br /><br />
+        <div className="container">
+        <p style={{textAlign : 'center'}}>Your order is almost placed, make payment to continue. Your payment is secured</p>
+        </div><br /><br />
         <p style={{ textAlign: 'center' }}>
           <PaystackButton
             text="Make Payment"
@@ -94,8 +113,6 @@ class Pay extends Component {
             paystackkey={this.state.key}
           />
         </p>
-
-        <Footer />
       </div>
     );
   }

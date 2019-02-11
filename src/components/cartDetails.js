@@ -55,7 +55,7 @@ class CartDetails extends Component {
             if (!Array.isArray(data) || !data.length) {
                 return (
                     <Popover id="popover-positioned-bottom" title="">
-                       <div>No item</div> 
+                        <div>No item</div>
                     </Popover>
                 )
             } else {
@@ -99,11 +99,17 @@ class CartDetails extends Component {
 
                         <div className="cart-summary">
                             <small>  Item(s) selected</small>
-                                    <h5  >SUBTOTAL: &#8358; {item.qty * item.price}</h5>
+                            <h5  >SUBTOTAL: &#8358; {item.qty * item.price}</h5>
                         </div>
                         <div className="cart-btns">
-                            <Link className="btnn" to="/pay">Checkout<i className="fa fa-arrow-circle-right"></i></Link>
-                        </div><hr/>
+                            <Link onClick={() => {
+                                if (JSON.parse(localStorage.getItem('user_details')) !== null && JSON.parse(localStorage.getItem('user_details')) !== undefined) {
+                                  
+                                } else {
+                                    JSON.stringify(localStorage.setItem('checkout', true))
+                                }
+                            }} className="btnn" to="/checkout">Checkout<i className="fa fa-arrow-circle-right"></i></Link>
+                        </div><hr />
                     </div>
                 )
             });

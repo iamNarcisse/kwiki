@@ -1,12 +1,53 @@
 import React from 'react';
 import { LoginRequest } from '../../services/apiRequest';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import './login.css';
 import './animate.css';
-
 class LoginComponent extends React.Component {
-    state = {
+    constructor(props) {
+        super(props);
+        this.state = {
+            wantsToCheckout: false,
+            showSecondButton: false
+        }
+    }
+    
 
+    componentDidMount() {
+        this.checkIfCheckoutIsTrue();
+    }
+
+    checkIfCheckoutIsTrue = () => {
+        if (JSON.parse(localStorage.getItem('checkout')) === true) {
+            this.setState({
+                showSecondButton: true
+            })
+        }
+    }
+
+    work = (e) => {
+        e.preventDefault();
+        LoginRequest(this.state.email, this.state.password)
+            .then(axiosRes => {
+                if (axiosRes && axiosRes.data && axiosRes.data.data) {
+                    localStorage.setItem(
+                        "user_token",
+                        axiosRes.data.data.token
+                    );
+                    localStorage.setItem(
+                        "user_details",
+                        JSON.stringify(axiosRes.data.data)
+                    );
+                    this.setState({
+                        wantsToCheckout: true
+                    })
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                this.setState({ response: 'Invalid Email/Password' }, () => { this.setState({ showError: true }) })
+            });
+        
     }
 
     onChange = (e) => {
@@ -39,6 +80,15 @@ class LoginComponent extends React.Component {
     }
 
     render() {
+
+        const {  showSecondButton, wantsToCheckout } = this.state;
+        const { from } = this.props.location.state || {from : {pathname : "/"}}
+        if (wantsToCheckout === true) {
+            return (
+                <Redirect to ={ from } />
+            )
+        }
+
         return (
             <div className="limiter">
                 <div className="container-login100">
@@ -72,9 +122,13 @@ class LoginComponent extends React.Component {
                             </div>
 
                             <div className="container-login100-form-btn p-t-25">
-                                <button className="login100-form-btn" onClick={this.onClick}>
+                                {!showSecondButton  && <button className="login100-form-btn" onClick={this.onClick}>
                                     Login
-                            </button>
+                            </button>}
+
+                                {showSecondButton && <button className="login100-form-btn" onClick={this.work}>
+                                    Login
+                            </button>}
                             </div>
 
                             <div className="text-center w-full p-t-115">
@@ -94,4 +148,4 @@ class LoginComponent extends React.Component {
     }
 }
 
-export default LoginComponent;
+export default withRouter(LoginComponent);

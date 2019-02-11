@@ -7,6 +7,8 @@ class ProfileNavBar extends Component {
         e.preventDefault();
         localStorage.removeItem('user_details');
         localStorage.removeItem('user_token');
+        localStorage.removeItem('checkout');
+        localStorage.removeItem('loginIsTrue');
         window.location.reload()
     }
 

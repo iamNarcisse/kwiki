@@ -131,7 +131,7 @@ export const SignupRequest = (
 };
 
 //Add to cart Api here;
-export const addToCart = (productId, userId, productName, firstName, lastName, email, tel, address, city, amount, qty) => {
+export const addToCart = (productId, userId, productName, firstName, lastName, email, tel, address, city, amount, qty, payment) => {
   //You are meant to use product, but for the sake of testing use productDetails
   let body = {
     product_id: productId,
@@ -144,7 +144,8 @@ export const addToCart = (productId, userId, productName, firstName, lastName, e
     address: address,
     city: city,
     amount: amount,
-    qty: qty
+    qty: qty,
+    payment : payment
   }
  return Axios.post(`${cartApiUrl}/add`, body)
 

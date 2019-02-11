@@ -75,6 +75,7 @@ class OrderDetails extends Component {
     }
 
     render() {
+        const { online, onDelivery } = this.state;
         return (
             <div className="col-md-5 order-details" >
                 <div className="section-title text-center">
@@ -134,16 +135,17 @@ class OrderDetails extends Component {
                         </div>
                     </div>
                     
-                   {/* <div className="input-radio">
+                   <div className="input-radio">
                         <input type="radio" name="payment" id="payment-3" onClick={this.PayOnline} />
                         <label htmlFor="payment-3">
                             <span></span>
                             Pay Online
 								</label>
                         <div className="caption">
-                            <p>An extra charge of N50 will be added for transaction below N2000 and N100 for transaction above N2000</p>
+                            <p>An extra charge of &#8358;50 will be added for transaction below &#8358;2000 and &#8358;100 for transaction above &#8358;2000</p>
                         </div>
-                </div>*/}
+                </div>
+
                 </div>
                 <div className="input-checkbox">
                     <input type="checkbox" id="terms" />
@@ -153,10 +155,10 @@ class OrderDetails extends Component {
                     </label>
                 </div>
                 <br /><br />
-                {this.state.online && (
+                {online && (
                 <PlaceOrderButton firstName={this.props.firstName} lastName={this.props.lastName} email={this.props.email} city={this.props.city} tel={this.props.tel} address={this.props.address} />
                 )}
-                {this.state.onDelivery && (
+                {onDelivery && (
                 <OrderButton firstName={this.props.firstName} lastName={this.props.lastName} email={this.props.email} city={this.props.city} tel={this.props.tel} address={this.props.address} />                  
                 )}
             </div>
