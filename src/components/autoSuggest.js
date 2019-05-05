@@ -71,7 +71,7 @@ class AutoComplete extends React.Component {
       className : 'form-control'
     };
 
-    // Finally, render it!
+    // Finally, all is rendered here!
     return (
       <Autosuggest
         suggestions={suggestions}

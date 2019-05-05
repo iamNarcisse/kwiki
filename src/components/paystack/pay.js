@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { addToCart } from '../../services/apiRequest';
 import PaystackButton from 'react-paystack';
-
+import RavePaymentModal from "react-ravepayment"
 const product_details = JSON.parse(localStorage.getItem('product')); //Fetches product added to cart
 const user_details = JSON.parse(localStorage.getItem('user_details')); //Fetches user_details
 const order_details = JSON.parse(localStorage.getItem('order_details')); //Fetches order_details from localstorage
@@ -11,7 +11,8 @@ const order_details = JSON.parse(localStorage.getItem('order_details')); //Fetch
 
 class Pay extends Component {
   state = {
-    key: "pk_test_e007f471fef14a60a725e1bf80ac234e6fad5764", //PAYSTACK PUBLIC KEY
+    key: "FLWPUBK_TEST-1aa4b3df0091d3dc65a43198017d5545-X",
+    //key: "pk_test_e007f471fef14a60a725e1bf80ac234e6fad5764", //PAYSTACK PUBLIC KEY
     email: user_details.email,  // customer email
     amount: 0 //equals NGN100,
   }
@@ -23,14 +24,15 @@ class Pay extends Component {
 
   checkAmount = () => {
     let amount = JSON.parse(localStorage.getItem('SumTotal'));
-    let calculatePrice = parseInt(amount + '00'); //This converts the amount to an integer
+    let calculatePrice = parseInt(amount); //This converts the amount to an integer
+    //let calculatePrice = parseInt(amount + '00'); //This converts the amount to an integer
     if (amount <= 2000) {
-      let price = calculatePrice + 5000;
+      let price = calculatePrice + 70;
       this.setState({
         amount: price
       })
     } else {
-      let price = calculatePrice + 10000;
+      let price = calculatePrice + 100;
       this.setState({
         amount: price
       })
@@ -100,18 +102,31 @@ class Pay extends Component {
         <p style={{textAlign : 'center'}}>Your order is almost placed, make payment to continue. Your payment is secured</p>
         </div><br /><br />
         <p style={{ textAlign: 'center' }}>
-          <PaystackButton
+
+        <RavePaymentModal 
+        text = {"Make Payment"}
+        className={"payButton"}
+        callback={this.callback}
+        close={this.close}
+        email={this.state.email}
+        amount={this.state.amount}
+        reference={this.getReference()}
+        isProduction={false}
+        tag={"button"}
+        ravePubKey={this.state.key}
+        />
+         {/* <PaystackButton
             text="Make Payment"
             class="btn btn-success payButton"
             callback={this.callback}
-            close={this.close}
-            disabled={false} /*disable payment button*/
-            embed={false} /*payment embed in your app instead of a pop up*/
-            reference={this.getReference()}
-            email={this.state.email}
-            amount={this.state.amount}
-            paystackkey={this.state.key}
-          />
+            close={this.close}*/
+           // disabled={false} /*disable payment button*/
+            //embed={false} /*payment embed in your app instead of a pop up*/
+            //reference={this.getReference()}
+           // email={this.state.email}
+            //amount={this.state.amount}
+           // paystackkey={this.state.key}/>}
+         }
         </p>
       </div>
     );

@@ -16,6 +16,7 @@
     "react-mdl": "^1.11.0",
     "react-paginating": "^1.1.0",
     "react-paystack": "^2.0.0",
+    "react-ravepayment": "^2.0.8",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4",
@@ -23,7 +24,7 @@
     "serve": "^10.1.1"
   },
   "scripts": {
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
